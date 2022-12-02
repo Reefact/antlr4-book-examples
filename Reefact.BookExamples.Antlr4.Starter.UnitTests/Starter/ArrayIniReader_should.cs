@@ -1,4 +1,4 @@
-namespace Reefact.BookExamples.Antlr4.Starter.UnitTests {
+namespace Reefact.BookExamples.Antlr4.Starter.UnitTests.Starter {
 
     public class ArrayIniReader_should {
 

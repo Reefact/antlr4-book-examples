@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Reefact.BookExamples.Antlr4.Starter\Reefact.BookExamples.Antlr4.Starter.csproj" />
+    <ProjectReference Include="..\Reefact.BookExamples.Antlr4.Starter\Reefact.BookExamples.Antlr4.csproj" />
   </ItemGroup>
 
 </Project>
