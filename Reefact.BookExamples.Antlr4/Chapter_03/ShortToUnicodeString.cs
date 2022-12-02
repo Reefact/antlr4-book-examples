@@ -4,7 +4,7 @@ using System.Text;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Starter;
+namespace Reefact.BookExamples.Antlr4.Chapter_03;
 
 /// <summary>
 ///     Convert short array inits like {1,2,3} to "\u0001\u0002\u0003"

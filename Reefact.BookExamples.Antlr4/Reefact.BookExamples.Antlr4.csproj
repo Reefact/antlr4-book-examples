@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Chapter_03\.antlr\ArrayInitBaseListener.cs" />
+    <Compile Include="Chapter_03\.antlr\ArrayInitLexer.cs" />
+    <Compile Include="Chapter_03\.antlr\ArrayInitListener.cs" />
+    <Compile Include="Chapter_03\.antlr\ArrayInitParser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Chapter_03\.antlr\ArrayInit.g4" />
+    <None Include="Chapter_03\.antlr\ArrayInit.interp" />
+    <None Include="Chapter_03\.antlr\ArrayInit.tokens" />
+    <None Include="Chapter_03\.antlr\ArrayInitLexer.interp" />
+    <None Include="Chapter_03\.antlr\ArrayInitLexer.tokens" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Chapter_04\" />
+  </ItemGroup>
+
+</Project>

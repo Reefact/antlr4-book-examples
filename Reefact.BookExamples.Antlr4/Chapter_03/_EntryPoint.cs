@@ -5,13 +5,13 @@ using Antlr4.Runtime.Tree;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Starter;
+namespace Reefact.BookExamples.Antlr4.Chapter_03;
 
-public sealed class ArrayInitReader {
+public sealed class _EntryPoint {
 
     #region Statics members declarations
 
-    public static ArrayInitReader Read(string s) {
+    public static _EntryPoint Read(string s) {
         // create a CharStream that reads from input string
         using TextReader stream = new StringReader(s);
         AntlrInputStream input  = new(stream);
@@ -28,7 +28,7 @@ public sealed class ArrayInitReader {
         // begin parsing at 'init' rule
         IParseTree tree = parser.init();
 
-        return new ArrayInitReader(tree, parser);
+        return new _EntryPoint(tree, parser);
     }
 
     #endregion
@@ -42,7 +42,7 @@ public sealed class ArrayInitReader {
 
     #region Constructors declarations
 
-    private ArrayInitReader(IParseTree tree, ArrayInitParser parser) {
+    private _EntryPoint(IParseTree tree, ArrayInitParser parser) {
         _tree   = tree;
         _parser = parser;
     }
