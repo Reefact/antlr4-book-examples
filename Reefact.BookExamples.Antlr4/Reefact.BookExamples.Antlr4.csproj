@@ -12,6 +12,10 @@
     <Compile Include="Chapter_03\.antlr\ArrayInitLexer.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitListener.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitParser.cs" />
+    <Compile Include="Chapter_04\.antlr\ExprBaseListener.cs" />
+    <Compile Include="Chapter_04\.antlr\ExprLexer.cs" />
+    <Compile Include="Chapter_04\.antlr\ExprListener.cs" />
+    <Compile Include="Chapter_04\.antlr\ExprParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,10 +28,11 @@
     <None Include="Chapter_03\.antlr\ArrayInit.tokens" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.interp" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.tokens" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Chapter_04\" />
+    <None Include="Chapter_04\.antlr\Expr.g4" />
+    <None Include="Chapter_04\.antlr\Expr.interp" />
+    <None Include="Chapter_04\.antlr\Expr.tokens" />
+    <None Include="Chapter_04\.antlr\ExprLexer.interp" />
+    <None Include="Chapter_04\.antlr\ExprLexer.tokens" />
   </ItemGroup>
 
 </Project>
