@@ -6,7 +6,7 @@ using Antlr4.Runtime.Tree;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_03;
 
-public static class UnicodeStringConverter {
+public static class ShortToUnicodeStringConverter {
 
     #region Statics members declarations
 
@@ -16,7 +16,7 @@ public static class UnicodeStringConverter {
         // create a generic parse tree walker that can trigger callbacks
         var walker = new ParseTreeWalker();
         // walk the tree created during the parse, trigger callbacks
-        ShortToUnicodeString shortToUnicodeString = new();
+        ShortToUnicodeStringListener shortToUnicodeString = new();
         walker.Walk(shortToUnicodeString, grun.Tree);
 
         return shortToUnicodeString.ToString();

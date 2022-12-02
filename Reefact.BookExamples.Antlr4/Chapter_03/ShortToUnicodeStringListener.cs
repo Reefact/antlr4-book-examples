@@ -9,7 +9,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03;
 /// <summary>
 ///     Convert short array inits like {1,2,3} to "\u0001\u0002\u0003"
 /// </summary>
-public sealed class ShortToUnicodeString : ArrayInitBaseListener {
+public sealed class ShortToUnicodeStringListener : ArrayInitBaseListener {
 
     private const string HexadecimalStringFormat = "X4";
     private const string UnicodePrefix           = "\\u";
