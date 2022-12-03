@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Chapter_04\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Reefact.BookExamples.Antlr4\Reefact.BookExamples.Antlr4.csproj" />
   </ItemGroup>
 

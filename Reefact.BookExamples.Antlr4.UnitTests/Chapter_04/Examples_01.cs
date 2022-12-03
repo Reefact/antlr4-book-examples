@@ -2,13 +2,13 @@
 
 using Antlr4.Runtime;
 
-using Reefact.BookExamples.Antlr4.Chapter_04;
+using Reefact.BookExamples.Antlr4.Chapter_04._01;
 
 #endregion
 
 namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
 
-    public class Examples {
+    public class Examples_01 {
 
         [Fact]
         public void Test() {

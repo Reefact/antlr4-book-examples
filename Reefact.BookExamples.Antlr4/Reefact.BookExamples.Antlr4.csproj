@@ -12,10 +12,20 @@
     <Compile Include="Chapter_03\.antlr\ArrayInitLexer.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitListener.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitParser.cs" />
-    <Compile Include="Chapter_04\.antlr\ExprBaseListener.cs" />
-    <Compile Include="Chapter_04\.antlr\ExprLexer.cs" />
-    <Compile Include="Chapter_04\.antlr\ExprListener.cs" />
-    <Compile Include="Chapter_04\.antlr\ExprParser.cs" />
+    <Compile Include="Chapter_04\01\.antlr\ExprBaseListener.cs" />
+    <Compile Include="Chapter_04\01\.antlr\ExprLexer.cs" />
+    <Compile Include="Chapter_04\01\.antlr\ExprListener.cs" />
+    <Compile Include="Chapter_04\01\.antlr\ExprParser.cs" />
+    <Compile Include="Chapter_04\02\.antlr\LibExprBaseListener.cs" />
+    <Compile Include="Chapter_04\02\.antlr\LibExprLexer.cs" />
+    <Compile Include="Chapter_04\02\.antlr\LibExprListener.cs" />
+    <Compile Include="Chapter_04\02\.antlr\LibExprParser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Chapter_03\.antlr\ReadMe.txt" />
+    <Content Include="Chapter_04\01\.antlr\ReadMe.txt" />
+    <Content Include="Chapter_04\02\.antlr\ReadMe.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,11 +38,17 @@
     <None Include="Chapter_03\.antlr\ArrayInit.tokens" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.interp" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.tokens" />
-    <None Include="Chapter_04\.antlr\Expr.g4" />
-    <None Include="Chapter_04\.antlr\Expr.interp" />
-    <None Include="Chapter_04\.antlr\Expr.tokens" />
-    <None Include="Chapter_04\.antlr\ExprLexer.interp" />
-    <None Include="Chapter_04\.antlr\ExprLexer.tokens" />
+    <None Include="Chapter_04\02\.antlr\CommonLexerRules.g4" />
+    <None Include="Chapter_04\01\.antlr\Expr.g4" />
+    <None Include="Chapter_04\01\.antlr\Expr.interp" />
+    <None Include="Chapter_04\01\.antlr\Expr.tokens" />
+    <None Include="Chapter_04\01\.antlr\ExprLexer.interp" />
+    <None Include="Chapter_04\01\.antlr\ExprLexer.tokens" />
+    <None Include="Chapter_04\02\.antlr\LibExpr.g4" />
+    <None Include="Chapter_04\02\.antlr\LibExpr.interp" />
+    <None Include="Chapter_04\02\.antlr\LibExpr.tokens" />
+    <None Include="Chapter_04\02\.antlr\LibExprLexer.interp" />
+    <None Include="Chapter_04\02\.antlr\LibExprLexer.tokens" />
   </ItemGroup>
 
 </Project>
