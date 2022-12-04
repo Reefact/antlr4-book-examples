@@ -20,6 +20,10 @@
     <Compile Include="Chapter_04\02\.antlr\LibExprLexer.cs" />
     <Compile Include="Chapter_04\02\.antlr\LibExprListener.cs" />
     <Compile Include="Chapter_04\02\.antlr\LibExprParser.cs" />
+    <Compile Include="Chapter_04\03\.antlr\LabeledExprBaseVisitor.cs" />
+    <Compile Include="Chapter_04\03\.antlr\LabeledExprLexer.cs" />
+    <Compile Include="Chapter_04\03\.antlr\LabeledExprParser.cs" />
+    <Compile Include="Chapter_04\03\.antlr\LabeledExprVisitor.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +53,11 @@
     <None Include="Chapter_04\02\.antlr\LibExpr.tokens" />
     <None Include="Chapter_04\02\.antlr\LibExprLexer.interp" />
     <None Include="Chapter_04\02\.antlr\LibExprLexer.tokens" />
+    <None Include="Chapter_04\03\.antlr\LabeledExpr.g4" />
+    <None Include="Chapter_04\03\.antlr\LabeledExpr.interp" />
+    <None Include="Chapter_04\03\.antlr\LabeledExpr.tokens" />
+    <None Include="Chapter_04\03\.antlr\LabeledExprLexer.interp" />
+    <None Include="Chapter_04\03\.antlr\LabeledExprLexer.tokens" />
   </ItemGroup>
 
 </Project>
