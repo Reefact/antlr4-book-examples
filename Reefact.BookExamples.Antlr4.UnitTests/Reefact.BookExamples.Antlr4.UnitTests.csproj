@@ -9,11 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Chapter_04\c_expr" />
     <None Remove="Resources\t_expr" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Chapter_04\t_expr" />
+    <EmbeddedResource Include="Resources\Chapter_04\c_expr" />
   </ItemGroup>
 
   <ItemGroup>

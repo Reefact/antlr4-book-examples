@@ -25,6 +25,22 @@ namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
             Check.That(results[2]).IsEqualTo(9);
         }
 
+        [Fact]
+        public void evaluating_c_expr() {
+            // Setup
+            string           example     = ResourcesHelper.Read("Chapter_04.c_expr");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read(example);
+            GRun             grun        = GRun.Read(inputStream);
+            // Exercise
+            int[] results = grun.Eval();
+            // Verify
+            Check.That(results).CountIs(4);
+            Check.That(results[0]).IsEqualTo(5); // a (set)
+            Check.That(results[1]).IsEqualTo(0); // b (unset)
+            Check.That(results[2]).IsEqualTo(0); // a (clear)
+            Check.That(results[2]).IsEqualTo(6); // b (set)
+        }
+
     }
 
 }

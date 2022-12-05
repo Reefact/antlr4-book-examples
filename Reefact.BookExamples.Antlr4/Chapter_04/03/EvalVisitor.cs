@@ -31,6 +31,11 @@
             return 0;
         }
 
+        // '$' command NEWLINE
+        public override int VisitCmd(LabeledExprParser.CmdContext context) {
+            return Visit(context.command());
+        }
+
         // INT
         public override int VisitInt(LabeledExprParser.IntContext context) {
             string intAsString = context.INT().GetText();
@@ -68,6 +73,13 @@
         // '(' expr ')'
         public override int VisitParens(LabeledExprParser.ParensContext context) {
             return Visit(context.expr()); // return child expr's value
+        }
+
+        // clear
+        public override int VisitClear(LabeledExprParser.ClearContext context) {
+            _memory.Clear();
+
+            return 0;
         }
 
         public IEnumerable<int> GetResults() {
