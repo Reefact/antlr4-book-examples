@@ -38,7 +38,7 @@ namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
             Check.That(results[0]).IsEqualTo(5); // a (set)
             Check.That(results[1]).IsEqualTo(0); // b (unset)
             Check.That(results[2]).IsEqualTo(0); // a (clear)
-            Check.That(results[2]).IsEqualTo(6); // b (set)
+            Check.That(results[3]).IsEqualTo(6); // b (set)
         }
 
     }
