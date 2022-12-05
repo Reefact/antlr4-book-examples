@@ -24,6 +24,10 @@
     <Compile Include="Chapter_04\03\.antlr\LabeledExprLexer.cs" />
     <Compile Include="Chapter_04\03\.antlr\LabeledExprParser.cs" />
     <Compile Include="Chapter_04\03\.antlr\LabeledExprVisitor.cs" />
+    <Compile Include="Chapter_04\04\.antlr\JavaBaseListener.cs" />
+    <Compile Include="Chapter_04\04\.antlr\JavaLexer.cs" />
+    <Compile Include="Chapter_04\04\.antlr\JavaListener.cs" />
+    <Compile Include="Chapter_04\04\.antlr\JavaParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,6 +62,11 @@
     <None Include="Chapter_04\03\.antlr\LabeledExpr.tokens" />
     <None Include="Chapter_04\03\.antlr\LabeledExprLexer.interp" />
     <None Include="Chapter_04\03\.antlr\LabeledExprLexer.tokens" />
+    <None Include="Chapter_04\04\.antlr\Java.g4" />
+    <None Include="Chapter_04\04\.antlr\Java.interp" />
+    <None Include="Chapter_04\04\.antlr\Java.tokens" />
+    <None Include="Chapter_04\04\.antlr\JavaLexer.interp" />
+    <None Include="Chapter_04\04\.antlr\JavaLexer.tokens" />
   </ItemGroup>
 
 </Project>

@@ -24,8 +24,8 @@ public abstract class GRunBase {
 
     #endregion
 
-    protected IParseTree Tree   { get; }
-    protected Parser     Parser { get; }
+    protected         IParseTree Tree   { get; }
+    protected virtual Parser     Parser { get; }
 
     public string ToLispStyleTree() {
         return Tree.ToStringTree(Parser);
