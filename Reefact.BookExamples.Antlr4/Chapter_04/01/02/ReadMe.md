@@ -1,9 +1,11 @@
 ﻿## 4.1. Matching Arithmetic Expression Language
 
-This example shows an example of a simple grammar defining an arithmetic expression language.
+## 4.1.2. Importing Grammars
+
+This example shows how to break up grammars into logical chunks.
 
 _Remarks: C# lexer and parser classes are generated with the following command line:_
 
 ```bat
-antlr4 Expr.g4 -Dlanguage=CSharp
+antlr4 LibExpr.g4 -Dlanguage=CSharp
 ```
