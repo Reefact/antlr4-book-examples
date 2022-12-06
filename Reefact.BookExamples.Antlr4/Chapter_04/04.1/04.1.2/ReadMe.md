@@ -1,6 +1,4 @@
-﻿## 4.1. Matching Arithmetic Expression Language
-
-## 4.1.2. Importing Grammars
+﻿## 4.1.2. Importing Grammars
 
 This example shows how to break up grammars into logical chunks.
 

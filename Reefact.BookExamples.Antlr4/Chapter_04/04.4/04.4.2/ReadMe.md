@@ -1,6 +1,4 @@
-﻿## 4.4. Making Things Happen During the Parse
-
-### 4.4.2. Altering the Parse with Semantic Predicates
+﻿### 4.4.2. Altering the Parse with Semantic Predicates
 
 This example shows how to alter parsing using semantic predicates.
 
