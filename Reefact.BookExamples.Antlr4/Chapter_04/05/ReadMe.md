@@ -1,5 +1,7 @@
 ﻿## 4.4. Making Things Happen During the Parse
 
+### 4.4.1. Embedding Arbitrary Actions in a Grammar
+
 This example shows how to embed arbitrary actions into a grammar.
 
 _Remarks: C# lexer and parser classes are generated with the following command line:_

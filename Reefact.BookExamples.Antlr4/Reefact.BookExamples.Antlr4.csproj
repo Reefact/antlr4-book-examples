@@ -32,12 +32,17 @@
     <Compile Include="Chapter_04\05\.antlr\RowsLexer.cs" />
     <Compile Include="Chapter_04\05\.antlr\RowsListener.cs" />
     <Compile Include="Chapter_04\05\.antlr\RowsParser.cs" />
+    <Compile Include="Chapter_04\06\.antlr\DataBaseListener.cs" />
+    <Compile Include="Chapter_04\06\.antlr\DataLexer.cs" />
+    <Compile Include="Chapter_04\06\.antlr\DataListener.cs" />
+    <Compile Include="Chapter_04\06\.antlr\DataParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Chapter_03\.antlr\ReadMe.txt" />
     <Content Include="Chapter_04\01\.antlr\ReadMe.txt" />
     <Content Include="Chapter_04\02\.antlr\ReadMe.txt" />
+    <Content Include="Chapter_04\06\.antlr\Data.g4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -76,6 +81,10 @@
     <None Include="Chapter_04\05\.antlr\Rows.tokens" />
     <None Include="Chapter_04\05\.antlr\RowsLexer.interp" />
     <None Include="Chapter_04\05\.antlr\RowsLexer.tokens" />
+    <None Include="Chapter_04\06\.antlr\Data.interp" />
+    <None Include="Chapter_04\06\.antlr\Data.tokens" />
+    <None Include="Chapter_04\06\.antlr\DataLexer.interp" />
+    <None Include="Chapter_04\06\.antlr\DataLexer.tokens" />
   </ItemGroup>
 
 </Project>
