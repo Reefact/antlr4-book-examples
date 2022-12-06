@@ -9,10 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Chapter_04\Demo_rewrited.java" />
     <None Remove="Resources\Chapter_04\t_xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Chapter_04\Demo_rewrited.java" />
     <EmbeddedResource Include="Resources\Chapter_04\t_xml" />
   </ItemGroup>
 
@@ -42,6 +44,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Reefact.BookExamples.Antlr4\Reefact.BookExamples.Antlr4.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Chapter_04\Examples_04_5_2.display_column_of_index_0.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>Examples_04_5_2.cs</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>
