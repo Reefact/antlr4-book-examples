@@ -8,7 +8,7 @@ using Reefact.BookExamples.Antlr4.Chapter_03;
 
 namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_03 {
 
-    public class Examples {
+    public class Examples_03 {
 
         [Fact]
         public void convert_a_short_array_to_unicode_string() {

@@ -6,7 +6,7 @@ using Antlr4.Runtime;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Chapter_04._05 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._4._1 {
 
     [DebuggerDisplay("{ToString()}")]
     public sealed class GRun {

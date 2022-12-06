@@ -1,4 +1,4 @@
-﻿namespace Reefact.BookExamples.Antlr4.Chapter_04._03 {
+﻿namespace Reefact.BookExamples.Antlr4.Chapter_04._2 {
 
     public sealed class EvalVisitor : LabeledExprBaseVisitor<int> {
 

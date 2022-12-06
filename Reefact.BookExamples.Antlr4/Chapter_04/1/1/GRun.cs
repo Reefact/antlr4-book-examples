@@ -7,7 +7,7 @@ using Antlr4.Runtime.Tree;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Chapter_04._02 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._1._1 {
 
     [DebuggerDisplay("{ToString()}")]
     public sealed class GRun : GRunBase {
@@ -17,9 +17,9 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._02 {
         public static GRun Read(AntlrInputStream inputStream) {
             if (inputStream is null) { throw new ArgumentNullException(nameof(inputStream)); }
 
-            LibExprLexer      lexer  = new(inputStream);
+            ExprLexer         lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new LibExprParser(tokens);
+            var               parser = new ExprParser(tokens);
             IParseTree        tree   = parser.prog();
 
             return new GRun(tree, parser);
@@ -29,7 +29,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._02 {
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, LibExprParser parser) : base(tree, parser) { }
+        private GRun(IParseTree tree, ExprParser parser) : base(tree, parser) { }
 
         #endregion
 

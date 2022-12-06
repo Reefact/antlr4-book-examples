@@ -6,7 +6,7 @@ using Antlr4.Runtime;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Chapter_04._04 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._3 {
 
     public sealed class ExtractInterfaceListener : JavaBaseListener {
 

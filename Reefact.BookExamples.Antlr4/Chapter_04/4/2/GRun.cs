@@ -7,20 +7,20 @@ using Antlr4.Runtime.Tree;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Chapter_04._01 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._4._2 {
 
     [DebuggerDisplay("{ToString()}")]
     public sealed class GRun : GRunBase {
 
         #region Statics members declarations
 
-        public static GRun Read(AntlrInputStream inputStream) {
+        public static GRun Read(AntlrInputStream inputStream, int indexOfTheColumnToDisplay) {
             if (inputStream is null) { throw new ArgumentNullException(nameof(inputStream)); }
 
-            ExprLexer         lexer  = new(inputStream);
+            DataLexer         lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new ExprParser(tokens);
-            IParseTree        tree   = parser.prog();
+            DataParser        parser = new(tokens);
+            IParseTree        tree   = parser.file();
 
             return new GRun(tree, parser);
         }
@@ -29,7 +29,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._01 {
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, ExprParser parser) : base(tree, parser) { }
+        /// <inheritdoc />
+        public GRun(IParseTree tree, Parser parser) : base(tree, parser) { }
 
         #endregion
 

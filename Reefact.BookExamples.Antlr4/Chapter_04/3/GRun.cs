@@ -7,7 +7,7 @@ using Antlr4.Runtime.Tree;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Chapter_04._04 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._3 {
 
     [DebuggerDisplay("{ToString()}")]
     public sealed class GRun : GRunBase {
