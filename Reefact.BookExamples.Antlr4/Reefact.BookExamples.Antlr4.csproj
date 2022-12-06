@@ -28,6 +28,10 @@
     <Compile Include="Chapter_04\04\.antlr\JavaLexer.cs" />
     <Compile Include="Chapter_04\04\.antlr\JavaListener.cs" />
     <Compile Include="Chapter_04\04\.antlr\JavaParser.cs" />
+    <Compile Include="Chapter_04\05\.antlr\RowsBaseListener.cs" />
+    <Compile Include="Chapter_04\05\.antlr\RowsLexer.cs" />
+    <Compile Include="Chapter_04\05\.antlr\RowsListener.cs" />
+    <Compile Include="Chapter_04\05\.antlr\RowsParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,6 +71,11 @@
     <None Include="Chapter_04\04\.antlr\Java.tokens" />
     <None Include="Chapter_04\04\.antlr\JavaLexer.interp" />
     <None Include="Chapter_04\04\.antlr\JavaLexer.tokens" />
+    <None Include="Chapter_04\05\.antlr\Rows.g4" />
+    <None Include="Chapter_04\05\.antlr\Rows.interp" />
+    <None Include="Chapter_04\05\.antlr\Rows.tokens" />
+    <None Include="Chapter_04\05\.antlr\RowsLexer.interp" />
+    <None Include="Chapter_04\05\.antlr\RowsLexer.tokens" />
   </ItemGroup>
 
 </Project>

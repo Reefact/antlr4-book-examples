@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -8,18 +8,13 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\Chapter_04\c_expr" />
-    <None Remove="Resources\Chapter_04\Demo.java" />
-    <None Remove="Resources\Chapter_04\IDemo.java" />
-    <None Remove="Resources\t_expr" />
-  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Chapter_04\IDemo.java" />
     <EmbeddedResource Include="Resources\Chapter_04\Demo.java" />
     <EmbeddedResource Include="Resources\Chapter_04\t_expr" />
     <EmbeddedResource Include="Resources\Chapter_04\c_expr" />
+    <EmbeddedResource Include="Resources\Chapter_04\t_rows" />
   </ItemGroup>
 
   <ItemGroup>
