@@ -1,4 +1,4 @@
-﻿### 4.5.2. Rewriting the Input Stream
+﻿#### 4.5.2. Rewriting the Input Stream
 
 This example shows how to easily rewrite an input stream using a listener and the _TokenStreamRewriter_ class.
 

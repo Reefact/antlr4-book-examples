@@ -1,4 +1,4 @@
-﻿### 4.1.1. First grammar
+﻿#### 4.1.1. First grammar
 
 This example shows an example of a simple grammar defining an arithmetic expression language.
 
