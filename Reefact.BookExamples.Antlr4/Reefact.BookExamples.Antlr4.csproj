@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -46,6 +46,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Chapter_04\1\2\.resources\c.expr" />
+    <EmbeddedResource Include="Chapter_04\3\.resources\Demo.java" />
+    <EmbeddedResource Include="Chapter_04\5\2\.resources\Demo_rewrited.java" />
+    <EmbeddedResource Include="Chapter_04\3\.resources\IDemo.java" />
+    <EmbeddedResource Include="Chapter_04\1\1\.resources\t.expr" />
+    <EmbeddedResource Include="Chapter_04\4\1\.resources\t.rows" />
+    <EmbeddedResource Include="Chapter_04\5\1\.resources\t.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ApprovalTests" Version="5.7.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
+    <PackageReference Include="NFluent" Version="2.8.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.2.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.11.1" />
   </ItemGroup>
 
@@ -88,6 +110,19 @@
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.g4" />
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.interp" />
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.tokens" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Chapter_04\5\1\Examples.display_column_of_index_0.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>Examples.cs</DependentUpon>
+    </None>
+    <None Update="Chapter_04\5\2\Examples.display_column_of_index_0.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>Examples.cs</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>

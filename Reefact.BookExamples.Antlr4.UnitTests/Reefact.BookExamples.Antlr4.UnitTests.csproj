@@ -4,28 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\Chapter_04\Demo_rewrited.java" />
-    <None Remove="Resources\Chapter_04\t_xml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Chapter_04\Demo_rewrited.java" />
-    <EmbeddedResource Include="Resources\Chapter_04\t_xml" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Chapter_04\IDemo.java" />
-    <EmbeddedResource Include="Resources\Chapter_04\Demo.java" />
-    <EmbeddedResource Include="Resources\Chapter_04\t_expr" />
-    <EmbeddedResource Include="Resources\Chapter_04\c_expr" />
-    <EmbeddedResource Include="Resources\Chapter_04\t_rows" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="ApprovalTests" Version="5.7.3" />
@@ -47,11 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Chapter_04\Examples_04_5_2.display_column_of_index_0.approved.txt">
-      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
-      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
-      <DependentUpon>Examples_04_5_2.cs</DependentUpon>
-    </None>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

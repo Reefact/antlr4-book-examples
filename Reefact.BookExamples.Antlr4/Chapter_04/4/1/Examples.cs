@@ -2,18 +2,20 @@
 
 using Antlr4.Runtime;
 
-using Reefact.BookExamples.Antlr4.Chapter_04._4._1;
+using NFluent;
+
+using Xunit;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._4._1 {
 
-    public class Examples_04_4_1 {
+    public class Examples {
 
         [Fact]
         public void display_column_of_index_0() {
             // Setup
-            string           t_rows      = ResourcesHelper.Read("Chapter_04.t_rows");
+            string           t_rows      = ResourcesHelper.Read("t.rows", 4, 4, 1);
             AntlrInputStream inputStream = AntlrInputStreamReader.Read(t_rows);
             GRun             grun        = GRun.Read(inputStream, 0);
             // Exercise
@@ -26,7 +28,7 @@ namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
         [Fact]
         public void display_column_of_index_1() {
             // Setup
-            string           t_rows      = ResourcesHelper.Read("Chapter_04.t_rows");
+            string           t_rows      = ResourcesHelper.Read("t.rows", 4, 4, 1);
             AntlrInputStream inputStream = AntlrInputStreamReader.Read(t_rows);
             GRun             grun        = GRun.Read(inputStream, 1);
             // Exercise
@@ -39,7 +41,7 @@ namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
         [Fact]
         public void display_column_of_index_2() {
             // Setup
-            string           t_rows      = ResourcesHelper.Read("Chapter_04.t_rows");
+            string           t_rows      = ResourcesHelper.Read("t.rows", 4, 4, 1);
             AntlrInputStream inputStream = AntlrInputStreamReader.Read(t_rows);
             GRun             grun        = GRun.Read(inputStream, 2);
             // Exercise

@@ -2,18 +2,20 @@
 
 using Antlr4.Runtime;
 
-using Reefact.BookExamples.Antlr4.Chapter_04._1._1;
+using NFluent;
+
+using Xunit;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._1._1 {
 
-    public class Examples_04_1_1 {
+    public class Examples {
 
         [Fact]
         public void Test() {
             // Setup
-            string           example     = ResourcesHelper.Read("Chapter_04.t_expr");
+            string           example     = ResourcesHelper.Read("t.expr", 4, 1, 1);
             AntlrInputStream inputStream = AntlrInputStreamReader.Read(example);
             GRun             grun        = GRun.Read(inputStream);
             // Exercise

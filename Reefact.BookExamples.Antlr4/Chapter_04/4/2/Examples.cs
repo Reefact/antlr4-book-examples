@@ -2,13 +2,15 @@
 
 using Antlr4.Runtime;
 
-using Reefact.BookExamples.Antlr4.Chapter_04._4._2;
+using NFluent;
+
+using Xunit;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._4._2 {
 
-    public class Examples_04_4_2 {
+    public class Examples {
 
         [Fact]
         public void display_column_of_index_0() {

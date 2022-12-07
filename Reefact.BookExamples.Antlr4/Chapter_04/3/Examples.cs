@@ -2,19 +2,21 @@
 
 using Antlr4.Runtime;
 
-using Reefact.BookExamples.Antlr4.Chapter_04._3;
+using NFluent;
+
+using Xunit;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._3 {
 
-    public class Examples_04_3 {
+    public class Examples {
 
         [Fact]
         public void extract_interface() {
             // Setup
-            string           inputDemoClassCode        = ResourcesHelper.Read("Chapter_04.Demo.java");
-            string           expectedDemoInterfaceCode = ResourcesHelper.Read("Chapter_04.IDemo.java");
+            string           inputDemoClassCode        = ResourcesHelper.Read("Demo.java", 4, 3);
+            string           expectedDemoInterfaceCode = ResourcesHelper.Read("IDemo.java", 4, 3);
             AntlrInputStream inputStream               = AntlrInputStreamReader.Read(inputDemoClassCode);
             GRun             grun                      = GRun.Read(inputStream);
             // Exercise

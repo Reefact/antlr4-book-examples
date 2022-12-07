@@ -2,13 +2,15 @@
 
 using Antlr4.Runtime;
 
-using Reefact.BookExamples.Antlr4.Chapter_03;
+using NFluent;
+
+using Xunit;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_03 {
+namespace Reefact.BookExamples.Antlr4.Chapter_03 {
 
-    public class Examples_03 {
+    public class Examples {
 
         [Fact]
         public void convert_a_short_array_to_unicode_string() {

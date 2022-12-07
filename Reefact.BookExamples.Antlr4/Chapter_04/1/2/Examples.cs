@@ -4,19 +4,21 @@ using System.Text;
 
 using Antlr4.Runtime;
 
-using Reefact.BookExamples.Antlr4.Chapter_04._1._1;
+using NFluent;
+
+using Xunit;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
+namespace Reefact.BookExamples.Antlr4.Chapter_04._1._2 {
 
-    public class Examples_04_1_2 {
+    public class Examples {
 
         [Fact]
         public void importing_grammar_style_works() {
             // Setup
             AntlrInputStream inputStream = AntlrInputStreamReader.Read($"3+4{Environment.NewLine}");
-            GRun             grun        = GRun.Read(inputStream);
+            _1.GRun          grun        = _1.GRun.Read(inputStream);
             // Exercise
             string lispTree = grun.ToLispStyleTree();
             // Verify
@@ -30,7 +32,7 @@ namespace Reefact.BookExamples.Antlr4.UnitTests.Chapter_04 {
             example.AppendLine("(1+2");
             example.AppendLine("3");
             AntlrInputStream inputStream = AntlrInputStreamReader.Read(example.ToString());
-            GRun             grun        = GRun.Read(inputStream);
+            _1.GRun          grun        = _1.GRun.Read(inputStream);
             // Exercise
             string lispTree = grun.ToLispStyleTree();
             // Verify
