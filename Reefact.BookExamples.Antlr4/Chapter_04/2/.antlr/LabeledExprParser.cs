@@ -36,21 +36,21 @@ public partial class LabeledExprParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, ID=6, INT=7, NEWLINE=8, WS=9, 
-		MUL=10, DIV=11, ADD=12, SUB=13;
+		T__0=1, T__1=2, T__2=3, T__3=4, ID=5, INT=6, NEWLINE=7, WS=8, MUL=9, DIV=10, 
+		ADD=11, SUB=12;
 	public const int
-		RULE_prog = 0, RULE_stat = 1, RULE_expr = 2, RULE_command = 3;
+		RULE_prog = 0, RULE_stat = 1, RULE_expr = 2;
 	public static readonly string[] ruleNames = {
-		"prog", "stat", "expr", "command"
+		"prog", "stat", "expr"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'='", "'$'", "'('", "')'", "'clear'", null, null, null, null, "'*'", 
-		"'/'", "'+'", "'-'"
+		null, "'clear'", "'='", "'('", "')'", null, null, null, null, "'*'", "'/'", 
+		"'+'", "'-'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, null, null, null, "ID", "INT", "NEWLINE", "WS", "MUL", 
-		"DIV", "ADD", "SUB"
+		null, null, null, null, null, "ID", "INT", "NEWLINE", "WS", "MUL", "DIV", 
+		"ADD", "SUB"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -112,20 +112,20 @@ public partial class LabeledExprParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 9;
+			State = 7;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			do {
 				{
 				{
-				State = 8;
+				State = 6;
 				stat();
 				}
 				}
-				State = 11;
+				State = 9;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 460L) != 0 );
+			} while ( ((_la) & ~0x3f) == 0 && ((1L << _la) & 234L) != 0 );
 			}
 		}
 		catch (RecognitionException re) {
@@ -161,16 +161,13 @@ public partial class LabeledExprParser : Parser {
 			else return visitor.VisitChildren(this);
 		}
 	}
-	public partial class CmdContext : StatContext {
-		[System.Diagnostics.DebuggerNonUserCode] public CommandContext command() {
-			return GetRuleContext<CommandContext>(0);
-		}
+	public partial class ClearContext : StatContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(LabeledExprParser.NEWLINE, 0); }
-		public CmdContext(StatContext context) { CopyFrom(context); }
+		public ClearContext(StatContext context) { CopyFrom(context); }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			ILabeledExprVisitor<TResult> typedVisitor = visitor as ILabeledExprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCmd(this);
+			if (typedVisitor != null) return typedVisitor.VisitClear(this);
 			else return visitor.VisitChildren(this);
 		}
 	}
@@ -207,50 +204,48 @@ public partial class LabeledExprParser : Parser {
 		StatContext _localctx = new StatContext(Context, State);
 		EnterRule(_localctx, 2, RULE_stat);
 		try {
-			State = 26;
+			State = 22;
 			ErrorHandler.Sync(this);
 			switch ( Interpreter.AdaptivePredict(TokenStream,1,Context) ) {
 			case 1:
 				_localctx = new PrintExprContext(_localctx);
 				EnterOuterAlt(_localctx, 1);
 				{
-				State = 13;
+				State = 11;
 				expr(0);
-				State = 14;
+				State = 12;
 				Match(NEWLINE);
 				}
 				break;
 			case 2:
-				_localctx = new AssignContext(_localctx);
+				_localctx = new ClearContext(_localctx);
 				EnterOuterAlt(_localctx, 2);
+				{
+				State = 14;
+				Match(T__0);
+				State = 15;
+				Match(NEWLINE);
+				}
+				break;
+			case 3:
+				_localctx = new AssignContext(_localctx);
+				EnterOuterAlt(_localctx, 3);
 				{
 				State = 16;
 				Match(ID);
 				State = 17;
-				Match(T__0);
+				Match(T__1);
 				State = 18;
 				expr(0);
 				State = 19;
 				Match(NEWLINE);
 				}
 				break;
-			case 3:
-				_localctx = new BlankContext(_localctx);
-				EnterOuterAlt(_localctx, 3);
-				{
-				State = 21;
-				Match(NEWLINE);
-				}
-				break;
 			case 4:
-				_localctx = new CmdContext(_localctx);
+				_localctx = new BlankContext(_localctx);
 				EnterOuterAlt(_localctx, 4);
 				{
-				State = 22;
-				Match(T__1);
-				State = 23;
-				command();
-				State = 24;
+				State = 21;
 				Match(NEWLINE);
 				}
 				break;
@@ -365,7 +360,7 @@ public partial class LabeledExprParser : Parser {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 35;
+			State = 31;
 			ErrorHandler.Sync(this);
 			switch (TokenStream.LA(1)) {
 			case INT:
@@ -374,7 +369,7 @@ public partial class LabeledExprParser : Parser {
 				Context = _localctx;
 				_prevctx = _localctx;
 
-				State = 29;
+				State = 25;
 				Match(INT);
 				}
 				break;
@@ -383,7 +378,7 @@ public partial class LabeledExprParser : Parser {
 				_localctx = new IdContext(_localctx);
 				Context = _localctx;
 				_prevctx = _localctx;
-				State = 30;
+				State = 26;
 				Match(ID);
 				}
 				break;
@@ -392,11 +387,11 @@ public partial class LabeledExprParser : Parser {
 				_localctx = new ParensContext(_localctx);
 				Context = _localctx;
 				_prevctx = _localctx;
-				State = 31;
+				State = 27;
 				Match(T__2);
-				State = 32;
+				State = 28;
 				expr(0);
-				State = 33;
+				State = 29;
 				Match(T__3);
 				}
 				break;
@@ -404,7 +399,7 @@ public partial class LabeledExprParser : Parser {
 				throw new NoViableAltException(this);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 45;
+			State = 41;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,4,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -413,16 +408,16 @@ public partial class LabeledExprParser : Parser {
 						TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 43;
+					State = 39;
 					ErrorHandler.Sync(this);
 					switch ( Interpreter.AdaptivePredict(TokenStream,3,Context) ) {
 					case 1:
 						{
 						_localctx = new MulDivContext(new ExprContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expr);
-						State = 37;
+						State = 33;
 						if (!(Precpred(Context, 5))) throw new FailedPredicateException(this, "Precpred(Context, 5)");
-						State = 38;
+						State = 34;
 						((MulDivContext)_localctx).op = TokenStream.LT(1);
 						_la = TokenStream.LA(1);
 						if ( !(_la==MUL || _la==DIV) ) {
@@ -432,7 +427,7 @@ public partial class LabeledExprParser : Parser {
 							ErrorHandler.ReportMatch(this);
 						    Consume();
 						}
-						State = 39;
+						State = 35;
 						expr(6);
 						}
 						break;
@@ -440,9 +435,9 @@ public partial class LabeledExprParser : Parser {
 						{
 						_localctx = new AddSubContext(new ExprContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expr);
-						State = 40;
+						State = 36;
 						if (!(Precpred(Context, 4))) throw new FailedPredicateException(this, "Precpred(Context, 4)");
-						State = 41;
+						State = 37;
 						((AddSubContext)_localctx).op = TokenStream.LT(1);
 						_la = TokenStream.LA(1);
 						if ( !(_la==ADD || _la==SUB) ) {
@@ -452,14 +447,14 @@ public partial class LabeledExprParser : Parser {
 							ErrorHandler.ReportMatch(this);
 						    Consume();
 						}
-						State = 42;
+						State = 38;
 						expr(5);
 						}
 						break;
 					}
 					} 
 				}
-				State = 47;
+				State = 43;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,4,Context);
 			}
@@ -472,51 +467,6 @@ public partial class LabeledExprParser : Parser {
 		}
 		finally {
 			UnrollRecursionContexts(_parentctx);
-		}
-		return _localctx;
-	}
-
-	public partial class CommandContext : ParserRuleContext {
-		public CommandContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_command; } }
-	 
-		public CommandContext() { }
-		public virtual void CopyFrom(CommandContext context) {
-			base.CopyFrom(context);
-		}
-	}
-	public partial class ClearContext : CommandContext {
-		public ClearContext(CommandContext context) { CopyFrom(context); }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			ILabeledExprVisitor<TResult> typedVisitor = visitor as ILabeledExprVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitClear(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public CommandContext command() {
-		CommandContext _localctx = new CommandContext(Context, State);
-		EnterRule(_localctx, 6, RULE_command);
-		try {
-			_localctx = new ClearContext(_localctx);
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 48;
-			Match(T__4);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
 		}
 		return _localctx;
 	}
@@ -536,21 +486,20 @@ public partial class LabeledExprParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,13,51,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,4,0,10,8,0,11,0,12,0,11,
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,27,8,1,1,2,1,2,
-		1,2,1,2,1,2,1,2,1,2,3,2,36,8,2,1,2,1,2,1,2,1,2,1,2,1,2,5,2,44,8,2,10,2,
-		12,2,47,9,2,1,3,1,3,1,3,0,1,4,4,0,2,4,6,0,2,1,0,10,11,1,0,12,13,54,0,9,
-		1,0,0,0,2,26,1,0,0,0,4,35,1,0,0,0,6,48,1,0,0,0,8,10,3,2,1,0,9,8,1,0,0,
-		0,10,11,1,0,0,0,11,9,1,0,0,0,11,12,1,0,0,0,12,1,1,0,0,0,13,14,3,4,2,0,
-		14,15,5,8,0,0,15,27,1,0,0,0,16,17,5,6,0,0,17,18,5,1,0,0,18,19,3,4,2,0,
-		19,20,5,8,0,0,20,27,1,0,0,0,21,27,5,8,0,0,22,23,5,2,0,0,23,24,3,6,3,0,
-		24,25,5,8,0,0,25,27,1,0,0,0,26,13,1,0,0,0,26,16,1,0,0,0,26,21,1,0,0,0,
-		26,22,1,0,0,0,27,3,1,0,0,0,28,29,6,2,-1,0,29,36,5,7,0,0,30,36,5,6,0,0,
-		31,32,5,3,0,0,32,33,3,4,2,0,33,34,5,4,0,0,34,36,1,0,0,0,35,28,1,0,0,0,
-		35,30,1,0,0,0,35,31,1,0,0,0,36,45,1,0,0,0,37,38,10,5,0,0,38,39,7,0,0,0,
-		39,44,3,4,2,6,40,41,10,4,0,0,41,42,7,1,0,0,42,44,3,4,2,5,43,37,1,0,0,0,
-		43,40,1,0,0,0,44,47,1,0,0,0,45,43,1,0,0,0,45,46,1,0,0,0,46,5,1,0,0,0,47,
-		45,1,0,0,0,48,49,5,5,0,0,49,7,1,0,0,0,5,11,26,35,43,45
+		4,1,12,45,2,0,7,0,2,1,7,1,2,2,7,2,1,0,4,0,8,8,0,11,0,12,0,9,1,1,1,1,1,
+		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,23,8,1,1,2,1,2,1,2,1,2,1,2,1,2,1,
+		2,3,2,32,8,2,1,2,1,2,1,2,1,2,1,2,1,2,5,2,40,8,2,10,2,12,2,43,9,2,1,2,0,
+		1,4,3,0,2,4,0,2,1,0,9,10,1,0,11,12,49,0,7,1,0,0,0,2,22,1,0,0,0,4,31,1,
+		0,0,0,6,8,3,2,1,0,7,6,1,0,0,0,8,9,1,0,0,0,9,7,1,0,0,0,9,10,1,0,0,0,10,
+		1,1,0,0,0,11,12,3,4,2,0,12,13,5,7,0,0,13,23,1,0,0,0,14,15,5,1,0,0,15,23,
+		5,7,0,0,16,17,5,5,0,0,17,18,5,2,0,0,18,19,3,4,2,0,19,20,5,7,0,0,20,23,
+		1,0,0,0,21,23,5,7,0,0,22,11,1,0,0,0,22,14,1,0,0,0,22,16,1,0,0,0,22,21,
+		1,0,0,0,23,3,1,0,0,0,24,25,6,2,-1,0,25,32,5,6,0,0,26,32,5,5,0,0,27,28,
+		5,3,0,0,28,29,3,4,2,0,29,30,5,4,0,0,30,32,1,0,0,0,31,24,1,0,0,0,31,26,
+		1,0,0,0,31,27,1,0,0,0,32,41,1,0,0,0,33,34,10,5,0,0,34,35,7,0,0,0,35,40,
+		3,4,2,6,36,37,10,4,0,0,37,38,7,1,0,0,38,40,3,4,2,5,39,33,1,0,0,0,39,36,
+		1,0,0,0,40,43,1,0,0,0,41,39,1,0,0,0,41,42,1,0,0,0,42,5,1,0,0,0,43,41,1,
+		0,0,0,5,9,22,31,39,41
 	};
 
 	public static readonly ATN _ATN =

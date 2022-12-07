@@ -4,9 +4,9 @@
 prog    :   stat+ ;
 
 stat    :   expr NEWLINE            # printExpr
+        |   'clear' NEWLINE         # clear
         |   ID '=' expr NEWLINE     # assign
         |   NEWLINE                 # blank
-        |   '$' command NEWLINE     # cmd
         ;
 
 expr    :   expr op=(MUL|DIV) expr  # MulDiv
@@ -15,8 +15,6 @@ expr    :   expr op=(MUL|DIV) expr  # MulDiv
         |   ID                      # id
         |   '(' expr ')'            # parens
         ;
-
-command :   'clear' #clear ;
 
 ID      :   [a-zA-Z]+ ;     // match identifiers
 INT     :   [0-9]+ ;        // match integers

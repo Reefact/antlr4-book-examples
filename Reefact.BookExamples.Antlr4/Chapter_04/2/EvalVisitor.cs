@@ -31,11 +31,6 @@
             return 0;
         }
 
-        // '$' command NEWLINE
-        public override int VisitCmd(LabeledExprParser.CmdContext context) {
-            return Visit(context.command());
-        }
-
         // INT
         public override int VisitInt(LabeledExprParser.IntContext context) {
             string intAsString = context.INT().GetText();

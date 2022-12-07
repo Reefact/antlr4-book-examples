@@ -45,6 +45,13 @@ public interface ILabeledExprVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitPrintExpr([NotNull] LabeledExprParser.PrintExprContext context);
 	/// <summary>
+	/// Visit a parse tree produced by the <c>clear</c>
+	/// labeled alternative in <see cref="LabeledExprParser.stat"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitClear([NotNull] LabeledExprParser.ClearContext context);
+	/// <summary>
 	/// Visit a parse tree produced by the <c>assign</c>
 	/// labeled alternative in <see cref="LabeledExprParser.stat"/>.
 	/// </summary>
@@ -58,13 +65,6 @@ public interface ILabeledExprVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitBlank([NotNull] LabeledExprParser.BlankContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>cmd</c>
-	/// labeled alternative in <see cref="LabeledExprParser.stat"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitCmd([NotNull] LabeledExprParser.CmdContext context);
 	/// <summary>
 	/// Visit a parse tree produced by the <c>parens</c>
 	/// labeled alternative in <see cref="LabeledExprParser.expr"/>.
@@ -100,11 +100,4 @@ public interface ILabeledExprVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitInt([NotNull] LabeledExprParser.IntContext context);
-	/// <summary>
-	/// Visit a parse tree produced by the <c>clear</c>
-	/// labeled alternative in <see cref="LabeledExprParser.command"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitClear([NotNull] LabeledExprParser.ClearContext context);
 }
