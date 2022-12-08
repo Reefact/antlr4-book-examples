@@ -37,6 +37,10 @@
     <Compile Include="Chapter_04\4\2\.antlr\DataListener.cs" />
     <Compile Include="Chapter_04\4\2\.antlr\DataParser.cs" />
     <Compile Include="Chapter_04\5\1\.antlr\XmlLexer.cs" />
+    <Compile Include="Chapter_05\3\.antlr4\NestedPhrasePatternBaseListener.cs" />
+    <Compile Include="Chapter_05\3\.antlr4\NestedPhrasePatternLexer.cs" />
+    <Compile Include="Chapter_05\3\.antlr4\NestedPhrasePatternListener.cs" />
+    <Compile Include="Chapter_05\3\.antlr4\NestedPhrasePatternParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -110,6 +114,11 @@
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.g4" />
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.interp" />
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.tokens" />
+    <None Include="Chapter_05\3\.antlr4\NestedPhrasePattern.g4" />
+    <None Include="Chapter_05\3\.antlr4\NestedPhrasePattern.interp" />
+    <None Include="Chapter_05\3\.antlr4\NestedPhrasePattern.tokens" />
+    <None Include="Chapter_05\3\.antlr4\NestedPhrasePatternLexer.interp" />
+    <None Include="Chapter_05\3\.antlr4\NestedPhrasePatternLexer.tokens" />
   </ItemGroup>
 
   <ItemGroup>
@@ -122,6 +131,11 @@
       <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
       <DependentUpon>Examples.cs</DependentUpon>
+    </None>
+    <None Update="Chapter_05\3\Examples.display_column_of_index_0.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
     </None>
   </ItemGroup>
 
