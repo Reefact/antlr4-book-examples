@@ -1,7 +1,5 @@
 ﻿#region Usings declarations
 
-using Antlr4.Runtime;
-
 using NFluent;
 
 using Xunit;
@@ -15,8 +13,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
         [Fact]
         public void example_01() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("a[1]");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun grun = GRun.Read("a[1]");
             // Exercise
             string output = grun.ToLispStyleTree();
             // Verify
@@ -26,8 +23,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
         [Fact]
         public void example_02() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("(a[1])");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun grun = GRun.Read("(a[1])");
             // Exercise
             string output = grun.ToLispStyleTree();
             // Verify
@@ -37,8 +33,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
         [Fact]
         public void example_03() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("(((1)))");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun grun = GRun.Read("(((1)))");
             // Exercise
             string output = grun.ToLispStyleTree();
             // Verify

@@ -1,7 +1,5 @@
 ﻿#region Usings declarations
 
-using Antlr4.Runtime;
-
 using NFluent;
 
 using Xunit;
@@ -15,8 +13,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [Fact]
         public void basic_interpretation() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1+2");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun grun = GRun.Read("1+2");
             // Exercise
             int result = grun.Eval();
             // Verify
@@ -26,8 +23,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [Fact]
         public void left_to_right_associativity_with_first_alternative_precedence_not_including_pow() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1+2*3");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun grun = GRun.Read("1+2*3");
             // Exercise
             int result = grun.Eval();
             // Verify
@@ -37,8 +33,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [Fact]
         public void right_to_left_associativity() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1^2^3");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun grun = GRun.Read("1^2^3");
             // Exercise
             int result = grun.Eval();
             // Verify
@@ -48,8 +43,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [Fact]
         public void first_alternative_precedence_including_pow() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1+2*3+5*2^2+3");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun grun = GRun.Read("1+2*3+5*2^2+3");
             // Exercise
             int result = grun.Eval();
             // Verify
