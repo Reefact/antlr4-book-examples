@@ -41,6 +41,10 @@
     <Compile Include="Chapter_05\3\.antlr4\NestedPhrasePatternLexer.cs" />
     <Compile Include="Chapter_05\3\.antlr4\NestedPhrasePatternListener.cs" />
     <Compile Include="Chapter_05\3\.antlr4\NestedPhrasePatternParser.cs" />
+    <Compile Include="Chapter_05\4\.antlr\PLrABaseVisitor.cs" />
+    <Compile Include="Chapter_05\4\.antlr\PLrALexer.cs" />
+    <Compile Include="Chapter_05\4\.antlr\PLrAParser.cs" />
+    <Compile Include="Chapter_05\4\.antlr\PLrAVisitor.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -119,6 +123,11 @@
     <None Include="Chapter_05\3\.antlr4\NestedPhrasePattern.tokens" />
     <None Include="Chapter_05\3\.antlr4\NestedPhrasePatternLexer.interp" />
     <None Include="Chapter_05\3\.antlr4\NestedPhrasePatternLexer.tokens" />
+    <None Include="Chapter_05\4\.antlr\PLrA.g4" />
+    <None Include="Chapter_05\4\.antlr\PLrA.interp" />
+    <None Include="Chapter_05\4\.antlr\PLrA.tokens" />
+    <None Include="Chapter_05\4\.antlr\PLrALexer.interp" />
+    <None Include="Chapter_05\4\.antlr\PLrALexer.tokens" />
   </ItemGroup>
 
   <ItemGroup>
