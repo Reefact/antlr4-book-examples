@@ -2,13 +2,9 @@
 
     public sealed class EvalVisitor : PLrABaseVisitor<int> {
 
-        public int Result { get; private set; }
-
         /// <inheritdoc />
         public override int VisitCalc(PLrAParser.CalcContext context) {
-            Result = Visit(context.expr());
-
-            return Result;
+            return Visit(context.expr());
         }
 
         public override int VisitInt(PLrAParser.IntContext context) {

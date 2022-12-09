@@ -34,9 +34,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
 
         public int Eval() {
             EvalVisitor visitor = new();
-            Tree.Accept(visitor);
 
-            return visitor.Result;
+            return visitor.Visit(Tree);
         }
 
     }

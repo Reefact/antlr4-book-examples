@@ -35,9 +35,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._2 {
 
         public int[] Eval() {
             EvalVisitor visitor = new();
-            Tree.Accept(visitor);
+            visitor.Visit(Tree);
 
-            return visitor.GetResults().ToArray();
+            return visitor.GetResults()
+                          .ToArray();
         }
 
     }
