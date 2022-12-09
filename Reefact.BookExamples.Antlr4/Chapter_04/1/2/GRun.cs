@@ -14,13 +14,12 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._2 {
 
         #region Statics members declarations
 
-        public static GRun Read(AntlrInputStream inputStream) {
-            if (inputStream is null) { throw new ArgumentNullException(nameof(inputStream)); }
-
-            LibExprLexer      lexer  = new(inputStream);
-            CommonTokenStream tokens = new(lexer);
-            var               parser = new LibExprParser(tokens);
-            IParseTree        tree   = parser.prog();
+        public static GRun ReadString(string input) {
+            AntlrInputStream  inputStream = AntlrInputStreamReader.Read(input);
+            LibExprLexer      lexer       = new(inputStream);
+            CommonTokenStream tokens      = new(lexer);
+            var               parser      = new LibExprParser(tokens);
+            IParseTree        tree        = parser.prog();
 
             return new GRun(tree, parser);
         }

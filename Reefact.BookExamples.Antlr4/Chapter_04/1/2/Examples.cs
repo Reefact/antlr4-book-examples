@@ -2,8 +2,6 @@
 
 using System.Text;
 
-using Antlr4.Runtime;
-
 using NFluent;
 
 using Xunit;
@@ -17,8 +15,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._2 {
         [Fact]
         public void importing_grammar_style_works() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read($"3+4{Environment.NewLine}");
-            _1.GRun          grun        = _1.GRun.Read(inputStream);
+            GRun grun = GRun.ReadString($"3+4{Environment.NewLine}");
             // Exercise
             string lispTree = grun.ToLispStyleTree();
             // Verify
@@ -28,11 +25,12 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._2 {
         [Fact]
         public void handle_erroneous_input() {
             // Setup
-            StringBuilder example = new();
-            example.AppendLine("(1+2");
-            example.AppendLine("3");
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read(example.ToString());
-            _1.GRun          grun        = _1.GRun.Read(inputStream);
+            StringBuilder exampleBuilder = new();
+            exampleBuilder.AppendLine("(1+2");
+            exampleBuilder.AppendLine("3");
+            var example = exampleBuilder.ToString();
+
+            GRun grun = GRun.ReadString(example);
             // Exercise
             string lispTree = grun.ToLispStyleTree();
             // Verify

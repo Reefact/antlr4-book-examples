@@ -14,9 +14,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
 
         #region Statics members declarations
 
-        public static GRun Read(string input) {
-            if (input is null) { throw new ArgumentNullException(nameof(input)); }
-
+        public static GRun ReadString(string input) {
             AntlrInputStream  inputStream = AntlrInputStreamReader.Read(input);
             PLrALexer         lexer       = new(inputStream);
             CommonTokenStream tokens      = new(lexer);

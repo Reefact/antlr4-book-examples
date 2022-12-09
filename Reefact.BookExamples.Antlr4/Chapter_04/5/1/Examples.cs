@@ -1,7 +1,5 @@
 ﻿#region Usings declarations
 
-using Antlr4.Runtime;
-
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -17,9 +15,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._5._1 {
         [Fact]
         public void display_column_of_index_0() {
             // Setup
-            string           t_rows      = ResourcesHelper.Read("t.xml", 4, 5, 1);
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read(t_rows);
-            GRun             grun        = GRun.Read(inputStream, 0);
+            GRun grun = GRun.ReadResource("t.xml", 4, 5, 1);
             // Exercise
             string[] tokens = grun.GetTokens();
             // Verify

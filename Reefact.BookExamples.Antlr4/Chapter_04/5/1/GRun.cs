@@ -13,10 +13,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._5._1 {
 
         #region Statics members declarations
 
-        public static GRun Read(AntlrInputStream inputStream, int indexOfTheColumnToDisplay) {
-            if (inputStream is null) { throw new ArgumentNullException(nameof(inputStream)); }
-
-            XmlLexer lexer = new(inputStream);
+        public static GRun ReadResource(string resourceName, params int[] chapter) {
+            string           inputString = ResourcesHelper.Read(resourceName, chapter);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read(inputString);
+            XmlLexer         lexer       = new(inputStream);
 
             return new GRun(lexer.GetAllTokens().Select(t => t.ToString())!);
         }
