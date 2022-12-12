@@ -2,8 +2,6 @@
 
 This example shows that it is possible to choose which of the lexer or the parser should match a particular grammatical structure depending on the application context.
 
-NB: 
-
 _Remarks: C# lexer and parser classes are generated with the following command lines:_
 
 ```bat
