@@ -45,6 +45,14 @@
     <Compile Include="Chapter_05\4\.antlr\PLrALexer.cs" />
     <Compile Include="Chapter_05\4\.antlr\PLrAParser.cs" />
     <Compile Include="Chapter_05\4\.antlr\PLrAVisitor.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_LexerBaseListener.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_LexerLexer.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_LexerListener.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_LexerParser.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_ParserBaseVisitor.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_ParserLexer.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_ParserParser.cs" />
+    <Compile Include="Chapter_05\6\.antlr\IP_ParserVisitor.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -128,6 +136,17 @@
     <None Include="Chapter_05\4\.antlr\PLrA.tokens" />
     <None Include="Chapter_05\4\.antlr\PLrALexer.interp" />
     <None Include="Chapter_05\4\.antlr\PLrALexer.tokens" />
+    <None Include="Chapter_05\6\.antlr\IP_Lexer.g4" />
+    <None Include="Chapter_05\6\.antlr\IP_Lexer.interp" />
+    <None Include="Chapter_05\6\.antlr\IP_Lexer.tokens" />
+    <None Include="Chapter_05\6\.antlr\IP_LexerLexer.interp" />
+    <None Include="Chapter_05\6\.antlr\IP_LexerLexer.tokens" />
+    <None Include="Chapter_05\6\.antlr\IP_Parser.g4" />
+    <None Include="Chapter_05\6\.antlr\IP_Parser.interp" />
+    <None Include="Chapter_05\6\.antlr\IP_Parser.tokens" />
+    <None Include="Chapter_05\6\.antlr\IP_ParserLexer.interp" />
+    <None Include="Chapter_05\6\.antlr\IP_ParserLexer.tokens" />
+    <EmbeddedResource Include="Chapter_05\6\.resources\service.log" />
   </ItemGroup>
 
   <ItemGroup>

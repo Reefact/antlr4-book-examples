@@ -4,3 +4,4 @@ The examples presented in this chapter show how to derive grammars from language
 
 ### [5.3. Recognizing Common Language Patterns with ANTLR Grammars](3)
 ### [5.4. Dealing with Precedence, Left Recursion, and Associativity](4)
+### [5.6. Drawing the Line Between Lexer and Parser](6)

@@ -1,0 +1,5 @@
+IP=1
+INT=2
+STRING=3
+NL=4
+WS=5
