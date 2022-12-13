@@ -14,21 +14,30 @@ public abstract class GRunBase {
 
     #region Constructors declarations
 
-    protected GRunBase(IParseTree tree, Parser parser) {
+    protected GRunBase(IParseTree tree, Parser parser, CommonTokenStream tokenStream) {
         if (tree is null) { throw new ArgumentNullException(nameof(tree)); }
         if (parser is null) { throw new ArgumentNullException(nameof(parser)); }
+        if (tokenStream is null) { throw new ArgumentNullException(nameof(tokenStream)); }
 
-        Tree   = tree;
-        Parser = parser;
+        Tree        = tree;
+        Parser      = parser;
+        TokenStream = tokenStream;
     }
 
     #endregion
 
-    protected         IParseTree Tree   { get; }
-    protected virtual Parser     Parser { get; }
+    protected         IParseTree        Tree        { get; }
+    protected virtual Parser            Parser      { get; }
+    public            CommonTokenStream TokenStream { get; }
 
     public string ToLispStyleTree() {
         return Tree.ToStringTree(Parser);
+    }
+
+    public string ToTokensString() {
+        return TokenStream.GetTokens()
+                          .Select(t => t.ToString())
+                          .Aggregate((previous, next) => $"{previous}{Environment.NewLine}{next}") ?? string.Empty;
     }
 
     /// <inheritdoc />

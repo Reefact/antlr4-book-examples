@@ -21,14 +21,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
             var                      parser      = new NestedPhrasePatternParser(tokens);
             IParseTree               tree        = parser.expr();
 
-            return new GRun(tree, parser);
+            return new GRun(tree, parser, tokens);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, NestedPhrasePatternParser parser) : base(tree, parser) { }
+        private GRun(IParseTree tree, NestedPhrasePatternParser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
 
         #endregion
 

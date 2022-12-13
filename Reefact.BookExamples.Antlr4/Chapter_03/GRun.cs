@@ -21,14 +21,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
             var               parser      = new ArrayInitParser(tokens);
             IParseTree        tree        = parser.init();
 
-            return new GRun(tree, parser);
+            return new GRun(tree, parser, tokens);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, ArrayInitParser parser) : base(tree, parser) { }
+        private GRun(IParseTree tree, ArrayInitParser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
 
         #endregion
 

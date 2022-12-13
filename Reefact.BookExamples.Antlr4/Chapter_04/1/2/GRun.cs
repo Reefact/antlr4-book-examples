@@ -21,14 +21,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._2 {
             var               parser      = new LibExprParser(tokens);
             IParseTree        tree        = parser.prog();
 
-            return new GRun(tree, parser);
+            return new GRun(tree, parser, tokens);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, LibExprParser parser) : base(tree, parser) { }
+        private GRun(IParseTree tree, LibExprParser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
 
         #endregion
 
