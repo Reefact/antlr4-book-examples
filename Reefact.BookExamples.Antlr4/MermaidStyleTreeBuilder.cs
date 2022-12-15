@@ -71,16 +71,22 @@ namespace Reefact.BookExamples.Antlr4 {
             if (_nodesAlreadySetup.Contains(relationShip.Parent.Id)) {
                 _graphBuilder.Append($"\t{relationShip.Parent.Id}");
             } else {
-                _graphBuilder.Append($"\t{relationShip.Parent.Id}[\"{relationShip.Parent.Name}\"]");
+                string parentName = Escape(relationShip.Parent.Name);
+                _graphBuilder.Append($"\t{relationShip.Parent.Id}[\"{parentName}\"]");
                 bool added = _nodesAlreadySetup.Add(relationShip.Parent.Id);
             }
             _graphBuilder.Append(" --> ");
             if (_nodesAlreadySetup.Contains(relationShip.Child.Id)) {
                 _graphBuilder.AppendLine(relationShip.Child.Id.ToString());
             } else {
-                _graphBuilder.AppendLine($"{relationShip.Child.Id}[\"{relationShip.Child.Name}\"]");
+                string childName = Escape(relationShip.Child.Name);
+                _graphBuilder.AppendLine($"{relationShip.Child.Id}[\"{childName}\"]");
                 bool added = _nodesAlreadySetup.Add(relationShip.Child.Id);
             }
+        }
+
+        private string Escape(string value) {
+            return value.Replace("\\", "#0092;");
         }
 
         #region Nested types declarations
