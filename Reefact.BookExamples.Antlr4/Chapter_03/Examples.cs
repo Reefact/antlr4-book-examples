@@ -35,13 +35,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         }
 
         [Fact]
+        [ExpectedParseTree(1)]
         public void provide_mermaid_style_tree_representation_of_a_short_array_in_ArrayInit_grammar_for_nested_arrays() {
             // Setup
             GRun grun = GRun.ReadString("{1,{2,3},4}");
             // Exercise
-            string graph = grun.ToMermaidStyleGraph();
+            string parseTree1 = grun.ToMermaidStyleTree();
             // Verify
-            Approvals.Verify(graph);
+            Approvals.Verify(parseTree1);
         }
 
     }

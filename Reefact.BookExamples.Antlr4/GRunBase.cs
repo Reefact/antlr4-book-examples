@@ -40,7 +40,7 @@ public abstract class GRunBase {
                           .Aggregate((previous, next) => $"{previous}{Environment.NewLine}{next}") ?? string.Empty;
     }
 
-    public string ToMermaidStyleGraph() {
+    public string ToMermaidStyleTree() {
         string                                 lispStyleTree = ToLispStyleTree();
         AntlrInputStream                       inputStream   = AntlrInputStreamReader.Read(lispStyleTree);
         LispStyleTreeLexer                     lexer         = new(inputStream);

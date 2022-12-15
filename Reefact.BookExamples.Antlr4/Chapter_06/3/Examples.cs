@@ -13,13 +13,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._3 {
     public class Examples {
 
         [Fact]
-        public void tokens_graph() {
+        [ExpectedParseTree(1)]
+        public void tokens_tree() {
             // Setup
             GRun grun = GRun.ReadResource("t.dot", 6, 3);
             // Exercise
-            string graph = grun.ToMermaidStyleGraph();
+            string parseTree1 = grun.ToMermaidStyleTree();
             // Verify
-            Approvals.Verify(graph);
+            Approvals.Verify(parseTree1);
         }
 
     }

@@ -114,7 +114,7 @@
     <None Include="Chapter_03\.antlr\ArrayInit.tokens" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.interp" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.tokens" />
-    <None Include="Chapter_03\.resources\ArrayInit-tree.svg" />
+    <None Include="Chapter_03\.resources\ParseTree1.svg" />
     <None Include="Chapter_04\1\2\.antlr\CommonLexerRules.g4" />
     <None Include="Chapter_04\1\1\.antlr\Expr.g4" />
     <None Include="Chapter_04\1\1\.antlr\Expr.interp" />
@@ -184,7 +184,7 @@
     <None Include="Chapter_06\3\.antlr\DOTLexer.interp" />
     <None Include="Chapter_06\3\.antlr\DOTLexer.tokens" />
     <None Include=".antlr\LispStyleTree.g4" />
-    <None Include="Chapter_06\3\.resources\t.dot-tree.svg" />
+    <None Include="Chapter_06\3\.resources\ParseTree1.svg" />
     <EmbeddedResource Include="Chapter_06\3\.resources\t.dot" />
     <EmbeddedResource Include="Chapter_06\1\.resources\data.csv" />
     <EmbeddedResource Include="Chapter_05\6\.resources\service.log" />
