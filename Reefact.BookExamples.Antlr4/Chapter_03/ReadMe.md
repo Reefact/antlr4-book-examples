@@ -1,1 +1,13 @@
 ﻿## 3. A Starter ANTLR Project
+
+This example shows a basic grammar to start with.
+
+_Remarks:_
+
+_C# lexer and parser classes are generated with the following command line:_
+
+```bat
+antlr4 ArrayInit.g4 -Dlanguage=CSharp
+```
+
+[ArrayInit Tree](.resources/ArrayInit-tree.svg)

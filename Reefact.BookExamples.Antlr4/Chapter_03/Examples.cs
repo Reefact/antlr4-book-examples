@@ -1,5 +1,8 @@
 #region Usings declarations
 
+using ApprovalTests;
+using ApprovalTests.Reporters;
+
 using NFluent;
 
 using Xunit;
@@ -8,6 +11,7 @@ using Xunit;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_03 {
 
+    [UseReporter(typeof(VisualStudioReporter))]
     public class Examples {
 
         [Fact]
@@ -31,13 +35,13 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         }
 
         [Fact]
-        public void provide_a_lisp_tree_representation_of_a_short_array_in_ArrayInit_grammar_for_nested_arrays() {
+        public void provide_mermaid_style_tree_representation_of_a_short_array_in_ArrayInit_grammar_for_nested_arrays() {
             // Setup
             GRun grun = GRun.ReadString("{1,{2,3},4}");
             // Exercise
-            string lispStyleTree = grun.ToLispStyleTree();
+            string graph = grun.ToMermaidStyleGraph();
             // Verify
-            Check.That(lispStyleTree).IsEqualTo("(init { (value 1) , (value (init { (value 2) , (value 3) })) , (value 4) })");
+            Approvals.Verify(graph);
         }
 
     }

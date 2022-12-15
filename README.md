@@ -6,8 +6,13 @@ I have tried to organize the ReadMe in such a way as to create an interactive ta
 
 [Step into](Reefact.BookExamples.Antlr4)
 
-_NB: Some URLs in the book are no longer valid. You can find below a list of links that are up to date (last updated 12/12/2022)._
+_Remarks:_
+
+_The graphs in Mermaid format generated in the examples can be displayed via the online tool https://mermaid.live/. Unless omitted, they are also available in SVG format in the resources of each chapter (*-tree.svg)._
+
+_Some URLs in the book are no longer valid. You can find below a list of links that are up to date (last updated 12/12/2022)._
 
 |  URL  |  Description  |
 | ----- | ------------- |
 | https://github.com/antlr/grammars-v4 | ANTLR4 'official' grammar definitions | 
+
