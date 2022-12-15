@@ -10,4 +10,4 @@ _C# lexer and parser classes are generated with the following command line:_
 antlr4 ArrayInit.g4 -Dlanguage=CSharp
 ```
 
-![ArrayInit Tree](.resources/ArrayInit-tree.svg ArrayInitTree)
+![ArrayInit Tree](.resources/ArrayInit-tree.svg "ArrayInitTree")
