@@ -13,7 +13,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._3 {
     public class Examples {
 
         [Fact]
-        [ExpectedParseTree(1)]
+        [GraphicalTree("ParseTree1.svg")]
         public void tokens_tree() {
             // Setup
             GRun grun = GRun.ReadResource("t.dot", 6, 3);

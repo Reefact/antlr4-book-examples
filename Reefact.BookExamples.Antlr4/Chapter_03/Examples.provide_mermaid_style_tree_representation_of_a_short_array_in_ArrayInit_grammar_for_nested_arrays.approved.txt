@@ -16,5 +16,3 @@
 	1 --> 16["value"]
 	16 --> 17["4"]
 	1 --> 18["}"]
-
-classDef default fill:#fff,stroke:#000,stroke-width:0.25px;

@@ -32,7 +32,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._2 {
 
             GRun grun = GRun.ReadString(example);
             // Exercise
-            string lispTree = grun.ToLispStyleTree();
+            string lispTree    = grun.ToLispStyleTree();
+            string mermaidTree = grun.ToMermaidStyleTree();
             // Verify
             Check.That(lispTree).IsEqualTo("(prog (stat (expr ( (expr (expr 1) + (expr 2)) <missing ')'>) \\r\\n) (stat (expr 3) \\r\\n))");
         }

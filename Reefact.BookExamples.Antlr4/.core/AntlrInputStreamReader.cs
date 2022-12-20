@@ -4,6 +4,7 @@ using Antlr4.Runtime;
 
 #endregion
 
+// ReSharper disable once CheckNamespace
 namespace Reefact.BookExamples.Antlr4;
 
 public static class AntlrInputStreamReader {

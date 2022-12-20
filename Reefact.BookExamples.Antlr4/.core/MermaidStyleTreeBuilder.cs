@@ -3,16 +3,20 @@
 using System.Diagnostics;
 using System.Text;
 
+using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
 #endregion
 
+// ReSharper disable once CheckNamespace
 namespace Reefact.BookExamples.Antlr4 {
 
-    public sealed class MermaidStyleTreeBuilder : LispStyleTreeBaseListener {
+    public sealed class MermaidStyleTreeBuilder : IParseTreeListener {
 
         #region Fields declarations
 
+        private readonly Parser          _parser;
+        private readonly bool            _addClassDef;
         private readonly StringBuilder   _graphBuilder      = new();
         private readonly Stack<NodeInfo> _nodeInfos         = new();
         private readonly HashSet<int>    _nodesAlreadySetup = new();
@@ -23,15 +27,38 @@ namespace Reefact.BookExamples.Antlr4 {
 
         #region Constructors declarations
 
-        public MermaidStyleTreeBuilder() {
+        public MermaidStyleTreeBuilder(Parser parser, bool addClassDef) {
+            if (parser is null) { throw new ArgumentNullException(nameof(parser)); }
+
+            _parser      = parser;
+            _addClassDef = addClassDef;
             _graphBuilder.AppendLine("graph TD");
         }
 
         #endregion
 
         /// <inheritdoc />
-        public override void EnterParent_node(LispStyleTreeParser.Parent_nodeContext context) {
-            NodeInfo nodeInfo = new(_nextId++, context.ID().GetText());
+        public void VisitTerminal(ITerminalNode node) {
+            string       childNodeName  = Escape(node.GetText());
+            NodeInfo     childNodeInfo  = new(_nextId++, childNodeName);
+            NodeInfo     parentNodeInfo = _nodeInfos.Peek();
+            RelationShip relationShip   = new(parentNodeInfo, childNodeInfo);
+            WriteRelationship(relationShip);
+        }
+
+        /// <inheritdoc />
+        public void VisitErrorNode(IErrorNode node) {
+            string       childNodeName  = Escape(node.GetText());
+            NodeInfo     childNodeInfo  = new(_nextId++, childNodeName);
+            NodeInfo     parentNodeInfo = _nodeInfos.Peek();
+            RelationShip relationShip   = new(parentNodeInfo, childNodeInfo);
+            WriteRelationship(relationShip);
+        }
+
+        /// <inheritdoc />
+        public void EnterEveryRule(ParserRuleContext ctx) {
+            string   ruleName = _parser.RuleNames[ctx.RuleIndex];
+            NodeInfo nodeInfo = new(_nextId++, ruleName);
             if (_nodeInfos.TryPeek(out NodeInfo? parentNodeInfo)) {
                 RelationShip relationShip = new(parentNodeInfo, nodeInfo);
                 WriteRelationship(relationShip);
@@ -40,29 +67,15 @@ namespace Reefact.BookExamples.Antlr4 {
         }
 
         /// <inheritdoc />
-        public override void ExitParent_node(LispStyleTreeParser.Parent_nodeContext context) {
+        public void ExitEveryRule(ParserRuleContext ctx) {
             _nodeInfos.Pop();
         }
 
-        /// <inheritdoc />
-        public override void EnterChild_node(LispStyleTreeParser.Child_nodeContext context) {
-            ITerminalNode node = context.ID();
-            if (node == null) { return; }
-
-            string       childNodeName  = node.GetText();
-            NodeInfo     childNodeInfo  = new(_nextId++, childNodeName);
-            NodeInfo     parentNodeInfo = _nodeInfos.Peek();
-            RelationShip relationShip   = new(parentNodeInfo, childNodeInfo);
-            WriteRelationship(relationShip);
-        }
-
-        /// <inheritdoc />
-        public override void VisitTerminal(ITerminalNode node) { }
-
-        /// <inheritdoc />
-        public override string ToString() {
-            _graphBuilder.AppendLine();
-            _graphBuilder.Append("classDef default fill:#fff,stroke:#000,stroke-width:0.25px;");
+        public string ToMermaidStyleTree() {
+            if (_addClassDef) {
+                _graphBuilder.AppendLine();
+                _graphBuilder.Append("classDef default fill:#fff,stroke:#000,stroke-width:0.25px;");
+            }
 
             return _graphBuilder.ToString();
         }
@@ -73,7 +86,7 @@ namespace Reefact.BookExamples.Antlr4 {
             } else {
                 string parentName = Escape(relationShip.Parent.Name);
                 _graphBuilder.Append($"\t{relationShip.Parent.Id}[\"{parentName}\"]");
-                bool added = _nodesAlreadySetup.Add(relationShip.Parent.Id);
+                _nodesAlreadySetup.Add(relationShip.Parent.Id);
             }
             _graphBuilder.Append(" --> ");
             if (_nodesAlreadySetup.Contains(relationShip.Child.Id)) {
@@ -81,12 +94,15 @@ namespace Reefact.BookExamples.Antlr4 {
             } else {
                 string childName = Escape(relationShip.Child.Name);
                 _graphBuilder.AppendLine($"{relationShip.Child.Id}[\"{childName}\"]");
-                bool added = _nodesAlreadySetup.Add(relationShip.Child.Id);
+                _nodesAlreadySetup.Add(relationShip.Child.Id);
             }
         }
 
         private string Escape(string value) {
-            return value.Replace("\\", "#0092;");
+            return value.Replace("\\", "#0092;")
+                        .Replace(Environment.NewLine, "\\r\\n")
+                        .Replace("<", "&lt;")
+                        .Replace(">", "&gt;");
         }
 
         #region Nested types declarations

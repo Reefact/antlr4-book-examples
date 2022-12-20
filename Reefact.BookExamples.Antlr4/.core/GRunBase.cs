@@ -7,6 +7,7 @@ using Antlr4.Runtime.Tree;
 
 #endregion
 
+// ReSharper disable once CheckNamespace
 namespace Reefact.BookExamples.Antlr4;
 
 [DebuggerDisplay("{ToString()}")]
@@ -26,9 +27,9 @@ public abstract class GRunBase {
 
     #endregion
 
-    protected         IParseTree        Tree        { get; }
-    protected virtual Parser            Parser      { get; }
-    public            CommonTokenStream TokenStream { get; }
+    protected IParseTree        Tree        { get; }
+    protected Parser            Parser      { get; }
+    public    CommonTokenStream TokenStream { get; }
 
     public string ToLispStyleTree() {
         return Tree.ToStringTree(Parser);
@@ -40,18 +41,12 @@ public abstract class GRunBase {
                           .Aggregate((previous, next) => $"{previous}{Environment.NewLine}{next}") ?? string.Empty;
     }
 
-    public string ToMermaidStyleTree() {
-        string                                 lispStyleTree = ToLispStyleTree();
-        AntlrInputStream                       inputStream   = AntlrInputStreamReader.Read(lispStyleTree);
-        LispStyleTreeLexer                     lexer         = new(inputStream);
-        CommonTokenStream                      tokens        = new(lexer);
-        var                                    parser        = new LispStyleTreeParser(tokens);
-        LispStyleTreeParser.Parent_nodeContext tree          = parser.parent_node();
-        ParseTreeWalker                        walker        = new();
-        MermaidStyleTreeBuilder                builder       = new();
-        walker.Walk(builder, tree);
+    public string ToMermaidStyleTree(bool addClassDef = false) {
+        MermaidStyleTreeBuilder builder = new(Parser, addClassDef);
+        ParseTreeWalker         walker  = new();
+        walker.Walk(builder, Tree);
 
-        return builder.ToString();
+        return builder.ToMermaidStyleTree();
     }
 
     /// <inheritdoc />

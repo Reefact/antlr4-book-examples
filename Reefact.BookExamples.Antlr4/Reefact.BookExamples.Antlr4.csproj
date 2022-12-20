@@ -8,10 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include=".antlr\LispStyleTreeBaseListener.cs" />
-    <Compile Include=".antlr\LispStyleTreeLexer.cs" />
-    <Compile Include=".antlr\LispStyleTreeListener.cs" />
-    <Compile Include=".antlr\LispStyleTreeParser.cs" />
+    <Compile Include=".core\AntlrInputStreamReader.cs" />
+    <Compile Include=".core\GraphicalTreeAttribute.cs" />
+    <Compile Include=".core\GRunBase.cs" />
+    <Compile Include=".core\MermaidStyleTreeBuilder.cs" />
+    <Compile Include=".core\ResourcesHelper.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitBaseListener.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitLexer.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitListener.cs" />
@@ -73,7 +74,6 @@
 
   <ItemGroup>
     <Content Include="Chapter_03\.antlr\ReadMe.txt" />
-    <Content Include="Chapter_04\1\1\.antlr\ReadMe.txt" />
     <Content Include="Chapter_04\4\2\.antlr\Data.g4" />
     <EmbeddedResource Include="Chapter_06\2\.resources\t.json" />
   </ItemGroup>
@@ -105,10 +105,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include=".antlr\LispStyleTree.interp" />
-    <None Include=".antlr\LispStyleTree.tokens" />
-    <None Include=".antlr\LispStyleTreeLexer.interp" />
-    <None Include=".antlr\LispStyleTreeLexer.tokens" />
     <None Include="Chapter_03\.antlr\ArrayInit.g4" />
     <None Include="Chapter_03\.antlr\ArrayInit.interp" />
     <None Include="Chapter_03\.antlr\ArrayInit.tokens" />
@@ -184,7 +180,6 @@
     <None Include="Chapter_06\3\.antlr\DOT.tokens" />
     <None Include="Chapter_06\3\.antlr\DOTLexer.interp" />
     <None Include="Chapter_06\3\.antlr\DOTLexer.tokens" />
-    <None Include=".antlr\LispStyleTree.g4" />
     <None Include="Chapter_06\3\.resources\ParseTree1.svg" />
     <EmbeddedResource Include="Chapter_06\3\.resources\t.dot" />
     <EmbeddedResource Include="Chapter_06\1\.resources\data.csv" />

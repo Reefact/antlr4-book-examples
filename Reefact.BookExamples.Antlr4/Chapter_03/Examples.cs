@@ -35,7 +35,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         }
 
         [Fact]
-        [ExpectedParseTree(1)]
+        [GraphicalTree("ParseTree1.svg")]
         public void provide_mermaid_style_tree_representation_of_a_short_array_in_ArrayInit_grammar_for_nested_arrays() {
             // Setup
             GRun grun = GRun.ReadString("{1,{2,3},4}");

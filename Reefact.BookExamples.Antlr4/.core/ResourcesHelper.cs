@@ -5,6 +5,7 @@ using System.Text;
 
 #endregion
 
+// ReSharper disable once CheckNamespace
 namespace Reefact.BookExamples.Antlr4 {
 
     internal static class ResourcesHelper {
