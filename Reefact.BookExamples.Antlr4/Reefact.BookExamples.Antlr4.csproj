@@ -123,6 +123,7 @@
     <None Include="Chapter_04\1\2\.antlr\LibExpr.tokens" />
     <None Include="Chapter_04\1\2\.antlr\LibExprLexer.interp" />
     <None Include="Chapter_04\1\2\.antlr\LibExprLexer.tokens" />
+    <None Include="Chapter_04\1\3\.resources\ParseTree1.svg" />
     <None Include="Chapter_04\2\.antlr\LabeledExpr.g4" />
     <None Include="Chapter_04\2\.antlr\LabeledExpr.interp" />
     <None Include="Chapter_04\2\.antlr\LabeledExpr.tokens" />
