@@ -162,6 +162,7 @@
     <None Include="Chapter_05\4\.resources\ParseTree1.svg" />
     <None Include="Chapter_05\4\.resources\ParseTree2.svg" />
     <None Include="Chapter_05\4\.resources\ParseTree3.svg" />
+    <None Include="Chapter_05\4\.resources\ParseTree4.svg" />
     <None Include="Chapter_05\6\.antlr\IP_Lexer.g4" />
     <None Include="Chapter_05\6\.antlr\IP_Lexer.interp" />
     <None Include="Chapter_05\6\.antlr\IP_Lexer.tokens" />

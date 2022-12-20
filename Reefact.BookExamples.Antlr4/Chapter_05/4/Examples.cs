@@ -42,6 +42,19 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
 
         [Fact]
         [GraphicalTree("ParserTree3.svg")]
+        public void left_to_right_associativity() {
+            // Setup
+            GRun grun = GRun.ReadString("1*2*3");
+            // Exercise
+            int    result           = grun.Eval();
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
+            // Verify
+            Check.That(result).IsEqualTo(6);
+            Approvals.Verify(mermaidStyleTree);
+        }
+
+        [Fact]
+        [GraphicalTree("ParserTree4.svg")]
         public void right_to_left_associativity() {
             // Setup
             GRun grun = GRun.ReadString("1^2^3");
