@@ -178,6 +178,7 @@
     <None Include="Chapter_06\1\.antlr\CSV.tokens" />
     <None Include="Chapter_06\1\.antlr\CSVLexer.interp" />
     <None Include="Chapter_06\1\.antlr\CSVLexer.tokens" />
+    <None Include="Chapter_06\1\.resources\ParseTree1.svg" />
     <None Include="Chapter_06\2\.antlr\JSON.g4" />
     <None Include="Chapter_06\2\.antlr\JSON.interp" />
     <None Include="Chapter_06\2\.antlr\JSON.tokens" />

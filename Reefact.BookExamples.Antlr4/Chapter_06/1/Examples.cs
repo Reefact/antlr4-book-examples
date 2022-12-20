@@ -32,6 +32,16 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._1 {
             Approvals.Verify(tokensString);
         }
 
+        [Fact]
+        public void MermaidTree() {
+            // Setup
+            GRun grun = GRun.ReadResource("data.csv", 6, 1);
+            // Exercise
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
+            // Verify
+            Approvals.Verify(mermaidStyleTree);
+        }
+
     }
 
 }
