@@ -184,6 +184,7 @@
     <None Include="Chapter_06\2\.antlr\JSON.tokens" />
     <None Include="Chapter_06\2\.antlr\JSONLexer.interp" />
     <None Include="Chapter_06\2\.antlr\JSONLexer.tokens" />
+    <None Include="Chapter_06\2\.resources\ParseTree1.svg" />
     <None Include="Chapter_06\3\.antlr\DOT.g4" />
     <None Include="Chapter_06\3\.antlr\DOT.interp" />
     <None Include="Chapter_06\3\.antlr\DOT.tokens" />

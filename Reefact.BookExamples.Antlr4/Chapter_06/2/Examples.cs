@@ -13,13 +13,24 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._2 {
     public class Examples {
 
         [Fact]
-        public void t_json() {
+        public void t_json_tokensString() {
             // Setup
             GRun grun = GRun.ReadResource("t.json", 6, 2);
             // Exercise
             string tokensString = grun.ToTokensString();
             // Verify
             Approvals.Verify(tokensString);
+        }
+
+        [Fact]
+        [GraphicalTree("ParseTree1.svg")]
+        public void t_json_mermaid_style_tree() {
+            // Setup
+            GRun grun = GRun.ReadResource("t.json", 6, 2);
+            // Exercise
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
+            // Verify
+            Approvals.Verify(mermaidStyleTree);
         }
 
         [Fact]
