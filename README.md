@@ -8,7 +8,7 @@ I have tried to organize the ReadMe in such a way as to create an interactive ta
 
 _Remarks:_
 
-_The graphs in Mermaid format generated in the examples can be displayed via the online tool https://mermaid.live/. Unless omitted, they are also available in SVG format in the resources of each chapter (*-tree.svg)._
+_The graphs in Mermaid format generated in the examples can be displayed via the online tool https://mermaid.live/. Unless omitted, they are also available in SVG format in the resources of each chapter (a link is made between the test which generate to Mermaid style tree to the SVG file thanks to attribute 'GraphicalTreeAttribute'._
 
 _Some URLs in the book are no longer valid. You can find below a list of links that are up to date (last updated 12/12/2022)._
 
