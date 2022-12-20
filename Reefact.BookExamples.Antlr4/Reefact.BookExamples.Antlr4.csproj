@@ -143,6 +143,7 @@
     <None Include="Chapter_04\4\2\.antlr\Data.tokens" />
     <None Include="Chapter_04\4\2\.antlr\DataLexer.interp" />
     <None Include="Chapter_04\4\2\.antlr\DataLexer.tokens" />
+    <None Include="Chapter_04\4\2\.resources\ParseTree1.svg" />
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.g4" />
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.interp" />
     <None Include="Chapter_04\5\1\.antlr\XmlLexer.tokens" />
