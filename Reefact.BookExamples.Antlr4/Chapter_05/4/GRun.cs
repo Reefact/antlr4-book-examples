@@ -19,7 +19,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
             PLrALexer         lexer       = new(inputStream);
             CommonTokenStream tokens      = new(lexer);
             var               parser      = new PLrAParser(tokens);
-            IParseTree        tree        = parser.calc();
+            IParseTree        tree        = parser.expr();
 
             return new GRun(tree, parser, tokens);
         }

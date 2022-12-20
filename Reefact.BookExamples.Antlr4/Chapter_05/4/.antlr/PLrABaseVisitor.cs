@@ -35,16 +35,6 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 [System.CLSCompliant(false)]
 public partial class PLrABaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IPLrAVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="PLrAParser.calc"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitCalc([NotNull] PLrAParser.CalcContext context) { return VisitChildren(context); }
-	/// <summary>
 	/// Visit a parse tree produced by the <c>Add</c>
 	/// labeled alternative in <see cref="PLrAParser.expr"/>.
 	/// <para>

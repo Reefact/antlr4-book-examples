@@ -36,18 +36,18 @@ public partial class PLrAParser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		T__0=1, T__1=2, T__2=3, T__3=4, INT=5;
+		T__0=1, T__1=2, T__2=3, INT=4;
 	public const int
-		RULE_calc = 0, RULE_expr = 1;
+		RULE_expr = 0;
 	public static readonly string[] ruleNames = {
-		"calc", "expr"
+		"expr"
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'\\r\\n'", "'^'", "'*'", "'+'"
+		null, "'^'", "'*'", "'+'"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, null, null, "INT"
+		null, null, null, null, "INT"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -79,47 +79,6 @@ public partial class PLrAParser : Parser {
 		: base(input, output, errorOutput)
 	{
 		Interpreter = new ParserATNSimulator(this, _ATN, decisionToDFA, sharedContextCache);
-	}
-
-	public partial class CalcContext : ParserRuleContext {
-		[System.Diagnostics.DebuggerNonUserCode] public ExprContext expr() {
-			return GetRuleContext<ExprContext>(0);
-		}
-		public CalcContext(ParserRuleContext parent, int invokingState)
-			: base(parent, invokingState)
-		{
-		}
-		public override int RuleIndex { get { return RULE_calc; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
-			IPLrAVisitor<TResult> typedVisitor = visitor as IPLrAVisitor<TResult>;
-			if (typedVisitor != null) return typedVisitor.VisitCalc(this);
-			else return visitor.VisitChildren(this);
-		}
-	}
-
-	[RuleVersion(0)]
-	public CalcContext calc() {
-		CalcContext _localctx = new CalcContext(Context, State);
-		EnterRule(_localctx, 0, RULE_calc);
-		try {
-			EnterOuterAlt(_localctx, 1);
-			{
-			State = 4;
-			expr(0);
-			State = 5;
-			Match(T__0);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			ErrorHandler.ReportError(this, re);
-			ErrorHandler.Recover(this, re);
-		}
-		finally {
-			ExitRule();
-		}
-		return _localctx;
 	}
 
 	public partial class ExprContext : ParserRuleContext {
@@ -200,8 +159,8 @@ public partial class PLrAParser : Parser {
 		int _parentState = State;
 		ExprContext _localctx = new ExprContext(Context, _parentState);
 		ExprContext _prevctx = _localctx;
-		int _startState = 2;
-		EnterRecursionRule(_localctx, 2, RULE_expr, _p);
+		int _startState = 0;
+		EnterRecursionRule(_localctx, 0, RULE_expr, _p);
 		try {
 			int _alt;
 			EnterOuterAlt(_localctx, 1);
@@ -211,11 +170,11 @@ public partial class PLrAParser : Parser {
 			Context = _localctx;
 			_prevctx = _localctx;
 
-			State = 8;
+			State = 3;
 			Match(INT);
 			}
 			Context.Stop = TokenStream.LT(-1);
-			State = 21;
+			State = 16;
 			ErrorHandler.Sync(this);
 			_alt = Interpreter.AdaptivePredict(TokenStream,1,Context);
 			while ( _alt!=2 && _alt!=global::Antlr4.Runtime.Atn.ATN.INVALID_ALT_NUMBER ) {
@@ -224,18 +183,18 @@ public partial class PLrAParser : Parser {
 						TriggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					State = 19;
+					State = 14;
 					ErrorHandler.Sync(this);
 					switch ( Interpreter.AdaptivePredict(TokenStream,0,Context) ) {
 					case 1:
 						{
 						_localctx = new PowContext(new ExprContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expr);
-						State = 10;
+						State = 5;
 						if (!(Precpred(Context, 4))) throw new FailedPredicateException(this, "Precpred(Context, 4)");
-						State = 11;
-						Match(T__1);
-						State = 12;
+						State = 6;
+						Match(T__0);
+						State = 7;
 						expr(4);
 						}
 						break;
@@ -243,11 +202,11 @@ public partial class PLrAParser : Parser {
 						{
 						_localctx = new MulContext(new ExprContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expr);
-						State = 13;
+						State = 8;
 						if (!(Precpred(Context, 3))) throw new FailedPredicateException(this, "Precpred(Context, 3)");
-						State = 14;
-						Match(T__2);
-						State = 15;
+						State = 9;
+						Match(T__1);
+						State = 10;
 						expr(4);
 						}
 						break;
@@ -255,18 +214,18 @@ public partial class PLrAParser : Parser {
 						{
 						_localctx = new AddContext(new ExprContext(_parentctx, _parentState));
 						PushNewRecursionContext(_localctx, _startState, RULE_expr);
-						State = 16;
+						State = 11;
 						if (!(Precpred(Context, 2))) throw new FailedPredicateException(this, "Precpred(Context, 2)");
-						State = 17;
-						Match(T__3);
-						State = 18;
+						State = 12;
+						Match(T__2);
+						State = 13;
 						expr(3);
 						}
 						break;
 					}
 					} 
 				}
-				State = 23;
+				State = 18;
 				ErrorHandler.Sync(this);
 				_alt = Interpreter.AdaptivePredict(TokenStream,1,Context);
 			}
@@ -285,7 +244,7 @@ public partial class PLrAParser : Parser {
 
 	public override bool Sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 1: return expr_sempred((ExprContext)_localctx, predIndex);
+		case 0: return expr_sempred((ExprContext)_localctx, predIndex);
 		}
 		return true;
 	}
@@ -299,13 +258,12 @@ public partial class PLrAParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,5,25,2,0,7,0,2,1,7,1,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,1,1,1,1,1,1,5,1,20,8,1,10,1,12,1,23,9,1,1,1,0,1,2,2,0,2,0,0,25,0,4,1,
-		0,0,0,2,7,1,0,0,0,4,5,3,2,1,0,5,6,5,1,0,0,6,1,1,0,0,0,7,8,6,1,-1,0,8,9,
-		5,5,0,0,9,21,1,0,0,0,10,11,10,4,0,0,11,12,5,2,0,0,12,20,3,2,1,4,13,14,
-		10,3,0,0,14,15,5,3,0,0,15,20,3,2,1,4,16,17,10,2,0,0,17,18,5,4,0,0,18,20,
-		3,2,1,3,19,10,1,0,0,0,19,13,1,0,0,0,19,16,1,0,0,0,20,23,1,0,0,0,21,19,
-		1,0,0,0,21,22,1,0,0,0,22,3,1,0,0,0,23,21,1,0,0,0,2,19,21
+		4,1,4,20,2,0,7,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,5,0,15,
+		8,0,10,0,12,0,18,9,0,1,0,0,1,0,1,0,0,0,21,0,2,1,0,0,0,2,3,6,0,-1,0,3,4,
+		5,4,0,0,4,16,1,0,0,0,5,6,10,4,0,0,6,7,5,1,0,0,7,15,3,0,0,4,8,9,10,3,0,
+		0,9,10,5,2,0,0,10,15,3,0,0,4,11,12,10,2,0,0,12,13,5,3,0,0,13,15,3,0,0,
+		3,14,5,1,0,0,0,14,8,1,0,0,0,14,11,1,0,0,0,15,18,1,0,0,0,16,14,1,0,0,0,
+		16,17,1,0,0,0,17,1,1,0,0,0,18,16,1,0,0,0,2,14,16
 	};
 
 	public static readonly ATN _ATN =
