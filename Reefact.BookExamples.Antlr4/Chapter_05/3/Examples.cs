@@ -1,5 +1,8 @@
 ﻿#region Usings declarations
 
+using ApprovalTests;
+using ApprovalTests.Reporters;
+
 using NFluent;
 
 using Xunit;
@@ -8,26 +11,33 @@ using Xunit;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
 
+    [UseReporter(typeof(VisualStudioReporter))]
     public class Examples {
 
         [Fact]
+        [GraphicalTree("ParseTree1.svg")]
         public void example_01() {
             // Setup
             GRun grun = GRun.ReadString("a[1]");
             // Exercise
-            string output = grun.ToLispStyleTree();
+            string lispStyleTree    = grun.ToLispStyleTree();
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
-            Check.That(output).IsEqualTo("(expr a [ (expr 1) ])");
+            Check.That(lispStyleTree).IsEqualTo("(expr a [ (expr 1) ])");
+            Approvals.Verify(mermaidStyleTree);
         }
 
         [Fact]
+        [GraphicalTree("ParseTree2.svg")]
         public void example_02() {
             // Setup
             GRun grun = GRun.ReadString("(a[1])");
             // Exercise
-            string output = grun.ToLispStyleTree();
+            string lispStyleTree    = grun.ToLispStyleTree();
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
-            Check.That(output).IsEqualTo("(expr ( (expr a [ (expr 1) ]) ))");
+            Check.That(lispStyleTree).IsEqualTo("(expr ( (expr a [ (expr 1) ]) ))");
+            Approvals.Verify(mermaidStyleTree);
         }
 
         [Fact]
