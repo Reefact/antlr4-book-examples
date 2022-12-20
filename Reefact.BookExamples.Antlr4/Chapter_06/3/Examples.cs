@@ -18,9 +18,9 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._3 {
             // Setup
             GRun grun = GRun.ReadResource("t.dot", 6, 3);
             // Exercise
-            string parseTree1 = grun.ToMermaidStyleTree();
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
-            Approvals.Verify(parseTree1);
+            Approvals.Verify(mermaidStyleTree);
         }
 
     }

@@ -40,9 +40,9 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
             // Setup
             GRun grun = GRun.ReadString("{1,{2,3},4}");
             // Exercise
-            string parseTree1 = grun.ToMermaidStyleTree();
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
-            Approvals.Verify(parseTree1);
+            Approvals.Verify(mermaidStyleTree);
         }
 
     }

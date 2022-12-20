@@ -26,10 +26,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._3 {
             exampleBuilder.AppendLine("3");
             var example = exampleBuilder.ToString();
             // Exercise
-            GRun   grun     = GRun.ReadString(example);
-            string lispTree = grun.ToLispStyleTree();
+            GRun   grun          = GRun.ReadString(example);
+            string lispStyleTree = grun.ToLispStyleTree();
             // Verify
-            Check.That(lispTree).IsEqualTo("(prog (stat (expr ( (expr (expr 1) + (expr 2)) <missing ')'>) \\r\\n) (stat (expr 3) \\r\\n))");
+            Check.That(lispStyleTree).IsEqualTo("(prog (stat (expr ( (expr (expr 1) + (expr 2)) <missing ')'>) \\r\\n) (stat (expr 3) \\r\\n))");
         }
 
         [Fact]
@@ -41,10 +41,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._3 {
             exampleBuilder.AppendLine("34*69");
             var example = exampleBuilder.ToString();
             // Exercise
-            GRun   grun       = GRun.ReadString(example);
-            string parseTree1 = grun.ToMermaidStyleTree();
+            GRun   grun             = GRun.ReadString(example);
+            string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
-            Approvals.Verify(parseTree1);
+            Approvals.Verify(mermaidStyleTree);
         }
 
     }
