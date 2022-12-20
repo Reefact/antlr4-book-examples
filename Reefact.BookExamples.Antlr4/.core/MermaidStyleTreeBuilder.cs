@@ -13,6 +13,21 @@ namespace Reefact.BookExamples.Antlr4 {
 
     public sealed class MermaidStyleTreeBuilder : IParseTreeListener {
 
+        #region Statics members declarations
+
+        private static string Escape(string value) {
+            string escapedValue = value.Replace("\\", "#0092;")
+                                       .Replace("\r", "#0092;r")
+                                       .Replace("\n", "#0092;n")
+                                       .Replace("<", "#0060;")
+                                       .Replace(">", "#0062;")
+                                       .Replace("\"", "#0034;");
+
+            return escapedValue;
+        }
+
+        #endregion
+
         #region Fields declarations
 
         private readonly Parser          _parser;
@@ -57,7 +72,7 @@ namespace Reefact.BookExamples.Antlr4 {
 
         /// <inheritdoc />
         public void EnterEveryRule(ParserRuleContext ctx) {
-            string   ruleName = _parser.RuleNames[ctx.RuleIndex];
+            string   ruleName = Escape(_parser.RuleNames[ctx.RuleIndex]);
             NodeInfo nodeInfo = new(_nextId++, ruleName);
             if (_nodeInfos.TryPeek(out NodeInfo? parentNodeInfo)) {
                 RelationShip relationShip = new(parentNodeInfo, nodeInfo);
@@ -84,7 +99,7 @@ namespace Reefact.BookExamples.Antlr4 {
             if (_nodesAlreadySetup.Contains(relationShip.Parent.Id)) {
                 _graphBuilder.Append($"\t{relationShip.Parent.Id}");
             } else {
-                string parentName = Escape(relationShip.Parent.Name);
+                string parentName = relationShip.Parent.Name;
                 _graphBuilder.Append($"\t{relationShip.Parent.Id}[\"{parentName}\"]");
                 _nodesAlreadySetup.Add(relationShip.Parent.Id);
             }
@@ -92,17 +107,10 @@ namespace Reefact.BookExamples.Antlr4 {
             if (_nodesAlreadySetup.Contains(relationShip.Child.Id)) {
                 _graphBuilder.AppendLine(relationShip.Child.Id.ToString());
             } else {
-                string childName = Escape(relationShip.Child.Name);
+                string childName = relationShip.Child.Name;
                 _graphBuilder.AppendLine($"{relationShip.Child.Id}[\"{childName}\"]");
                 _nodesAlreadySetup.Add(relationShip.Child.Id);
             }
-        }
-
-        private string Escape(string value) {
-            return value.Replace("\\", "#0092;")
-                        .Replace(Environment.NewLine, "\\r\\n")
-                        .Replace("<", "&lt;")
-                        .Replace(">", "&gt;");
         }
 
         #region Nested types declarations
