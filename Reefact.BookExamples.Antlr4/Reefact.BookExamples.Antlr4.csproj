@@ -70,6 +70,10 @@
     <Compile Include="Chapter_06\3\.antlr\DOTLexer.cs" />
     <Compile Include="Chapter_06\3\.antlr\DOTListener.cs" />
     <Compile Include="Chapter_06\3\.antlr\DOTParser.cs" />
+    <Compile Include="Chapter_06\4\.antlr\CymbolBaseListener.cs" />
+    <Compile Include="Chapter_06\4\.antlr\CymbolLexer.cs" />
+    <Compile Include="Chapter_06\4\.antlr\CymbolListener.cs" />
+    <Compile Include="Chapter_06\4\.antlr\CymbolParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -191,6 +195,15 @@
     <None Include="Chapter_06\3\.antlr\DOTLexer.interp" />
     <None Include="Chapter_06\3\.antlr\DOTLexer.tokens" />
     <None Include="Chapter_06\3\.resources\ParseTree1.svg" />
+    <None Include="Chapter_06\4\.antlr\Cymbol.g4" />
+    <None Include="Chapter_06\4\.antlr\Cymbol.interp" />
+    <None Include="Chapter_06\4\.antlr\Cymbol.tokens" />
+    <None Include="Chapter_06\4\.antlr\CymbolLexer.interp" />
+    <None Include="Chapter_06\4\.antlr\CymbolLexer.tokens" />
+    <None Include="Chapter_06\4\.resources\ParseTree1.svg" />
+    <None Include="Chapter_06\4\.resources\ParseTree2.svg" />
+    <None Include="Chapter_06\4\.resources\ParseTree3.svg" />
+    <EmbeddedResource Include="Chapter_06\4\.resources\t.cymbol" />
     <EmbeddedResource Include="Chapter_06\3\.resources\t.dot" />
     <EmbeddedResource Include="Chapter_06\1\.resources\data.csv" />
     <EmbeddedResource Include="Chapter_05\6\.resources\service.log" />
