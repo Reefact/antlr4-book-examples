@@ -26,7 +26,7 @@ Below, updated links (2022-12-21) from the book.
 
 9. [R yacc grammar](http://svn.r-project.org/R/trunk/src/main/gram.y)
 10. [R language overview](.resouces/language-overview.pdf)
-11. [R language overview](#) _[no more available]_
+11. ~~[R language overview](#)~~ _[no more available]_
 12. [Set of R examples from Ajay Shah website](https://www.mayin.org/ajayshah/KB/R/index.html)
 13. [R project website](https://www.r-project.org/)
 14. [R-intro](https://cran.r-project.org/doc/manuals/R-intro.pdf)
