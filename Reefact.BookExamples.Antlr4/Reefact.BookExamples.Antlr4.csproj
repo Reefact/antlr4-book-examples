@@ -74,6 +74,10 @@
     <Compile Include="Chapter_06\4\.antlr\CymbolLexer.cs" />
     <Compile Include="Chapter_06\4\.antlr\CymbolListener.cs" />
     <Compile Include="Chapter_06\4\.antlr\CymbolParser.cs" />
+    <Compile Include="Chapter_06\5\.antlr\RBaseListener.cs" />
+    <Compile Include="Chapter_06\5\.antlr\RLexer.cs" />
+    <Compile Include="Chapter_06\5\.antlr\RListener.cs" />
+    <Compile Include="Chapter_06\5\.antlr\RParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -203,6 +207,16 @@
     <None Include="Chapter_06\4\.resources\ParseTree1.svg" />
     <None Include="Chapter_06\4\.resources\ParseTree2.svg" />
     <None Include="Chapter_06\4\.resources\ParseTree3.svg" />
+    <None Include="Chapter_06\5\.antlr\R.g4" />
+    <None Include="Chapter_06\5\.antlr\R.interp" />
+    <None Include="Chapter_06\5\.antlr\R.tokens" />
+    <None Include="Chapter_06\5\.antlr\RLexer.interp" />
+    <None Include="Chapter_06\5\.antlr\RLexer.tokens" />
+    <EmbeddedResource Include="Chapter_06\5\.resources\b1.R" />
+    <EmbeddedResource Include="Chapter_06\5\.resources\b5.R" />
+    <None Include="Chapter_06\5\.resources\ParseTree1.svg" />
+    <None Include="Chapter_06\5\.resources\ParseTree2.svg" />
+    <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
     <EmbeddedResource Include="Chapter_06\4\.resources\t.cymbol" />
     <EmbeddedResource Include="Chapter_06\3\.resources\t.dot" />
     <EmbeddedResource Include="Chapter_06\1\.resources\data.csv" />
@@ -221,6 +235,21 @@
       <DependentUpon>Examples.cs</DependentUpon>
     </None>
     <None Update="Chapter_05\3\Examples.display_column_of_index_0.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_06\5\Examples.mermaid_style_tree.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_06\5\Examples.precedence_01.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_06\5\Examples.precedence_02.approved.txt">
       <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
       <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
