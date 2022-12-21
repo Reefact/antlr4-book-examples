@@ -214,6 +214,7 @@
     <None Include="Chapter_06\5\.antlr\RLexer.tokens" />
     <EmbeddedResource Include="Chapter_06\5\.resources\b1.R" />
     <EmbeddedResource Include="Chapter_06\5\.resources\b5.R" />
+    <None Include="Chapter_06\5\.resources\language-overview.pdf" />
     <None Include="Chapter_06\5\.resources\ParseTree1.svg" />
     <None Include="Chapter_06\5\.resources\ParseTree2.svg" />
     <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
