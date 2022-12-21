@@ -38,7 +38,7 @@ public partial class CymbolParser : Parser {
 	public const int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, T__20=21, ID=22, INT=23, WS=24;
+		T__17=18, T__18=19, T__19=20, T__20=21, ID=22, INT=23, WS=24, SL_COMMENT=25;
 	public const int
 		RULE_file = 0, RULE_varDecl = 1, RULE_type = 2, RULE_functionDecl = 3, 
 		RULE_formalParameters = 4, RULE_formalParameter = 5, RULE_block = 6, RULE_stat = 7, 
@@ -56,7 +56,7 @@ public partial class CymbolParser : Parser {
 	private static readonly string[] _SymbolicNames = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, "ID", "INT", 
-		"WS"
+		"WS", "SL_COMMENT"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -933,7 +933,7 @@ public partial class CymbolParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,24,137,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
+		4,1,25,137,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,6,2,7,
 		7,7,2,8,7,8,2,9,7,9,1,0,1,0,4,0,23,8,0,11,0,12,0,24,1,1,1,1,1,1,1,1,3,
 		1,31,8,1,1,1,1,1,1,2,1,2,1,3,1,3,1,3,1,3,3,3,41,8,3,1,3,1,3,1,3,1,4,1,
 		4,1,4,5,4,49,8,4,10,4,12,4,52,9,4,1,5,1,5,1,5,1,6,1,6,5,6,59,8,6,10,6,

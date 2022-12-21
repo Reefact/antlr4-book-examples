@@ -22,6 +22,7 @@ T__20=21
 ID=22
 INT=23
 WS=24
+SL_COMMENT=25
 '='=1
 ';'=2
 'float'=3

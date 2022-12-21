@@ -12,15 +12,15 @@ formalParameters	:	formalParameter (',' formalParameter)* ;
 
 formalParameter		:	type ID ;
 
-block				:	'{' stat* '}' ;
+block				:	'{' stat* '}' ;								// possibly empty statement block
 
 stat				:	block
 					|	varDecl
 					|	'if' expr 'then' stat ('else' stat)?
 					|	'return' expr? ';'
 					|	expr '=' expr ';'							// assignement
-					|	expr ';'									// func call
-					;
+					|	expr ';'									// func call	
+                ;
 
 expr				:	ID '(' exprList? ')'						// func call like f(), f(x), f(1,2)
 					|	ID '[' expr ']'								// array index like a[i], a[i][j]
@@ -36,12 +36,12 @@ expr				:	ID '(' exprList? ')'						// func call like f(), f(x), f(1,2)
 
 exprList			:	expr (',' expr)* ;							// arg list
 
-ID					:	LETTER ( LETTER | DIGIT )* ;
+ID					:	LETTER ( LETTER | [0-9])* ;
 fragment
-	LETTER			:	[a-zA-Z\u0080-\u00FF_] ;
-fragment
-	DIGIT			:	[0-9] ;
+	LETTER			:	[a-zA-Z] ;
 
 INT					:   [0-9]+ ;
 
-WS					:   [ \t\r\n]+ -> skip; 
+WS					:   [ \t\r\n]+ -> skip ;
+
+SL_COMMENT      :   '//' .*? '\n' -> skip ;
