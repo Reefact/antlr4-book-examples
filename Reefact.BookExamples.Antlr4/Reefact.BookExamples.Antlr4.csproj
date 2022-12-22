@@ -78,15 +78,18 @@
     <Compile Include="Chapter_06\5\.antlr\RLexer.cs" />
     <Compile Include="Chapter_06\5\.antlr\RListener.cs" />
     <Compile Include="Chapter_06\5\.antlr\RParser.cs" />
-    <Compile Include="Chapter_07\1\.antlr\PropertyFileBaseListener.cs" />
-    <Compile Include="Chapter_07\1\.antlr\PropertyFileLexer.cs" />
-    <Compile Include="Chapter_07\1\.antlr\PropertyFileListener.cs" />
-    <Compile Include="Chapter_07\1\.antlr\PropertyFileParser.cs" />
+    <Compile Include="Chapter_07\1\.antlr\PropertyFile_7_1Lexer.cs" />
+    <Compile Include="Chapter_07\1\.antlr\PropertyFile_7_1Parser.cs" />
+    <Compile Include="Chapter_07\2\.antlr\PropertyFile_7_2BaseListener.cs" />
+    <Compile Include="Chapter_07\2\.antlr\PropertyFile_7_2Lexer.cs" />
+    <Compile Include="Chapter_07\2\.antlr\PropertyFile_7_2Listener.cs" />
+    <Compile Include="Chapter_07\2\.antlr\PropertyFile_7_2Parser.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Chapter_03\.antlr\ReadMe.txt" />
     <Content Include="Chapter_04\4\2\.antlr\Data.g4" />
+    <Content Include="Chapter_07\2\.resources\listeners-hierarchy.png" />
     <EmbeddedResource Include="Chapter_06\2\.resources\t.json" />
   </ItemGroup>
 
@@ -221,12 +224,19 @@
     <None Include="Chapter_06\5\.resources\language-overview.pdf" />
     <None Include="Chapter_06\5\.resources\ParseTree1.svg" />
     <None Include="Chapter_06\5\.resources\ParseTree2.svg" />
-    <None Include="Chapter_07\1\.antlr\PropertyFile.g4" />
-    <None Include="Chapter_07\1\.antlr\PropertyFile.interp" />
-    <None Include="Chapter_07\1\.antlr\PropertyFile.tokens" />
-    <None Include="Chapter_07\1\.antlr\PropertyFileLexer.interp" />
-    <None Include="Chapter_07\1\.antlr\PropertyFileLexer.tokens" />
-    <EmbeddedResource Include="Chapter_07\1\.resources\t.property" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile_7_1.g4" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile_7_1.interp" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile_7_1.tokens" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile_7_1Lexer.interp" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile_7_1Lexer.tokens" />
+    <None Include="Chapter_07\2\.antlr\PropertyFile_7_2.g4" />
+    <None Include="Chapter_07\2\.antlr\PropertyFile_7_2.interp" />
+    <None Include="Chapter_07\2\.antlr\PropertyFile_7_2.tokens" />
+    <None Include="Chapter_07\2\.antlr\PropertyFile_7_2Lexer.interp" />
+    <None Include="Chapter_07\2\.antlr\PropertyFile_7_2Lexer.tokens" />
+    <None Include="Chapter_07\2\.resources\ParseTree1.svg" />
+    <EmbeddedResource Include="Chapter_07\2\.resources\t.properties" />
+    <EmbeddedResource Include="Chapter_07\1\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
     <EmbeddedResource Include="Chapter_06\4\.resources\t.cymbol" />
     <EmbeddedResource Include="Chapter_06\3\.resources\t.dot" />
@@ -261,6 +271,11 @@
       <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
     </None>
     <None Update="Chapter_06\5\Examples.precedence_02.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_07\2\Examples.Example.approved.txt">
       <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
       <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>

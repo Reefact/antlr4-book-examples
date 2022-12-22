@@ -1,4 +1,4 @@
-﻿grammar PropertyFile;
+﻿grammar PropertyFile_7_1;
 @members {
 	protected virtual void StartFile() { } // blank implementations
 	protected virtual void FinishFile() { }

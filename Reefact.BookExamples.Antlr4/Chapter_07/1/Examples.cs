@@ -15,7 +15,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._1 {
         [Fact]
         public void Example() {
             // Setup
-            GRun grun = GRun.ReadResource("t.property", 7, 1);
+            GRun grun = GRun.ReadResource("t.properties", 7, 1);
             // Exercise
             string properties = grun.ToPropertiesString();
             // Verify

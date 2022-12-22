@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from PropertyFile.g4 by ANTLR 4.11.1
+// Generated from PropertyFile_7_2.g4 by ANTLR 4.11.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -25,29 +25,29 @@ using IToken = Antlr4.Runtime.IToken;
 
 /// <summary>
 /// This interface defines a complete listener for a parse tree produced by
-/// <see cref="PropertyFileParser"/>.
+/// <see cref="PropertyFile_7_2Parser"/>.
 /// </summary>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.11.1")]
 [System.CLSCompliant(false)]
-public interface IPropertyFileListener : IParseTreeListener {
+public interface IPropertyFile_7_2Listener : IParseTreeListener {
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="PropertyFileParser.file"/>.
+	/// Enter a parse tree produced by <see cref="PropertyFile_7_2Parser.file"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterFile([NotNull] PropertyFileParser.FileContext context);
+	void EnterFile([NotNull] PropertyFile_7_2Parser.FileContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="PropertyFileParser.file"/>.
+	/// Exit a parse tree produced by <see cref="PropertyFile_7_2Parser.file"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitFile([NotNull] PropertyFileParser.FileContext context);
+	void ExitFile([NotNull] PropertyFile_7_2Parser.FileContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="PropertyFileParser.prop"/>.
+	/// Enter a parse tree produced by <see cref="PropertyFile_7_2Parser.prop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterProp([NotNull] PropertyFileParser.PropContext context);
+	void EnterProp([NotNull] PropertyFile_7_2Parser.PropContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="PropertyFileParser.prop"/>.
+	/// Exit a parse tree produced by <see cref="PropertyFile_7_2Parser.prop"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitProp([NotNull] PropertyFileParser.PropContext context);
+	void ExitProp([NotNull] PropertyFile_7_2Parser.PropContext context);
 }

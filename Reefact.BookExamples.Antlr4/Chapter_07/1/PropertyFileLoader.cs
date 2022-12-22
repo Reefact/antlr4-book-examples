@@ -6,7 +6,7 @@ using Antlr4.Runtime;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_07._1 {
 
-    public sealed class PropertyFileLoader : PropertyFileParser {
+    public sealed class PropertyFileLoader : PropertyFile_7_1Parser {
 
         #region Fields declarations
 

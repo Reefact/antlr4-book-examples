@@ -5,7 +5,7 @@ using Antlr4.Runtime.Tree;
 
 #endregion
 
-namespace Reefact.BookExamples.Antlr4.Chapter_07._1 {
+namespace Reefact.BookExamples.Antlr4.Chapter_07._2 {
 
     public sealed class GRun : GRunBase {
 
@@ -25,10 +25,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._1 {
         }
 
         private static GRun ReadStream(AntlrInputStream inputStream) {
-            PropertyFile_7_1Lexer              lexer  = new(inputStream);
+            var                                lexer  = new PropertyFile_7_2Lexer(inputStream);
             CommonTokenStream                  tokens = new(lexer);
-            var                                parser = new PropertyFileLoader(tokens);
-            PropertyFile_7_1Parser.FileContext tree   = parser.file();
+            var                                parser = new PropertyFile_7_2Parser(tokens);
+            PropertyFile_7_2Parser.FileContext tree   = parser.file();
 
             return new GRun(tree, parser, tokens);
         }
@@ -43,7 +43,11 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._1 {
         #endregion
 
         public string ToPropertiesString() {
-            return Parser.ToString() ?? string.Empty;
+            ParseTreeWalker    walker   = new();
+            PropertyFileLoader listener = new();
+            walker.Walk(listener, Tree);
+
+            return listener.ToString();
         }
 
     }

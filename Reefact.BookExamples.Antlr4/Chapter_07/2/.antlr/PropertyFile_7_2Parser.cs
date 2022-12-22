@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from PropertyFile.g4 by ANTLR 4.11.1
+// Generated from PropertyFile_7_2.g4 by ANTLR 4.11.1
 
 // Unreachable code detected
 #pragma warning disable 0162
@@ -32,11 +32,11 @@ using DFA = Antlr4.Runtime.Dfa.DFA;
 
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.11.1")]
 [System.CLSCompliant(false)]
-public partial class PropertyFileParser : Parser {
+public partial class PropertyFile_7_2Parser : Parser {
 	protected static DFA[] decisionToDFA;
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
-		T__0=1, T__1=2, T__2=3, ID=4, STRING=5;
+		T__0=1, ID=2, STRING=3, NEWLINE=4;
 	public const int
 		RULE_file = 0, RULE_prop = 1;
 	public static readonly string[] ruleNames = {
@@ -44,10 +44,10 @@ public partial class PropertyFileParser : Parser {
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "'='", "'\\r'", "'\\n'"
+		null, "'='"
 	};
 	private static readonly string[] _SymbolicNames = {
-		null, null, null, null, "ID", "STRING"
+		null, null, "ID", "STRING", "NEWLINE"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
 
@@ -60,27 +60,22 @@ public partial class PropertyFileParser : Parser {
 		}
 	}
 
-	public override string GrammarFileName { get { return "PropertyFile.g4"; } }
+	public override string GrammarFileName { get { return "PropertyFile_7_2.g4"; } }
 
 	public override string[] RuleNames { get { return ruleNames; } }
 
 	public override int[] SerializedAtn { get { return _serializedATN; } }
 
-	static PropertyFileParser() {
+	static PropertyFile_7_2Parser() {
 		decisionToDFA = new DFA[_ATN.NumberOfDecisions];
 		for (int i = 0; i < _ATN.NumberOfDecisions; i++) {
 			decisionToDFA[i] = new DFA(_ATN.GetDecisionState(i), i);
 		}
 	}
 
+		public PropertyFile_7_2Parser(ITokenStream input) : this(input, Console.Out, Console.Error) { }
 
-		protected virtual void StartFile() { } // blank implementations
-		protected virtual void FinishFile() { }
-		protected virtual void DefineProperty(IToken name, IToken value) { }
-
-		public PropertyFileParser(ITokenStream input) : this(input, Console.Out, Console.Error) { }
-
-		public PropertyFileParser(ITokenStream input, TextWriter output, TextWriter errorOutput)
+		public PropertyFile_7_2Parser(ITokenStream input, TextWriter output, TextWriter errorOutput)
 		: base(input, output, errorOutput)
 	{
 		Interpreter = new ParserATNSimulator(this, _ATN, decisionToDFA, sharedContextCache);
@@ -100,12 +95,12 @@ public partial class PropertyFileParser : Parser {
 		public override int RuleIndex { get { return RULE_file; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IPropertyFileListener typedListener = listener as IPropertyFileListener;
+			IPropertyFile_7_2Listener typedListener = listener as IPropertyFile_7_2Listener;
 			if (typedListener != null) typedListener.EnterFile(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IPropertyFileListener typedListener = listener as IPropertyFileListener;
+			IPropertyFile_7_2Listener typedListener = listener as IPropertyFile_7_2Listener;
 			if (typedListener != null) typedListener.ExitFile(this);
 		}
 	}
@@ -118,22 +113,20 @@ public partial class PropertyFileParser : Parser {
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			StartFile();
-			State = 6;
+			State = 5;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
 			do {
 				{
 				{
-				State = 5;
+				State = 4;
 				prop();
 				}
 				}
-				State = 8;
+				State = 7;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
 			} while ( _la==ID );
-			FinishFile();
 			}
 		}
 		catch (RecognitionException re) {
@@ -148,10 +141,9 @@ public partial class PropertyFileParser : Parser {
 	}
 
 	public partial class PropContext : ParserRuleContext {
-		public IToken _ID;
-		public IToken _STRING;
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ID() { return GetToken(PropertyFileParser.ID, 0); }
-		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(PropertyFileParser.STRING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ID() { return GetToken(PropertyFile_7_2Parser.ID, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode STRING() { return GetToken(PropertyFile_7_2Parser.STRING, 0); }
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode NEWLINE() { return GetToken(PropertyFile_7_2Parser.NEWLINE, 0); }
 		public PropContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -159,12 +151,12 @@ public partial class PropertyFileParser : Parser {
 		public override int RuleIndex { get { return RULE_prop; } }
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void EnterRule(IParseTreeListener listener) {
-			IPropertyFileListener typedListener = listener as IPropertyFileListener;
+			IPropertyFile_7_2Listener typedListener = listener as IPropertyFile_7_2Listener;
 			if (typedListener != null) typedListener.EnterProp(this);
 		}
 		[System.Diagnostics.DebuggerNonUserCode]
 		public override void ExitRule(IParseTreeListener listener) {
-			IPropertyFileListener typedListener = listener as IPropertyFileListener;
+			IPropertyFile_7_2Listener typedListener = listener as IPropertyFile_7_2Listener;
 			if (typedListener != null) typedListener.ExitProp(this);
 		}
 	}
@@ -173,29 +165,17 @@ public partial class PropertyFileParser : Parser {
 	public PropContext prop() {
 		PropContext _localctx = new PropContext(Context, State);
 		EnterRule(_localctx, 2, RULE_prop);
-		int _la;
 		try {
 			EnterOuterAlt(_localctx, 1);
 			{
-			State = 12;
-			_localctx._ID = Match(ID);
-			State = 13;
+			State = 9;
+			Match(ID);
+			State = 10;
 			Match(T__0);
-			State = 14;
-			_localctx._STRING = Match(STRING);
-			State = 16;
-			ErrorHandler.Sync(this);
-			_la = TokenStream.LA(1);
-			if (_la==T__1) {
-				{
-				State = 15;
-				Match(T__1);
-				}
-			}
-
-			State = 18;
-			Match(T__2);
-			DefineProperty(_localctx._ID, _localctx._STRING);
+			State = 11;
+			Match(STRING);
+			State = 12;
+			Match(NEWLINE);
 			}
 		}
 		catch (RecognitionException re) {
@@ -210,12 +190,10 @@ public partial class PropertyFileParser : Parser {
 	}
 
 	private static int[] _serializedATN = {
-		4,1,5,22,2,0,7,0,2,1,7,1,1,0,1,0,4,0,7,8,0,11,0,12,0,8,1,0,1,0,1,1,1,1,
-		1,1,1,1,3,1,17,8,1,1,1,1,1,1,1,1,1,0,0,2,0,2,0,0,21,0,4,1,0,0,0,2,12,1,
-		0,0,0,4,6,6,0,-1,0,5,7,3,2,1,0,6,5,1,0,0,0,7,8,1,0,0,0,8,6,1,0,0,0,8,9,
-		1,0,0,0,9,10,1,0,0,0,10,11,6,0,-1,0,11,1,1,0,0,0,12,13,5,4,0,0,13,14,5,
-		1,0,0,14,16,5,5,0,0,15,17,5,2,0,0,16,15,1,0,0,0,16,17,1,0,0,0,17,18,1,
-		0,0,0,18,19,5,3,0,0,19,20,6,1,-1,0,20,3,1,0,0,0,2,8,16
+		4,1,4,15,2,0,7,0,2,1,7,1,1,0,4,0,6,8,0,11,0,12,0,7,1,1,1,1,1,1,1,1,1,1,
+		1,1,0,0,2,0,2,0,0,13,0,5,1,0,0,0,2,9,1,0,0,0,4,6,3,2,1,0,5,4,1,0,0,0,6,
+		7,1,0,0,0,7,5,1,0,0,0,7,8,1,0,0,0,8,1,1,0,0,0,9,10,5,2,0,0,10,11,5,1,0,
+		0,11,12,5,3,0,0,12,13,5,4,0,0,13,3,1,0,0,0,1,7
 	};
 
 	public static readonly ATN _ATN =
