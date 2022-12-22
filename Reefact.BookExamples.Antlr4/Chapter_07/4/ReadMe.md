@@ -10,7 +10,3 @@ _C# lexer and parser classes are generated with the following command line:_
 antlr4 SExpr.g4 -Dlanguage=CSharp
 antlr4 LExpr.g4 -Dlanguage=CSharp
 ```
-
-Below, the visitor classes hierarchy :
-
-<img src=".resources/visitors-hierarchy.png" alt="Visitor classes hierarchy" width="100%"/>
