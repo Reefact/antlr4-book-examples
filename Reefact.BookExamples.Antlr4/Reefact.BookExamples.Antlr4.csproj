@@ -89,6 +89,14 @@
     <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Lexer.cs" />
     <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Parser.cs" />
     <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Visitor.cs" />
+    <Compile Include="Chapter_07\4\.antlr\LExprBaseListener.cs" />
+    <Compile Include="Chapter_07\4\.antlr\LExprLexer.cs" />
+    <Compile Include="Chapter_07\4\.antlr\LExprListener.cs" />
+    <Compile Include="Chapter_07\4\.antlr\LExprParser.cs" />
+    <Compile Include="Chapter_07\4\.antlr\SExprBaseListener.cs" />
+    <Compile Include="Chapter_07\4\.antlr\SExprLexer.cs" />
+    <Compile Include="Chapter_07\4\.antlr\SExprListener.cs" />
+    <Compile Include="Chapter_07\4\.antlr\SExprParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -249,6 +257,16 @@
     <None Include="Chapter_07\3\.antlr\PropertyFile_7_3Lexer.interp" />
     <None Include="Chapter_07\3\.antlr\PropertyFile_7_3Lexer.tokens" />
     <None Include="Chapter_07\3\.resources\visitors-hierarchy.mmd" />
+    <None Include="Chapter_07\4\.antlr\LExpr.interp" />
+    <None Include="Chapter_07\4\.antlr\LExpr.tokens" />
+    <None Include="Chapter_07\4\.antlr\LExprLexer.interp" />
+    <None Include="Chapter_07\4\.antlr\LExprLexer.tokens" />
+    <None Include="Chapter_07\4\.antlr\SExpr.g4" />
+    <None Include="Chapter_07\4\.antlr\LExpr.g4" />
+    <None Include="Chapter_07\4\.antlr\SExpr.interp" />
+    <None Include="Chapter_07\4\.antlr\SExpr.tokens" />
+    <None Include="Chapter_07\4\.antlr\SExprLexer.interp" />
+    <None Include="Chapter_07\4\.antlr\SExprLexer.tokens" />
     <EmbeddedResource Include="Chapter_07\2\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_07\1\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
@@ -309,6 +327,10 @@
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
       <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Chapter_07\4\.resources\" />
   </ItemGroup>
 
 </Project>
