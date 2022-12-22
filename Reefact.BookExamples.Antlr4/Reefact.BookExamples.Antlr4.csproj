@@ -13,6 +13,7 @@
     <Compile Include=".core\GRunBase.cs" />
     <Compile Include=".core\MermaidStyleTreeBuilder.cs" />
     <Compile Include=".core\ResourcesHelper.cs" />
+    <Compile Include=".core\Void.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitBaseListener.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitLexer.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitListener.cs" />
@@ -84,12 +85,17 @@
     <Compile Include="Chapter_07\2\.antlr\PropertyFile_7_2Lexer.cs" />
     <Compile Include="Chapter_07\2\.antlr\PropertyFile_7_2Listener.cs" />
     <Compile Include="Chapter_07\2\.antlr\PropertyFile_7_2Parser.cs" />
+    <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3BaseVisitor.cs" />
+    <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Lexer.cs" />
+    <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Parser.cs" />
+    <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Visitor.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Chapter_03\.antlr\ReadMe.txt" />
     <Content Include="Chapter_04\4\2\.antlr\Data.g4" />
     <Content Include="Chapter_07\2\.resources\listeners-hierarchy.png" />
+    <Content Include="Chapter_07\3\.resources\visitors-hierarchy.png" />
     <EmbeddedResource Include="Chapter_06\2\.resources\t.json" />
   </ItemGroup>
 
@@ -101,6 +107,7 @@
     <EmbeddedResource Include="Chapter_04\1\1\.resources\t.expr" />
     <EmbeddedResource Include="Chapter_04\4\1\.resources\t.rows" />
     <EmbeddedResource Include="Chapter_04\5\1\.resources\t.xml" />
+    <EmbeddedResource Include="Chapter_07\3\.resources\t.properties" />
   </ItemGroup>
 
   <ItemGroup>
@@ -236,6 +243,12 @@
     <None Include="Chapter_07\2\.antlr\PropertyFile_7_2Lexer.tokens" />
     <None Include="Chapter_07\2\.resources\listeners-hierarchy.mmd" />
     <None Include="Chapter_07\2\.resources\ParseTree1.svg" />
+    <None Include="Chapter_07\3\.antlr\PropertyFile_7_3.g4" />
+    <None Include="Chapter_07\3\.antlr\PropertyFile_7_3.interp" />
+    <None Include="Chapter_07\3\.antlr\PropertyFile_7_3.tokens" />
+    <None Include="Chapter_07\3\.antlr\PropertyFile_7_3Lexer.interp" />
+    <None Include="Chapter_07\3\.antlr\PropertyFile_7_3Lexer.tokens" />
+    <None Include="Chapter_07\3\.resources\visitors-hierarchy.mmd" />
     <EmbeddedResource Include="Chapter_07\2\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_07\1\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
@@ -277,6 +290,21 @@
       <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
     </None>
     <None Update="Chapter_07\2\Examples.Example.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_07\3\Examples.Example.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_07\3\Examples.load_t_properties.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_07\3\Examples.mermaid_tree_style_of_t_properties.approved.txt">
       <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
       <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
