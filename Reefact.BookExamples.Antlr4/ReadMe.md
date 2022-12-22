@@ -5,3 +5,4 @@
 ## [4. A Quick Tour](Chapter_04)
 ## [5. Designing Grammars](Chapter_05)
 ## [6. Exploring Some Real Grammars](Chapter_06)
+## [7. Decoupling Grammars from Application-Specific Code](Chapter_07)

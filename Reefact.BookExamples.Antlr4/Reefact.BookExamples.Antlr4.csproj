@@ -78,6 +78,10 @@
     <Compile Include="Chapter_06\5\.antlr\RLexer.cs" />
     <Compile Include="Chapter_06\5\.antlr\RListener.cs" />
     <Compile Include="Chapter_06\5\.antlr\RParser.cs" />
+    <Compile Include="Chapter_07\1\.antlr\PropertyFileBaseListener.cs" />
+    <Compile Include="Chapter_07\1\.antlr\PropertyFileLexer.cs" />
+    <Compile Include="Chapter_07\1\.antlr\PropertyFileListener.cs" />
+    <Compile Include="Chapter_07\1\.antlr\PropertyFileParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -217,6 +221,12 @@
     <None Include="Chapter_06\5\.resources\language-overview.pdf" />
     <None Include="Chapter_06\5\.resources\ParseTree1.svg" />
     <None Include="Chapter_06\5\.resources\ParseTree2.svg" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile.g4" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile.interp" />
+    <None Include="Chapter_07\1\.antlr\PropertyFile.tokens" />
+    <None Include="Chapter_07\1\.antlr\PropertyFileLexer.interp" />
+    <None Include="Chapter_07\1\.antlr\PropertyFileLexer.tokens" />
+    <EmbeddedResource Include="Chapter_07\1\.resources\t.property" />
     <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
     <EmbeddedResource Include="Chapter_06\4\.resources\t.cymbol" />
     <EmbeddedResource Include="Chapter_06\3\.resources\t.dot" />
