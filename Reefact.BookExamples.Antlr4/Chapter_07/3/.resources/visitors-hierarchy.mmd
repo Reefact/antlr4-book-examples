@@ -1,15 +1,15 @@
 ﻿classDiagram
     direction LR
-    IPropertyFileVisitor~T~ <|-- PropertyFileBaseVisitor~T~
-    PropertyFileBaseVisitor~T~ <|-- PropertyFileLoader
-    note for IPropertyFileVisitor "ANTLR generates from PropertyFile.g4"
-    class IPropertyFileVisitor {
+    IPropertyFile_7_3Visitor~T~ <|-- PropertyFile_7_3BaseVisitor~T~
+    PropertyFile_7_3BaseVisitor~T~ <|-- PropertyFileLoader
+    note for IPropertyFile_7_3Visitor "ANTLR generates from PropertyFile_7_3.g4"
+    class IPropertyFile_7_3Visitor {
         <<interface>>
         +VisitFile()
         +VisitProp()
     }
-    note for PropertyFileBaseVisitor "ANTLR generates from PropertyFile.g4"
-    class PropertyFileBaseVisitor {
+    note for PropertyFile_7_3BaseVisitor "ANTLR generates from PropertyFile_7_3.g4"
+    class PropertyFile_7_3BaseVisitor {
         +VisitFile()
         +VisitProp()
     }
