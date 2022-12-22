@@ -1,8 +1,8 @@
 ﻿classDiagram
     direction LR
-    IParseTreeListener <|-- IPropertyFileListener
-    IPropertyFileListener <|-- PropertyFileBaseListener
-    PropertyFileBaseListener <|-- PropertyFileLoader
+    IParseTreeListener <|-- IPropertyFile_7_2Listener
+    IPropertyFile_7_2Listener <|-- PropertyFile_7_2BaseListener
+    PropertyFile_7_2BaseListener <|-- PropertyFileLoader
     note for IParseTreeListener "ANTLR library"
     class IParseTreeListener {
         <<interface>>
@@ -11,16 +11,16 @@
         +ExitEveryRule()
         +VisitErrorNode()
     }
-    note for IPropertyFileListener "ANTLR generates from PropertyFile.g4"
-    class IPropertyFileListener {
+    note for IPropertyFile_7_2Listener "ANTLR generates from PropertyFile_7_2.g4"
+    class IPropertyFile_7_2Listener {
         <<interface>>
         +EnterFile()
         +ExitFile()
         +EnterProp()
         +ExitProp()
     }
-    note for PropertyFileBaseListener "ANTLR generates from PropertyFile.g4"
-    class PropertyFileBaseListener{
+    note for PropertyFile_7_2BaseListener "ANTLR generates from PropertyFile_7_2.g4"
+    class PropertyFile_7_2BaseListener{
         +VisitTerminal()
         +EnterEveryRule()
         +ExitEveryRule()
