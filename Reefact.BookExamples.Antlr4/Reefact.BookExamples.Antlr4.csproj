@@ -234,7 +234,7 @@
     <None Include="Chapter_07\2\.antlr\PropertyFile_7_2.tokens" />
     <None Include="Chapter_07\2\.antlr\PropertyFile_7_2Lexer.interp" />
     <None Include="Chapter_07\2\.antlr\PropertyFile_7_2Lexer.tokens" />
-    <None Include="Chapter_07\2\.resources\listeners-hierarchy.md" />
+    <None Include="Chapter_07\2\.resources\listeners-hierarchy.mmd" />
     <None Include="Chapter_07\2\.resources\ParseTree1.svg" />
     <EmbeddedResource Include="Chapter_07\2\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_07\1\.resources\t.properties" />
