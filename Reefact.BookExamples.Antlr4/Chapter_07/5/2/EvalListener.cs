@@ -16,16 +16,20 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._5._2 {
 
         /// <inheritdoc />
         public override void ExitMult(LExprParser.MultContext context) {
-            int right = _stack.Pop();
-            int left  = _stack.Pop();
-            _stack.Push(left * right);
+            int right                   = _stack.Pop();
+            int left                    = _stack.Pop();
+            int evaluatedMultiplication = left * right;
+
+            _stack.Push(evaluatedMultiplication);
         }
 
         /// <inheritdoc />
         public override void ExitAdd(LExprParser.AddContext context) {
-            int right = _stack.Pop();
-            int left  = _stack.Pop();
-            _stack.Push(left + right);
+            int right             = _stack.Pop();
+            int left              = _stack.Pop();
+            int evaluatedAddition = left + right;
+
+            _stack.Push(evaluatedAddition);
         }
 
         /// <inheritdoc />
