@@ -99,6 +99,10 @@
     <Compile Include="Chapter_07\4\.antlr\SExprLexer.cs" />
     <Compile Include="Chapter_07\4\.antlr\SExprListener.cs" />
     <Compile Include="Chapter_07\4\.antlr\SExprParser.cs" />
+    <Compile Include="Chapter_08\1\.antlr\CSV_8_1BaseListener.cs" />
+    <Compile Include="Chapter_08\1\.antlr\CSV_8_1Lexer.cs" />
+    <Compile Include="Chapter_08\1\.antlr\CSV_8_1Listener.cs" />
+    <Compile Include="Chapter_08\1\.antlr\CSV_8_1Parser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -269,6 +273,11 @@
     <None Include="Chapter_07\4\.antlr\SExpr.tokens" />
     <None Include="Chapter_07\4\.antlr\SExprLexer.interp" />
     <None Include="Chapter_07\4\.antlr\SExprLexer.tokens" />
+    <None Include="Chapter_08\1\.antlr\CSV_8_1.g4" />
+    <None Include="Chapter_08\1\.antlr\CSV_8_1.interp" />
+    <None Include="Chapter_08\1\.antlr\CSV_8_1.tokens" />
+    <None Include="Chapter_08\1\.antlr\CSV_8_1Lexer.interp" />
+    <None Include="Chapter_08\1\.antlr\CSV_8_1Lexer.tokens" />
     <EmbeddedResource Include="Chapter_07\2\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_07\1\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
