@@ -90,9 +90,11 @@
     <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Parser.cs" />
     <Compile Include="Chapter_07\3\.antlr\PropertyFile_7_3Visitor.cs" />
     <Compile Include="Chapter_07\4\.antlr\LExprBaseListener.cs" />
+    <Compile Include="Chapter_07\4\.antlr\LExprBaseVisitor.cs" />
     <Compile Include="Chapter_07\4\.antlr\LExprLexer.cs" />
     <Compile Include="Chapter_07\4\.antlr\LExprListener.cs" />
     <Compile Include="Chapter_07\4\.antlr\LExprParser.cs" />
+    <Compile Include="Chapter_07\4\.antlr\LExprVisitor.cs" />
     <Compile Include="Chapter_07\4\.antlr\SExprBaseListener.cs" />
     <Compile Include="Chapter_07\4\.antlr\SExprLexer.cs" />
     <Compile Include="Chapter_07\4\.antlr\SExprListener.cs" />

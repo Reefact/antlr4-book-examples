@@ -100,6 +100,12 @@ public partial class LExprParser : Parser {
 			ILExprListener typedListener = listener as ILExprListener;
 			if (typedListener != null) typedListener.ExitS(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ILExprVisitor<TResult> typedVisitor = visitor as ILExprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitS(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -154,6 +160,12 @@ public partial class LExprParser : Parser {
 			ILExprListener typedListener = listener as ILExprListener;
 			if (typedListener != null) typedListener.ExitAdd(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ILExprVisitor<TResult> typedVisitor = visitor as ILExprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAdd(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class MultContext : EContext {
 		[System.Diagnostics.DebuggerNonUserCode] public EContext[] e() {
@@ -173,6 +185,12 @@ public partial class LExprParser : Parser {
 			ILExprListener typedListener = listener as ILExprListener;
 			if (typedListener != null) typedListener.ExitMult(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ILExprVisitor<TResult> typedVisitor = visitor as ILExprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMult(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 	public partial class IntContext : EContext {
 		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode INT() { return GetToken(LExprParser.INT, 0); }
@@ -186,6 +204,12 @@ public partial class LExprParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ILExprListener typedListener = listener as ILExprListener;
 			if (typedListener != null) typedListener.ExitInt(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ILExprVisitor<TResult> typedVisitor = visitor as ILExprVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInt(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
