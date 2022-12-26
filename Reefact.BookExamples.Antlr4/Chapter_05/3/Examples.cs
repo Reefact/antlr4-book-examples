@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -18,7 +20,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
         [GraphicalTree("ParseTree1.svg")]
         public void example_01() {
             // Setup
-            GRun grun = GRun.ReadString("a[1]");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("a[1]");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string lispStyleTree    = grun.ToLispStyleTree();
             string mermaidStyleTree = grun.ToMermaidStyleTree();
@@ -31,7 +34,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
         [GraphicalTree("ParseTree2.svg")]
         public void example_02() {
             // Setup
-            GRun grun = GRun.ReadString("(a[1])");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("(a[1])");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string lispStyleTree    = grun.ToLispStyleTree();
             string mermaidStyleTree = grun.ToMermaidStyleTree();
@@ -43,7 +47,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
         [Fact]
         public void example_03() {
             // Setup
-            GRun grun = GRun.ReadString("(((1)))");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("(((1)))");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string output = grun.ToLispStyleTree();
             // Verify

@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -15,7 +17,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._1 {
         [Fact]
         public void Tree() {
             // Setup
-            GRun grun = GRun.ReadResource("data.csv", 6, 1);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("data.csv", 6, 1);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string listStyleTree = grun.ToLispStyleTree();
             // Verify
@@ -25,7 +28,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._1 {
         [Fact]
         public void Tokens() {
             // Setup
-            GRun grun = GRun.ReadResource("data.csv", 6, 1);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("data.csv", 6, 1);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string tokensString = grun.ToTokensString();
             // Verify
@@ -35,7 +39,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._1 {
         [Fact]
         public void MermaidTree() {
             // Setup
-            GRun grun = GRun.ReadResource("data.csv", 6, 1);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("data.csv", 6, 1);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify

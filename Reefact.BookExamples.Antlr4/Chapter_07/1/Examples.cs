@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -15,7 +17,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._1 {
         [Fact]
         public void Example() {
             // Setup
-            GRun grun = GRun.ReadResource("t.properties", 7, 1);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("t.properties", 7, 1);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string properties = grun.ToPropertiesString();
             // Verify

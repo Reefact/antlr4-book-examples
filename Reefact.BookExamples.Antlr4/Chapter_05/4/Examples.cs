@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -18,7 +20,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [GraphicalTree("ParserTree1.svg")]
         public void basic_interpretation() {
             // Setup
-            GRun grun = GRun.ReadString("1+2");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1+2");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             int    result           = grun.Eval();
             string mermaidStyleTree = grun.ToMermaidStyleTree();
@@ -31,7 +34,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [GraphicalTree("ParserTree2.svg")]
         public void left_to_right_associativity_with_first_alternative_precedence_not_including_pow() {
             // Setup
-            GRun grun = GRun.ReadString("1+2*3");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1+2*3");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             int    result           = grun.Eval();
             string mermaidStyleTree = grun.ToMermaidStyleTree();
@@ -44,7 +48,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [GraphicalTree("ParserTree3.svg")]
         public void left_to_right_associativity() {
             // Setup
-            GRun grun = GRun.ReadString("1*2*3");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1*2*3");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             int    result           = grun.Eval();
             string mermaidStyleTree = grun.ToMermaidStyleTree();
@@ -57,7 +62,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [GraphicalTree("ParserTree4.svg")]
         public void right_to_left_associativity() {
             // Setup
-            GRun grun = GRun.ReadString("1^2^3");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1^2^3");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             int    result           = grun.Eval();
             string mermaidStyleTree = grun.ToMermaidStyleTree();
@@ -69,7 +75,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
         [Fact]
         public void first_alternative_precedence_including_pow() {
             // Setup
-            GRun grun = GRun.ReadString("1+2*3+5*2^2+3");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("1+2*3+5*2^2+3");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             int result = grun.Eval();
             // Verify

@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -16,7 +18,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._4 {
         [GraphicalTree("ParseTree1.svg")]
         public void mermaid_style_tree() {
             // Setup
-            GRun grun = GRun.ReadResource("t.cymbol", 6, 4);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("t.cymbol", 6, 4);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
@@ -27,7 +30,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._4 {
         [GraphicalTree("ParseTree2.svg")]
         public void precedence_01() {
             // Setup
-            GRun grun = GRun.ReadString("int a = -x+y;");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("int a = -x+y;");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
@@ -38,7 +42,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._4 {
         [GraphicalTree("ParseTree3.svg")]
         public void precedence_02() {
             // Setup
-            GRun grun = GRun.ReadString("float b = -a[i];");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("float b = -a[i];");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify

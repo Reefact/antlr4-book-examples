@@ -2,6 +2,8 @@
 
 using System.Text;
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -21,12 +23,12 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._3 {
         [Fact]
         public void lisp_style_tree_example() {
             // Setup
-            StringBuilder exampleBuilder = new();
-            exampleBuilder.AppendLine("(1+2");
-            exampleBuilder.AppendLine("3");
-            var example = exampleBuilder.ToString();
+            StringBuilder example = new();
+            example.AppendLine("(1+2");
+            example.AppendLine("3");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read(example);
             // Exercise
-            GRun   grun          = GRun.ReadString(example);
+            GRun   grun          = GRun.Read(inputStream);
             string lispStyleTree = grun.ToLispStyleTree();
             // Verify
             Check.That(lispStyleTree).IsEqualTo("(prog (stat (expr ( (expr (expr 1) + (expr 2)) <missing ')'>) \\r\\n) (stat (expr 3) \\r\\n))");
@@ -36,12 +38,12 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._3 {
         [GraphicalTree("ParseTree1.svg")]
         public void mermaid_style_tree_example() {
             // Setup
-            StringBuilder exampleBuilder = new();
-            exampleBuilder.AppendLine("(1+2");
-            exampleBuilder.AppendLine("34*69");
-            var example = exampleBuilder.ToString();
+            StringBuilder example = new();
+            example.AppendLine("(1+2");
+            example.AppendLine("34*69");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read(example);
             // Exercise
-            GRun   grun             = GRun.ReadString(example);
+            GRun   grun             = GRun.Read(inputStream);
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
             Approvals.Verify(mermaidStyleTree);

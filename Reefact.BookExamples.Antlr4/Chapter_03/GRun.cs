@@ -1,7 +1,5 @@
 ﻿#region Usings declarations
 
-using System.Diagnostics;
-
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
@@ -9,17 +7,17 @@ using Antlr4.Runtime.Tree;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_03 {
 
-    [DebuggerDisplay("{ToString()}")]
     public sealed class GRun : GRunBase {
 
         #region Statics members declarations
 
-        public static GRun ReadString(string input) {
-            AntlrInputStream  inputStream = AntlrInputStreamReader.Read(input);
-            ArrayInitLexer    lexer       = new(inputStream);
-            CommonTokenStream tokens      = new(lexer);
-            var               parser      = new ArrayInitParser(tokens);
-            IParseTree        tree        = parser.init();
+        public static GRun Read(AntlrInputStream inputStream) {
+            if (inputStream is null) { throw new ArgumentNullException(nameof(inputStream)); }
+
+            ArrayInitLexer    lexer  = new(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            var               parser = new ArrayInitParser(tokens);
+            IParseTree        tree   = parser.init();
 
             return new GRun(tree, parser, tokens);
         }
@@ -28,7 +26,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, ArrayInitParser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
+        /// <inheritdoc />
+        private GRun(IParseTree tree, Parser parser, CommonTokenStream tokenStream) : base(tree, parser, tokenStream) { }
 
         #endregion
 

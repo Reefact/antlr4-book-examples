@@ -14,7 +14,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._4._2 {
 
         #region Statics members declarations
 
-        public static GRun Read(AntlrInputStream inputStream, int indexOfTheColumnToDisplay) {
+        public static GRun Read(AntlrInputStream inputStream) {
             if (inputStream is null) { throw new ArgumentNullException(nameof(inputStream)); }
 
             DataLexer         lexer  = new(inputStream);

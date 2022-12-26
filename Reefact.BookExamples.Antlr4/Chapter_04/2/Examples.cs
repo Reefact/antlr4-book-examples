@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using NFluent;
 
 using Xunit;
@@ -13,7 +15,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._2 {
         [Fact]
         public void evaluating_t_expr() {
             // Setup
-            GRun grun = GRun.ReadResource("t.expr", 4, 1, 1);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("t.expr", 4, 1, 1);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             int[] results = grun.Eval();
             // Verify
@@ -26,7 +29,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._2 {
         [Fact]
         public void evaluating_c_expr() {
             // Setup
-            GRun grun = GRun.ReadResource("c.expr", 4, 1, 2);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("c.expr", 4, 1, 2);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             int[] results = grun.Eval();
             // Verify

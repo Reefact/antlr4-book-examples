@@ -14,13 +14,11 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._1 {
 
         #region Statics members declarations
 
-        public static GRun ReadResource(string resourceName, params int[] chapter) {
-            string            inputString = ResourcesHelper.Read(resourceName, chapter);
-            AntlrInputStream  inputStream = AntlrInputStreamReader.Read(inputString);
-            ExprLexer         lexer       = new(inputStream);
-            CommonTokenStream tokens      = new(lexer);
-            var               parser      = new ExprParser(tokens);
-            IParseTree        tree        = parser.prog();
+        public static GRun Read(AntlrInputStream inputStream) {
+            ExprLexer         lexer  = new(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            var               parser = new ExprParser(tokens);
+            IParseTree        tree   = parser.prog();
 
             return new GRun(tree, parser, tokens);
         }

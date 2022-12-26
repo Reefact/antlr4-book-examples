@@ -14,20 +14,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._2 {
 
         #region Statics members declarations
 
-        public static GRun ReadResource(string resourceName, params int[] chapter) {
-            string           inputString = ResourcesHelper.Read(resourceName, chapter);
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read(inputString);
-
-            return ReadStream(inputStream);
-        }
-
-        public static GRun ReadString(string inputString) {
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read(inputString);
-
-            return ReadStream(inputStream);
-        }
-
-        private static GRun ReadStream(AntlrInputStream inputStream) {
+        public static GRun Read(AntlrInputStream inputStream) {
             JSONLexer         lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             var               parser = new JSONParser(tokens);

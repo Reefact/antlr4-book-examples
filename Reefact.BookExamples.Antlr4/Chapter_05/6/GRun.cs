@@ -11,18 +11,16 @@ using Antlr4.Runtime.Tree;
 namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
 
     [DebuggerDisplay("{ToString()}")]
-    public sealed class GRun {
+    public sealed class GRun : GRunBase {
 
         #region Statics members declarations
 
-        public static GRun ReadResource(ReadMode readMode, string resourceName, params int[] chapter) {
-            string           inputString = ResourcesHelper.Read(resourceName, chapter);
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read(inputString);
-            switch (readMode) {
-                case ReadMode.Lexer:  return ReadLexer(inputStream);
-                case ReadMode.Parser: return ReadParser(inputStream);
-                default:              throw new ArgumentOutOfRangeException(nameof(readMode), readMode, null);
-            }
+        public static GRun Read(ReadMode readMode, AntlrInputStream inputStream) {
+            return readMode switch {
+                ReadMode.Lexer  => ReadLexer(inputStream),
+                ReadMode.Parser => ReadParser(inputStream),
+                _               => throw new ArgumentOutOfRangeException(nameof(readMode), readMode, null)
+            };
         }
 
         private static GRun ReadParser(AntlrInputStream inputStream) {
@@ -36,7 +34,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
                                                         .Select(ip => ip.ToString())
                                                         .ToImmutableHashSet();
 
-            return new GRun(ipAddresses);
+            return new GRun(ipAddresses, tree, parser, tokens);
         }
 
         private static GRun ReadLexer(AntlrInputStream inputStream) {
@@ -51,7 +49,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
                                                         .Select(ip => ip.ToString())
                                                         .ToImmutableHashSet();
 
-            return new GRun(ipAddresses);
+            return new GRun(ipAddresses, tree, parser, tokens);
         }
 
         #endregion
@@ -64,7 +62,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
 
         #region Constructors declarations
 
-        private GRun(IReadOnlySet<string> ipAddresses) {
+        /// <inheritdoc />
+        private GRun(IReadOnlySet<string> ipAddresses, IParseTree tree, Parser parser, CommonTokenStream tokenStream) : base(tree, parser, tokenStream) {
             _ipAddresses = ipAddresses;
         }
 

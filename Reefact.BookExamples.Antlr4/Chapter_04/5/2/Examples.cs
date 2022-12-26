@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests.Reporters;
 
 using NFluent;
@@ -16,8 +18,9 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._5._2 {
         [Fact]
         public void rewrite_input_stream() {
             // Setup
-            GRun   grun                  = GRun.ReadResource("Demo.java", 4, 3);
-            string expectedRewritedClass = ResourcesHelper.Read("Demo_rewrited.java", 4, 5, 2);
+            AntlrInputStream inputStream           = AntlrInputStreamReader.Read("Demo.java", 4, 3);
+            GRun             grun                  = GRun.Read(inputStream);
+            string           expectedRewritedClass = ResourcesHelper.Read("Demo_rewrited.java", 4, 5, 2);
             // Exercise
             string rewritedClass = grun.Rewrite();
             // Verify

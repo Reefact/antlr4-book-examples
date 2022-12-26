@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -15,7 +17,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._2 {
         [Fact]
         public void t_json_tokensString() {
             // Setup
-            GRun grun = GRun.ReadResource("t.json", 6, 2);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("t.json", 6, 2);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string tokensString = grun.ToTokensString();
             // Verify
@@ -26,7 +29,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._2 {
         [GraphicalTree("ParseTree1.svg")]
         public void t_json_mermaid_style_tree() {
             // Setup
-            GRun grun = GRun.ReadResource("t.json", 6, 2);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("t.json", 6, 2);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
@@ -36,7 +40,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._2 {
         [Fact]
         public void simple_array_tokens() {
             // Setup
-            GRun grun = GRun.ReadString("[1,\"\\u0049\",1.3e9]");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("[1,\"\\u0049\",1.3e9]");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string tokensString = grun.ToTokensString();
             // Verify
@@ -46,7 +51,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._2 {
         [Fact]
         public void simple_array_tree() {
             // Setup
-            GRun grun = GRun.ReadString("[1,\"\\u0049\",1.3e9]");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("[1,\"\\u0049\",1.3e9]");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string lispStyleTree = grun.ToLispStyleTree();
             // Verify

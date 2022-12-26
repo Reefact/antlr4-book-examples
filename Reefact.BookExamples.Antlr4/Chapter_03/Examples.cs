@@ -1,5 +1,7 @@
 #region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -17,7 +19,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         [Fact]
         public void convert_a_short_array_to_unicode_string() {
             // Setup
-            GRun grun = GRun.ReadString("{99,3,451}");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{99,3,451}");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string unicodeString = grun.ToUnicodeString();
             // Verify
@@ -27,7 +30,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         [Fact]
         public void provide_a_lisp_tree_representation_of_a_short_array_in_ArrayInit_grammar() {
             // Setup
-            GRun grun = GRun.ReadString("{99,3,451}");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{99,3,451}");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string lispStyleTree = grun.ToLispStyleTree();
             // Verify
@@ -38,7 +42,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         [GraphicalTree("ParseTree1.svg")]
         public void provide_mermaid_style_tree_representation_of_a_short_array_in_ArrayInit_grammar_for_nested_arrays() {
             // Setup
-            GRun grun = GRun.ReadString("{1,{2,3},4}");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{1,{2,3},4}");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify

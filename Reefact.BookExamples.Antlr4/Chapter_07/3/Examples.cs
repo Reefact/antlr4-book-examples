@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -15,7 +17,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._3 {
         [Fact]
         public void mermaid_tree_style_of_t_properties() {
             // Setup
-            GRun grun = GRun.ReadResource("t.properties", 7, 3);
+            AntlrInputStream stream = AntlrInputStreamReader.Read("t.properties", 7, 3);
+            GRun             grun   = GRun.Read(stream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
@@ -25,7 +28,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._3 {
         [Fact]
         public void load_t_properties() {
             // Setup
-            GRun grun = GRun.ReadResource("t.properties", 7, 3);
+            AntlrInputStream stream = AntlrInputStreamReader.Read("t.properties", 7, 3);
+            GRun             grun   = GRun.Read(stream);
             // Exercise
             string properties = grun.ToPropertiesString();
             // Verify

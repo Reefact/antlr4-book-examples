@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using NFluent;
 
 using Xunit;
@@ -13,7 +15,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._2 {
         [Fact]
         public void importing_grammar_style_works() {
             // Setup
-            GRun grun = GRun.ReadString($"3+4{Environment.NewLine}");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read($"3+4{Environment.NewLine}");
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string lispStyleTree = grun.ToLispStyleTree();
             // Verify

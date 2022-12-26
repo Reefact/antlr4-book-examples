@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -16,7 +18,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._1 {
         [GraphicalTree("ParseTree1.svg")]
         public void Test() {
             // Setup
-            GRun grun = GRun.ReadResource("t.expr", 4, 1, 1);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("t.expr", 4, 1, 1);
+            GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify

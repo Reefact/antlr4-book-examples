@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using Antlr4.Runtime;
+
 using NFluent;
 
 using Xunit;
@@ -13,7 +15,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
         [Fact]
         public void extract_IP_using_lexer() {
             // Setup
-            GRun grun = GRun.ReadResource(ReadMode.Lexer, "service.log", 5, 6);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("service.log", 5, 6);
+            GRun             grun        = GRun.Read(ReadMode.Lexer, inputStream);
             // Exercise
             IReadOnlySet<string> ipAddresses = grun.Collect();
             Check.That(ipAddresses).CountIs(2);
@@ -24,7 +27,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
         [Fact]
         public void extract_IP_using_parser() {
             // Setup
-            GRun grun = GRun.ReadResource(ReadMode.Parser, "service.log", 5, 6);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("service.log", 5, 6);
+            GRun             grun        = GRun.Read(ReadMode.Parser, inputStream);
             // Exercise
             IReadOnlySet<string> ipAddresses = grun.Collect();
             Check.That(ipAddresses).CountIs(2);
