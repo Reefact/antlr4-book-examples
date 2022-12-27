@@ -16,4 +16,4 @@ You can find more information about the DOT language and Graphviz viewer here: h
 
 ##### Call Graph
 
-<img src=".resources/t.dot.svg" alt="Call graph" width="100%"/>
+<img src=".resources/t.dot.svg" alt="Call graph" width="60%"/>
