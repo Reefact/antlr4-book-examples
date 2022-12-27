@@ -236,6 +236,7 @@
     <None Include="Chapter_06\3\.antlr\DOTLexer.interp" />
     <None Include="Chapter_06\3\.antlr\DOTLexer.tokens" />
     <None Include="Chapter_06\3\.resources\ParseTree1.svg" />
+    <None Include="Chapter_06\3\.resources\t.dot.svg" />
     <None Include="Chapter_06\4\.antlr\Cymbol.g4" />
     <None Include="Chapter_06\4\.antlr\Cymbol.interp" />
     <None Include="Chapter_06\4\.antlr\Cymbol.tokens" />
