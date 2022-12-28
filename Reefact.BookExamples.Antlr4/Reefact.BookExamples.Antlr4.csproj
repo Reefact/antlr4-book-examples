@@ -111,6 +111,10 @@
     <Compile Include="Chapter_08\3\.antlr\Cymbol_8_3Lexer.cs" />
     <Compile Include="Chapter_08\3\.antlr\Cymbol_8_3Listener.cs" />
     <Compile Include="Chapter_08\3\.antlr\Cymbol_8_3Parser.cs" />
+    <Compile Include="Chapter_08\4\.antlr\Cymbol_8_4BaseListener.cs" />
+    <Compile Include="Chapter_08\4\.antlr\Cymbol_8_4Lexer.cs" />
+    <Compile Include="Chapter_08\4\.antlr\Cymbol_8_4Listener.cs" />
+    <Compile Include="Chapter_08\4\.antlr\Cymbol_8_4Parser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -301,6 +305,13 @@
     <EmbeddedResource Include="Chapter_08\3\.resources\t.cymbol" />
     <None Include="Chapter_08\3\.resources\t.dot" />
     <None Include="Chapter_08\3\.resources\t.dot.svg" />
+    <None Include="Chapter_08\4\.antlr\Cymbol_8_4.g4" />
+    <None Include="Chapter_08\4\.antlr\Cymbol_8_4.interp" />
+    <None Include="Chapter_08\4\.antlr\Cymbol_8_4.tokens" />
+    <None Include="Chapter_08\4\.antlr\Cymbol_8_4Lexer.interp" />
+    <None Include="Chapter_08\4\.antlr\Cymbol_8_4Lexer.tokens" />
+    <EmbeddedResource Include="Chapter_08\4\.resources\vars.cymbol" />
+    <EmbeddedResource Include="Chapter_08\4\.resources\vars2.cymbol" />
     <EmbeddedResource Include="Chapter_07\2\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_07\1\.resources\t.properties" />
     <EmbeddedResource Include="Chapter_06\5\.resources\t.R" />
