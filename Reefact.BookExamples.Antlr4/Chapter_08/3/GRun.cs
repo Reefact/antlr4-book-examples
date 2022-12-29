@@ -12,12 +12,11 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._3 {
         #region Statics members declarations
 
         public static GRun Read(AntlrInputStream inputStream) {
-            var                          lexer  = new Cymbol_8_3Lexer(inputStream);
-            CommonTokenStream            tokens = new(lexer);
-            var                          parser = new Cymbol_8_3Parser(tokens);
-            Cymbol_8_3Parser.FileContext tree   = parser.file();
+            var               lexer  = new Cymbol_8_3Lexer(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            var               parser = new Cymbol_8_3Parser(tokens);
 
-            return new GRun(tree, parser, tokens);
+            return new GRun(lexer, parser, parser.file, tokens);
         }
 
         #endregion
@@ -25,7 +24,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._3 {
         #region Constructors declarations
 
         /// <inheritdoc />
-        public GRun(IParseTree tree, Parser parser, CommonTokenStream tokenStream) : base(tree, parser, tokenStream) { }
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
 
         #endregion
 

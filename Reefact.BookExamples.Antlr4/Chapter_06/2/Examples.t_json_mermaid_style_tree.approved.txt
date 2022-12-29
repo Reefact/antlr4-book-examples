@@ -41,3 +41,6 @@
 	34 --> 41["]"]
 	8 --> 42["}"]
 	2 --> 43["}"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;

@@ -18,9 +18,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._4 {
             CommonTokenStream tokens = new(lexer);
             Cymbol_8_4Parser  parser = new(tokens);
             parser.BuildParseTree = true;
-            IParseTree tree = parser.file();
 
-            return new GRun(tree, parser, tokens);
+            return new GRun(lexer, parser, parser.file, tokens);
         }
 
         #endregion
@@ -28,7 +27,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._4 {
         #region Constructors declarations
 
         /// <inheritdoc />
-        public GRun(IParseTree tree, Parser parser, CommonTokenStream tokenStream) : base(tree, parser, tokenStream) { }
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
 
         #endregion
 

@@ -43,3 +43,6 @@
 	42 --> 43["#0034;$5,000#0034;"]
 	35 --> 44["#0092;r"]
 	35 --> 45["#0092;n"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;

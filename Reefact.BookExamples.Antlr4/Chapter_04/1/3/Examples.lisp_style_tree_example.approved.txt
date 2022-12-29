@@ -1,0 +1,2 @@
+﻿line 1:4 missing ')' at '\r\n'
+(prog (stat (expr ( (expr (expr 1) + (expr 2)) <missing ')'>) \r\n) (stat (expr 3) \r\n))

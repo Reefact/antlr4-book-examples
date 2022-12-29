@@ -7,3 +7,4 @@
 ## [6. Exploring Some Real Grammars](Chapter_06)
 ## [7. Decoupling Grammars from Application-Specific Code](Chapter_07)
 ## [8. Building Some Real Language Applications](Chapter_08)
+## [9. Error Reporting and Recovery](Chapter_09)

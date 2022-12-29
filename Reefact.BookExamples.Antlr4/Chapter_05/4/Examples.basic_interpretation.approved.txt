@@ -4,3 +4,6 @@
 	1 --> 4["+"]
 	1 --> 5["expr"]
 	5 --> 6["2"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;

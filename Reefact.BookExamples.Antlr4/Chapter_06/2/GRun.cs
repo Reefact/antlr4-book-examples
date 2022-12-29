@@ -18,16 +18,16 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._2 {
             JSONLexer         lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             var               parser = new JSONParser(tokens);
-            IParseTree        tree   = parser.json();
 
-            return new GRun(tree, parser, tokens);
+            return new GRun(lexer, parser, parser.json, tokens);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, JSONParser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
+        /// <inheritdoc />
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
 
         #endregion
 

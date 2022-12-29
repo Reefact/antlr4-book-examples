@@ -7,8 +7,6 @@ using Antlr4.Runtime;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
-using NFluent;
-
 using Reefact.BookExamples.Antlr4.Chapter_04._1._2;
 
 using Xunit;
@@ -31,7 +29,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._1._3 {
             GRun   grun          = GRun.Read(inputStream);
             string lispStyleTree = grun.ToLispStyleTree();
             // Verify
-            Check.That(lispStyleTree).IsEqualTo("(prog (stat (expr ( (expr (expr 1) + (expr 2)) <missing ')'>) \\r\\n) (stat (expr 3) \\r\\n))");
+            Approvals.Verify(lispStyleTree);
         }
 
         [Fact]

@@ -24,53 +24,65 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
         }
 
         private static GRun ReadParser(AntlrInputStream inputStream) {
-            IP_ParserLexer      lexer     = new(inputStream);
-            CommonTokenStream   tokens    = new(lexer);
-            var                 parser    = new IP_ParserParser(tokens);
-            IParseTree          tree      = parser.file();
-            ExtractIpFromParser extractor = new();
-            extractor.Visit(tree);
-            IReadOnlySet<string> ipAddresses = extractor.GetAddresses()
-                                                        .Select(ip => ip.ToString())
-                                                        .ToImmutableHashSet();
+            IP_ParserLexer    lexer  = new(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            var               parser = new IP_ParserParser(tokens);
 
-            return new GRun(ipAddresses, tree, parser, tokens);
+            return new GRun(ReadMode.Parser, lexer, parser, parser.file, tokens);
         }
 
         private static GRun ReadLexer(AntlrInputStream inputStream) {
-            IP_LexerLexer      lexer     = new(inputStream);
-            CommonTokenStream  tokens    = new(lexer);
-            var                parser    = new IP_LexerParser(tokens);
-            IParseTree         tree      = parser.file();
-            ParseTreeWalker    walker    = new();
-            ExtractIpFromLexer extractor = new();
-            walker.Walk(extractor, tree);
-            IReadOnlySet<string> ipAddresses = extractor.GetAddresses()
-                                                        .Select(ip => ip.ToString())
-                                                        .ToImmutableHashSet();
+            IP_LexerLexer     lexer  = new(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            var               parser = new IP_LexerParser(tokens);
 
-            return new GRun(ipAddresses, tree, parser, tokens);
+            return new GRun(ReadMode.Lexer, lexer, parser, parser.file, tokens);
         }
 
         #endregion
 
         #region Fields declarations
 
-        private readonly IReadOnlySet<string> _ipAddresses;
+        private readonly ReadMode _readMode;
 
         #endregion
 
         #region Constructors declarations
 
         /// <inheritdoc />
-        private GRun(IReadOnlySet<string> ipAddresses, IParseTree tree, Parser parser, CommonTokenStream tokenStream) : base(tree, parser, tokenStream) {
-            _ipAddresses = ipAddresses;
+        public GRun(ReadMode readMode, Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) {
+            _readMode = readMode;
         }
 
         #endregion
 
         public IReadOnlySet<string> Collect() {
-            return _ipAddresses;
+            return _readMode switch {
+                ReadMode.Lexer  => ExtractIpFromLexer(),
+                ReadMode.Parser => ExtractIpFromParser(),
+                _               => throw new ArgumentOutOfRangeException()
+            };
+        }
+
+        private IReadOnlySet<string> ExtractIpFromParser() {
+            ExtractIpFromParser extractor = new();
+            extractor.Visit(Tree);
+            IReadOnlySet<string> ipAddresses = extractor.GetAddresses()
+                                                        .Select(ip => ip.ToString())
+                                                        .ToImmutableHashSet();
+
+            return ipAddresses;
+        }
+
+        private IReadOnlySet<string> ExtractIpFromLexer() {
+            ParseTreeWalker    walker    = new();
+            ExtractIpFromLexer extractor = new();
+            walker.Walk(extractor, Tree);
+            IReadOnlySet<string> ipAddresses = extractor.GetAddresses()
+                                                        .Select(ip => ip.ToString())
+                                                        .ToImmutableHashSet();
+
+            return ipAddresses;
         }
 
     }

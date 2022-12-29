@@ -13,3 +13,6 @@
 	12 --> 13["i"]
 	9 --> 14["]"]
 	2 --> 15[";"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;

@@ -1,0 +1,4 @@
+﻿line 1:6 token recognition error at: '#'
+line 1:8 missing ID at '{'
+var i
+class <missing ID>

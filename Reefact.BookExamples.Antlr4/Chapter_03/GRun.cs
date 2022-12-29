@@ -17,9 +17,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
             ArrayInitLexer    lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             var               parser = new ArrayInitParser(tokens);
-            IParseTree        tree   = parser.init();
 
-            return new GRun(tree, parser, tokens);
+            return new GRun(lexer, parser, parser.init, tokens);
         }
 
         #endregion
@@ -27,7 +26,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         #region Constructors declarations
 
         /// <inheritdoc />
-        private GRun(IParseTree tree, Parser parser, CommonTokenStream tokenStream) : base(tree, parser, tokenStream) { }
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
 
         #endregion
 

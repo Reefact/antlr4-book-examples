@@ -20,9 +20,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._4._2 {
             DataLexer         lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             DataParser        parser = new(tokens);
-            IParseTree        tree   = parser.file();
 
-            return new GRun(tree, parser, tokens);
+            return new GRun(lexer, parser, parser.file, tokens);
         }
 
         #endregion
@@ -30,7 +29,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._4._2 {
         #region Constructors declarations
 
         /// <inheritdoc />
-        public GRun(IParseTree tree, Parser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
 
         #endregion
 

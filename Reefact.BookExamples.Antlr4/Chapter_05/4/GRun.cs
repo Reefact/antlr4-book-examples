@@ -18,16 +18,16 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._4 {
             PLrALexer         lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             var               parser = new PLrAParser(tokens);
-            IParseTree        tree   = parser.expr();
 
-            return new GRun(tree, parser, tokens);
+            return new GRun(lexer, parser, parser.expr, tokens);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, PLrAParser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
+        /// <inheritdoc />
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
 
         #endregion
 

@@ -31,7 +31,6 @@ namespace Reefact.BookExamples.Antlr4 {
         #region Fields declarations
 
         private readonly Parser          _parser;
-        private readonly bool            _addClassDef;
         private readonly StringBuilder   _graphBuilder      = new();
         private readonly Stack<NodeInfo> _nodeInfos         = new();
         private readonly HashSet<int>    _nodesAlreadySetup = new();
@@ -42,11 +41,10 @@ namespace Reefact.BookExamples.Antlr4 {
 
         #region Constructors declarations
 
-        public MermaidStyleTreeBuilder(Parser parser, bool addClassDef) {
+        public MermaidStyleTreeBuilder(Parser parser) {
             if (parser is null) { throw new ArgumentNullException(nameof(parser)); }
 
-            _parser      = parser;
-            _addClassDef = addClassDef;
+            _parser = parser;
             _graphBuilder.AppendLine("graph TD");
         }
 
@@ -58,7 +56,7 @@ namespace Reefact.BookExamples.Antlr4 {
             NodeInfo     childNodeInfo  = new(_nextId++, childNodeName);
             NodeInfo     parentNodeInfo = _nodeInfos.Peek();
             RelationShip relationShip   = new(parentNodeInfo, childNodeInfo);
-            WriteRelationship(relationShip);
+            WriteRelationship(relationShip, false);
         }
 
         /// <inheritdoc />
@@ -67,7 +65,7 @@ namespace Reefact.BookExamples.Antlr4 {
             NodeInfo     childNodeInfo  = new(_nextId++, childNodeName);
             NodeInfo     parentNodeInfo = _nodeInfos.Peek();
             RelationShip relationShip   = new(parentNodeInfo, childNodeInfo);
-            WriteRelationship(relationShip);
+            WriteRelationship(relationShip, true);
         }
 
         /// <inheritdoc />
@@ -76,7 +74,7 @@ namespace Reefact.BookExamples.Antlr4 {
             NodeInfo nodeInfo = new(_nextId++, ruleName);
             if (_nodeInfos.TryPeek(out NodeInfo? parentNodeInfo)) {
                 RelationShip relationShip = new(parentNodeInfo, nodeInfo);
-                WriteRelationship(relationShip);
+                WriteRelationship(relationShip, false);
             }
             _nodeInfos.Push(nodeInfo);
         }
@@ -87,15 +85,14 @@ namespace Reefact.BookExamples.Antlr4 {
         }
 
         public string ToMermaidStyleTree() {
-            if (_addClassDef) {
-                _graphBuilder.AppendLine();
-                _graphBuilder.Append("classDef default fill:#fff,stroke:#000,stroke-width:0.25px;");
-            }
+            _graphBuilder.AppendLine();
+            _graphBuilder.AppendLine("classDef default fill:#fff,stroke:#000,stroke-width:0.25px;");
+            _graphBuilder.Append("classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;");
 
             return _graphBuilder.ToString();
         }
 
-        private void WriteRelationship(RelationShip relationShip) {
+        private void WriteRelationship(RelationShip relationShip, bool isOnError) {
             if (_nodesAlreadySetup.Contains(relationShip.Parent.Id)) {
                 _graphBuilder.Append($"\t{relationShip.Parent.Id}");
             } else {
@@ -108,7 +105,11 @@ namespace Reefact.BookExamples.Antlr4 {
                 _graphBuilder.AppendLine(relationShip.Child.Id.ToString());
             } else {
                 string childName = relationShip.Child.Name;
-                _graphBuilder.AppendLine($"{relationShip.Child.Id}[\"{childName}\"]");
+                _graphBuilder.Append($"{relationShip.Child.Id}[\"{childName}\"]");
+                if (isOnError) {
+                    _graphBuilder.Append(":::error");
+                }
+                _graphBuilder.AppendLine();
                 _nodesAlreadySetup.Add(relationShip.Child.Id);
             }
         }

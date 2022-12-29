@@ -18,16 +18,16 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._3 {
             JavaLexer         lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             var               parser = new JavaParser(tokens);
-            IParseTree        tree   = parser.compilationUnit();
 
-            return new GRun(tree, parser, tokens);
+            return new GRun(lexer, parser, parser.compilationUnit, tokens);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(IParseTree tree, JavaParser parser, CommonTokenStream commonTokenStream) : base(tree, parser, commonTokenStream) { }
+        /// <inheritdoc />
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
 
         #endregion
 

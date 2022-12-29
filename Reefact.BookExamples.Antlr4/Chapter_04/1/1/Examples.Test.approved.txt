@@ -42,3 +42,6 @@
 	31 --> 42["expr"]
 	42 --> 43["3"]
 	30 --> 44["#0092;r#0092;n"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;

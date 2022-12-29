@@ -1,0 +1,4 @@
+﻿line 3:0 extraneous input '<EOF>' expecting {'}', 'int'}
+found assign: a=3
+method: f
+class T

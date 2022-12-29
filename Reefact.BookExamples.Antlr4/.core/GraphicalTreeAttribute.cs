@@ -3,6 +3,7 @@
 namespace Reefact.BookExamples.Antlr4 {
 
     /// <summary>Indicates that a SVG visualization of the parse tree is available in local resources.</summary>
+    [AttributeUsage(AttributeTargets.Method)]
     public sealed class GraphicalTreeAttribute : Attribute {
 
         #region Constructors declarations

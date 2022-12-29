@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Compile Include=".core\AntlrInputStreamReader.cs" />
+    <Compile Include=".core\DubiousResultAttribute.cs" />
     <Compile Include=".core\GraphicalTreeAttribute.cs" />
     <Compile Include=".core\GRunBase.cs" />
     <Compile Include=".core\MermaidStyleTreeBuilder.cs" />
@@ -115,6 +116,10 @@
     <Compile Include="Chapter_08\4\.antlr\Cymbol_8_4Lexer.cs" />
     <Compile Include="Chapter_08\4\.antlr\Cymbol_8_4Listener.cs" />
     <Compile Include="Chapter_08\4\.antlr\Cymbol_8_4Parser.cs" />
+    <Compile Include="Chapter_09\1\.antlr\SimpleBaseListener.cs" />
+    <Compile Include="Chapter_09\1\.antlr\SimpleLexer.cs" />
+    <Compile Include="Chapter_09\1\.antlr\SimpleListener.cs" />
+    <Compile Include="Chapter_09\1\.antlr\SimpleParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -135,6 +140,7 @@
     <EmbeddedResource Include="Chapter_04\4\1\.resources\t.rows" />
     <EmbeddedResource Include="Chapter_04\5\1\.resources\t.xml" />
     <EmbeddedResource Include="Chapter_07\3\.resources\t.properties" />
+    <EmbeddedResource Include="Chapter_09\1\.resources\single_extra_token.simple" />
   </ItemGroup>
 
   <ItemGroup>
@@ -310,6 +316,16 @@
     <None Include="Chapter_08\4\.antlr\Cymbol_8_4.tokens" />
     <None Include="Chapter_08\4\.antlr\Cymbol_8_4Lexer.interp" />
     <None Include="Chapter_08\4\.antlr\Cymbol_8_4Lexer.tokens" />
+    <None Include="Chapter_09\1\.antlr\Simple.g4" />
+    <None Include="Chapter_09\1\.antlr\Simple.interp" />
+    <None Include="Chapter_09\1\.antlr\Simple.tokens" />
+    <None Include="Chapter_09\1\.antlr\SimpleLexer.interp" />
+    <None Include="Chapter_09\1\.antlr\SimpleLexer.tokens" />
+    <None Include="Chapter_09\1\.resources\bogus_assignment_expression.simple.svg" />
+    <None Include="Chapter_09\1\.resources\single_token_insertion.simple.svg" />
+    <None Include="Chapter_09\1\.resources\single_extra_token.simple.svg" />
+    <EmbeddedResource Include="Chapter_09\1\.resources\single_token_insertion.simple" />
+    <EmbeddedResource Include="Chapter_09\1\.resources\bogus_assignment_expression.simple" />
     <EmbeddedResource Include="Chapter_08\4\.resources\vars.cymbol" />
     <EmbeddedResource Include="Chapter_08\4\.resources\vars2.cymbol" />
     <EmbeddedResource Include="Chapter_07\2\.resources\t.properties" />
