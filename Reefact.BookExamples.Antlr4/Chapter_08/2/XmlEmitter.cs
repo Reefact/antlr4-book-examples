@@ -59,7 +59,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._2 {
             string                      tagName      = StripQuotes(context.STRING().GetText());
             JSON_8_2Parser.ValueContext valueContext = context.value();
             string                      value        = _xml.Get(valueContext);
-            string                      tag          = $"<{tagName}>{value}</{tagName}>{Environment.NewLine}";
+            var                         tag          = $"<{tagName}>{value}</{tagName}>{Environment.NewLine}";
 
             _xml.Put(context, tag);
         }
