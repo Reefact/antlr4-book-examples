@@ -8,7 +8,8 @@ using Antlr4.Runtime;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
 
-    public sealed class VerboseListener : BaseErrorListener {
+    public sealed class VerboseListener : BaseErrorListener, IErrorListenerWithOutput
+    {
 
         #region Fields declarations
 

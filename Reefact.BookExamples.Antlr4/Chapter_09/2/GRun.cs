@@ -18,39 +18,35 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
             CommonTokenStream tokens = new(lexer);
             SimpleParser      parser = new(tokens);
 
-            return new GRun(lexer, parser, parser.prog, tokens);
+            return new GRun(parser, parser.prog);
         }
 
         #endregion
 
         #region Fields declarations
 
-        private readonly SimpleLexer       _lexer;
-        private readonly SimpleParser      _parser;
-        private readonly Func<IParseTree>  _parse;
-        private readonly CommonTokenStream _tokenStream;
-        private readonly VerboseListener   _syntacticalErrorListener;
+        private readonly SimpleParser     _parser;
+        private readonly Func<IParseTree> _parse;
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(SimpleLexer lexer, SimpleParser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) {
-            _lexer                    = lexer;
-            _parser                   = parser;
-            _syntacticalErrorListener = new VerboseListener();
-            _parser.RemoveErrorListeners();
-            _parser.AddErrorListener(_syntacticalErrorListener);
-            _parse       = parse;
-            _tokenStream = tokenStream;
+        private GRun(SimpleParser parser, Func<IParseTree> parse) {
+            _parser = parser;
+            _parse  = parse;
         }
 
         #endregion
 
-        public string GetOutput() {
-            IParseTree    tree    = _parse();
+        public string GetOutput(BaseErrorListener errorListener) {
+            _parser.RemoveErrorListeners();
+            _parser.AddErrorListener(errorListener);
+            _parse();
             StringBuilder builder = new();
-            builder.AppendLine(_syntacticalErrorListener.GetOutput());
+            if (errorListener is IErrorListenerWithOutput errorListenerWithOutput) {
+                builder.AppendLine(errorListenerWithOutput.GetOutput());
+            }
             builder.Append(_parser.GetOutput()
                                   .Aggregate((p, n) => $"{p}{Environment.NewLine}{n}"));
 

@@ -324,6 +324,7 @@
     <None Include="Chapter_09\1\.resources\bogus_assignment_expression.simple.svg" />
     <None Include="Chapter_09\1\.resources\single_token_insertion.simple.svg" />
     <None Include="Chapter_09\1\.resources\single_extra_token.simple.svg" />
+    <EmbeddedResource Include="Chapter_09\2\.resources\underline_listener.simple" />
     <EmbeddedResource Include="Chapter_09\1\.resources\single_token_insertion.simple" />
     <EmbeddedResource Include="Chapter_09\1\.resources\bogus_assignment_expression.simple" />
     <EmbeddedResource Include="Chapter_08\4\.resources\vars.cymbol" />
