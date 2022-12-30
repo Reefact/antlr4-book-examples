@@ -21,7 +21,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
             StringBuilder builder = new();
             string ruleInvocationStack = ((Parser)recognizer).GetRuleInvocationStack()
                                                              .Reverse()
-                                                             .Aggregate((previous, next) => $"{previous}, {next}");
+                                                             .Aggregate((previous, next) => $"{previous} -> {next}");
             builder.AppendLine($"rule stack: [{ruleInvocationStack}]");
             builder.Append($"line {line}:{charPositionInLine} at {offendingSymbol}: {msg}");
             _output.Add(builder.ToString());

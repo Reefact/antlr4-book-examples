@@ -35,7 +35,6 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
 
         #region Constructors declarations
 
-        /// <inheritdoc />
         private GRun(SimpleLexer lexer, SimpleParser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) {
             _lexer                    = lexer;
             _parser                   = parser;
