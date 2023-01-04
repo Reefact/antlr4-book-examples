@@ -1,6 +1,6 @@
 ﻿#### 9.3.1. Recovery by Scanning for Following Tokens
 
-This example show how errors can be handled by custom errors listener.
+This example shows how the "recovery by scanning for following tokens" works.
 
 _Remarks:_
 
