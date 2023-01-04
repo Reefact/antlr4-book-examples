@@ -1,5 +1,7 @@
-﻿## Bibliography
+## Bibliography
 
+| Réf. | Informations |
+| --- | --- |
 | \[ALSU06\] | Alfred V. Aho, Monica S. Lam, Ravi Sethi, and Jeffrey D. Ullman. _Compilers: Principles, Techniques, and Tools._ Addison-Wesley Longman, Reading, MA, Second, 2006. |
 | \[Gro90\] | Josef Grosch. Efficient and Confortable Error Recovery in Recursive Descent Parsers. _Structured Programming._ 1 1\[3\]:129-140, 1990 |
 | \[Par09\] | Terrence Parr. _Language Implementation Patterns._ The Pragmatic Bookshelf, Raleigh, NC and Dallas, TX, 1982 |
