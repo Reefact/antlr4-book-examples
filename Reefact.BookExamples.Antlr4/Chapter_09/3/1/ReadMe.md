@@ -19,6 +19,9 @@ L'ensemble de resynchronisation est l'union des _ensembles de suivi_ des référ
 Il est utile de passer par un exemple pour verrouiller ce que contiennent les ensembles de resynchronisation. Considérons la grammaire suivante, et imaginons qu'à chaque invocation de règle, l'analyseur syntaxique suive l'ensemble suivant pour chaque invocation de règle:
 
 https://github.com/Reefact/antlr4-book-examples/blob/12664a0d317a3cebb9667926e4c8c85f06ac7eb7/Reefact.BookExamples.Antlr4/Chapter_09/3/1/.antlr/F.g4
+
+https://github.com/Reefact/antlr4-book-examples/blob/0d68a45a7113ad1996b28bef3d6a3e5664de334d/Reefact.BookExamples.Antlr4/Chapter_09/3/1/Examples.cs#L19-L29
+
 ```bat
 antlr4 F.g4 -Dlanguage=CSharp
 ```
