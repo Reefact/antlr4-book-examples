@@ -18,7 +18,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._1 {
         [GraphicalTree("good_syntax.svg")]
         public void good_syntax() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("[i^2]");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("[1^2]");
             GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
