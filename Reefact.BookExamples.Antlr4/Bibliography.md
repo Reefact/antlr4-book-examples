@@ -1,4 +1,4 @@
-## Bibliography
+## Bibliographie
 
 | Réf. | Informations |
 | --- | --- |
