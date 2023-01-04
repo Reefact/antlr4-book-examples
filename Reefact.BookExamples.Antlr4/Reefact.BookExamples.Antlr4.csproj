@@ -125,6 +125,10 @@
     <Compile Include="Chapter_09\2\.antlr\AmbigLexer.cs" />
     <Compile Include="Chapter_09\2\.antlr\AmbigListener.cs" />
     <Compile Include="Chapter_09\2\.antlr\AmbigParser.cs" />
+    <Compile Include="Chapter_09\3\1\.antlr\FBaseListener.cs" />
+    <Compile Include="Chapter_09\3\1\.antlr\FLexer.cs" />
+    <Compile Include="Chapter_09\3\1\.antlr\FListener.cs" />
+    <Compile Include="Chapter_09\3\1\.antlr\FParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -334,6 +338,13 @@
     <None Include="Chapter_09\2\.antlr\Ambig.tokens" />
     <None Include="Chapter_09\2\.antlr\AmbigLexer.interp" />
     <None Include="Chapter_09\2\.antlr\AmbigLexer.tokens" />
+    <None Include="Chapter_09\3\1\.antlr\F.g4" />
+    <None Include="Chapter_09\3\1\.antlr\F.interp" />
+    <None Include="Chapter_09\3\1\.antlr\F.tokens" />
+    <None Include="Chapter_09\3\1\.antlr\FLexer.interp" />
+    <None Include="Chapter_09\3\1\.antlr\FLexer.tokens" />
+    <None Include="Chapter_09\3\1\.resources\good_syntax.svg" />
+    <None Include="Chapter_09\3\1\.resources\bad_syntax.svg" />
     <EmbeddedResource Include="Chapter_09\2\.resources\underline_listener.simple" />
     <EmbeddedResource Include="Chapter_09\1\.resources\single_token_insertion.simple" />
     <EmbeddedResource Include="Chapter_09\1\.resources\bogus_assignment_expression.simple" />

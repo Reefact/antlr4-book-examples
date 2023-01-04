@@ -1,0 +1,11 @@
+﻿graph TD
+	1["group"] --> 2["["]
+	1 --> 3["expr"]
+	3 --> 4["atom"]
+	4 --> 5["i"]
+	3 --> 6["^"]
+	3 --> 7["2"]
+	1 --> 8["]"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
