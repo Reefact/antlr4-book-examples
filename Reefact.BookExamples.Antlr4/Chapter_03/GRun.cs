@@ -26,7 +26,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03 {
         #region Constructors declarations
 
         /// <inheritdoc />
-        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) { }
+        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, tokenStream, parser, parse) { }
 
         #endregion
 

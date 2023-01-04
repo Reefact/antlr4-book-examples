@@ -50,7 +50,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
         #region Constructors declarations
 
         /// <inheritdoc />
-        public GRun(ReadMode readMode, Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, parser, parse, tokenStream) {
+        public GRun(ReadMode readMode, Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, tokenStream, parser, parse) {
             _readMode = readMode;
         }
 

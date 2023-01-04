@@ -16,33 +16,42 @@ public abstract class GRunBase {
 
     #region Fields declarations
 
-    private readonly SyntacticalErrorListener _syntacticalErrorListener = new();
-    private readonly LexicalErrorListener     _lexicalErrorListener     = new();
+    private readonly GRunLexicalErrorListener _lexicalErrorListener = new();
 
     #endregion
 
     #region Constructors declarations
 
-    protected GRunBase(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) {
+    protected GRunBase(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse, Action<Parser>? options = null) : this(lexer, tokenStream, parser, parse, options, new GRunSyntacticalErrorListener()) { }
+
+    protected GRunBase(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse, Action<Parser>? options, params BaseErrorListener[] syntacticalErrorListeners) {
         if (lexer is null) { throw new ArgumentNullException(nameof(lexer)); }
+        if (tokenStream is null) { throw new ArgumentNullException(nameof(tokenStream)); }
         if (parser is null) { throw new ArgumentNullException(nameof(parser)); }
         if (parse is null) { throw new ArgumentNullException(nameof(parse)); }
-        if (tokenStream is null) { throw new ArgumentNullException(nameof(tokenStream)); }
+        if (syntacticalErrorListeners is null) { throw new ArgumentNullException(nameof(syntacticalErrorListeners)); }
 
+        lexer.AddErrorListener(_lexicalErrorListener);
         Lexer = lexer;
-        Lexer.AddErrorListener(_lexicalErrorListener);
-        Parser = parser;
-        Parser.AddErrorListener(_syntacticalErrorListener);
+        options?.Invoke(parser);
+        SyntacticalErrorListeners = syntacticalErrorListeners;
+        parser.RemoveParseListeners();
+        foreach (BaseErrorListener syntacticalErrorListener in SyntacticalErrorListeners) {
+            parser.AddErrorListener(syntacticalErrorListener);
+        }
+        Parser      = parser;
         TokenStream = tokenStream;
-        Tree        = parse();
+
+        Tree = parse();
     }
 
     #endregion
 
-    protected IParseTree        Tree        { get; }
-    protected Lexer             Lexer       { get; }
-    protected Parser            Parser      { get; }
-    protected CommonTokenStream TokenStream { get; }
+    protected virtual IParseTree          Tree                      { get; }
+    protected virtual Lexer               Lexer                     { get; }
+    protected virtual Parser              Parser                    { get; }
+    protected         CommonTokenStream   TokenStream               { get; }
+    protected         BaseErrorListener[] SyntacticalErrorListeners { get; }
 
     public string ToLispStyleTree() {
         StringBuilder builder = new();
@@ -75,14 +84,19 @@ public abstract class GRunBase {
         foreach (string errorMessage in _lexicalErrorListener.GetErrorMessages()) {
             builder.AppendLine(errorMessage);
         }
-        foreach (string errorMessage in _syntacticalErrorListener.GetErrorMessages()) {
-            builder.AppendLine(errorMessage);
+
+        foreach (BaseErrorListener syntacticalErrorListener in SyntacticalErrorListeners) {
+            if (syntacticalErrorListener is not GRunSyntacticalErrorListener grunSyntacticalErrorListener) { continue; }
+
+            foreach (string errorMessage in grunSyntacticalErrorListener.GetErrorMessages()) {
+                builder.AppendLine(errorMessage);
+            }
         }
     }
 
     #region Nested types declarations
 
-    private sealed class SyntacticalErrorListener : BaseErrorListener {
+    private sealed class GRunSyntacticalErrorListener : BaseErrorListener {
 
         #region Fields declarations
 
@@ -101,7 +115,7 @@ public abstract class GRunBase {
 
     }
 
-    private sealed class LexicalErrorListener : IAntlrErrorListener<int> {
+    private sealed class GRunLexicalErrorListener : IAntlrErrorListener<int> {
 
         #region Fields declarations
 

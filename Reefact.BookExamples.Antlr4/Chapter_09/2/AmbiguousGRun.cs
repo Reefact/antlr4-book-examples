@@ -11,51 +11,38 @@ using Reefact.BookExamples.Antlr4.core;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
 
-    public sealed class AmbiguousGRun {
+    public sealed class AmbiguousGRun : GRunBase {
 
         #region Statics members declarations
 
-        public static AmbiguousGRun Read(AntlrInputStream inputStream) {
+        public static AmbiguousGRun Read(AntlrInputStream inputStream, Action<Parser> options, params BaseErrorListener[] syntacticalErrorListeners) {
             AmbigLexer        lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             AmbigParser       parser = new(tokens);
 
-            return new AmbiguousGRun(parser, parser.stat);
+            return new AmbiguousGRun(lexer, parser, parser.stat, tokens, options, syntacticalErrorListeners);
         }
 
-        #endregion
+        public static AmbiguousGRun Read(AntlrInputStream inputStream, params BaseErrorListener[] syntacticalErrorListeners) {
+            AmbigLexer        lexer  = new(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            AmbigParser       parser = new(tokens);
 
-        #region Fields declarations
-
-        private readonly AmbigParser      _parser;
-        private readonly Func<IParseTree> _parse;
+            return new AmbiguousGRun(lexer, parser, parser.stat, tokens, null, syntacticalErrorListeners);
+        }
 
         #endregion
 
         #region Constructors declarations
 
-        private AmbiguousGRun(AmbigParser parser, Func<IParseTree> parse) {
-            _parser = parser;
-            _parse  = parse;
-        }
+        /// <inheritdoc />
+        private AmbiguousGRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream, Action<Parser>? options, params BaseErrorListener[] syntacticalErrorListeners) : base(lexer, tokenStream, parser, parse, options, syntacticalErrorListeners) { }
 
         #endregion
 
-        public string GetOutput(BaseErrorListener errorListener, Action<Parser>? options = null) {
-            return GetOutput(new[] { errorListener }, options);
-        }
-
-        public string GetOutput(BaseErrorListener[] errorListeners, Action<Parser>? options = null) {
-            if (options != null) {
-                options(_parser);
-            }
-            _parser.RemoveErrorListeners();
-            foreach (BaseErrorListener errorListener in errorListeners) {
-                _parser.AddErrorListener(errorListener);
-            }
-            _parse();
+        public string GetOutput() {
             StringBuilder builder = new();
-            foreach (BaseErrorListener errorListener in errorListeners) {
+            foreach (BaseErrorListener errorListener in SyntacticalErrorListeners) {
                 if (errorListener is not IErrorListenerWithOutput errorListenerWithOutput) { continue; }
 
                 builder.AppendLine(errorListenerWithOutput.GetOutput());

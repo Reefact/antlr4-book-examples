@@ -9,46 +9,38 @@ using Antlr4.Runtime.Tree;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
 
-    public sealed class SimpleGRun {
+    public sealed class SimpleGRun : GRunBase {
 
         #region Statics members declarations
 
-        public static SimpleGRun Read(AntlrInputStream inputStream) {
+        public static SimpleGRun Read(AntlrInputStream inputStream, params BaseErrorListener[] syntacticalErrorListeners) {
             SimpleLexer       lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             SimpleParser      parser = new(tokens);
 
-            return new SimpleGRun(parser, parser.prog);
+            return new SimpleGRun(lexer, parser, parser.prog, tokens, syntacticalErrorListeners);
         }
-
-        #endregion
-
-        #region Fields declarations
-
-        private readonly SimpleParser     _parser;
-        private readonly Func<IParseTree> _parse;
 
         #endregion
 
         #region Constructors declarations
 
-        private SimpleGRun(SimpleParser parser, Func<IParseTree> parse) {
-            _parser = parser;
-            _parse  = parse;
-        }
+        /// <inheritdoc />
+        public SimpleGRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream, params BaseErrorListener[] syntacticalErrorListeners) : base(lexer, tokenStream, parser, parse, null, syntacticalErrorListeners) { }
 
         #endregion
 
-        public string GetOutput(BaseErrorListener errorListener) {
-            _parser.RemoveErrorListeners();
-            _parser.AddErrorListener(errorListener);
-            _parse();
+        protected override SimpleParser Parser => (SimpleParser)base.Parser;
+
+        public string GetOutput() {
             StringBuilder builder = new();
-            if (errorListener is IErrorListenerWithOutput errorListenerWithOutput) {
-                builder.AppendLine(errorListenerWithOutput.GetOutput());
+            foreach (BaseErrorListener syntacticalErrorListener in SyntacticalErrorListeners) {
+                if (syntacticalErrorListener is IErrorListenerWithOutput errorListenerWithOutput) {
+                    builder.AppendLine(errorListenerWithOutput.GetOutput());
+                }
             }
-            builder.Append(_parser.GetOutput()
-                                  .Aggregate((p, n) => $"{p}{Environment.NewLine}{n}"));
+            builder.Append(Parser.GetOutput()
+                                 .Aggregate((p, n) => $"{p}{Environment.NewLine}{n}"));
 
             return builder.ToString();
         }

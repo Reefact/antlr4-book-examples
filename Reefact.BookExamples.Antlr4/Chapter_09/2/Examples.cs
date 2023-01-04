@@ -20,11 +20,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
         [Fact]
         public void verbose_listener() {
             // Setup
-            AntlrInputStream inputStream   = AntlrInputStreamReader.Read("class T T { int : }");
-            SimpleGRun       grun          = SimpleGRun.Read(inputStream);
-            VerboseListener  errorListener = new();
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("class T T { int : }");
+            SimpleGRun       grun        = SimpleGRun.Read(inputStream, new VerboseListener());
             // Exercise
-            string output = grun.GetOutput(errorListener);
+            string output = grun.GetOutput();
             // Verify
             Approvals.Verify(output);
         }
@@ -32,11 +31,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
         [Fact]
         public void underline_listener() {
             // Setup
-            AntlrInputStream  inputStream   = AntlrInputStreamReader.Read("underline_listener.simple", 9, 2);
-            SimpleGRun        grun          = SimpleGRun.Read(inputStream);
-            UnderlineListener errorListener = new();
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("underline_listener.simple", 9, 2);
+            SimpleGRun       grun        = SimpleGRun.Read(inputStream, new UnderlineListener());
             // Exercise
-            string output = grun.GetOutput(errorListener);
+            string output = grun.GetOutput();
             // Verify
             Approvals.Verify(output);
         }
@@ -44,13 +42,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
         [Fact]
         public void ambiguity_not_detected() {
             // Setup
-            AntlrInputStream inputStream     = AntlrInputStreamReader.Read("f();");
-            AmbiguousGRun    grun            = AmbiguousGRun.Read(inputStream);
-            VerboseListener  verboseListener = new();
-
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("f();");
+            AmbiguousGRun    grun        = AmbiguousGRun.Read(inputStream, new VerboseListener());
             // Exercise
-            string output = grun.GetOutput(verboseListener);
-
+            string output = grun.GetOutput();
             // Verify
             Check.That(output).IsEmpty();
         }
@@ -59,7 +54,6 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
         public void ambiguity_detected() {
             // Setup
             AntlrInputStream        inputStream             = AntlrInputStreamReader.Read("f();");
-            AmbiguousGRun           grun                    = AmbiguousGRun.Read(inputStream);
             DiagnosticErrorListener diagnosticErrorListener = new();
             VerboseListener         verboseListener         = new();
             var                     errorListeners          = new BaseErrorListener[] { verboseListener, diagnosticErrorListener };
@@ -68,8 +62,10 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
                 parser.Interpreter.PredictionMode = PredictionMode.LL_EXACT_AMBIG_DETECTION;
             }
 
+            AmbiguousGRun grun = AmbiguousGRun.Read(inputStream, Options, errorListeners);
+
             // Exercise
-            string output = grun.GetOutput(errorListeners, Options);
+            string output = grun.GetOutput();
 
             // Verify
             Approvals.Verify(output);

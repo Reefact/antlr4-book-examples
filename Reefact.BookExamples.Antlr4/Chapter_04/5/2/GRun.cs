@@ -10,7 +10,7 @@ using Antlr4.Runtime.Tree;
 namespace Reefact.BookExamples.Antlr4.Chapter_04._5._2 {
 
     [DebuggerDisplay("{ToString()}")]
-    public sealed class GRun {
+    public sealed class GRun : GRunBase {
 
         #region Statics members declarations
 
@@ -19,32 +19,22 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._5._2 {
             CommonTokenStream tokens = new(lexer);
             var               parser = new JavaParser(tokens);
 
-            return new GRun(parser, tokens);
+            return new GRun(lexer, tokens, parser, parser.compilationUnit);
         }
-
-        #endregion
-
-        #region Fields declarations
-
-        private readonly JavaParser        _parser;
-        private readonly CommonTokenStream _tokens;
 
         #endregion
 
         #region Constructors declarations
 
-        private GRun(JavaParser parser, CommonTokenStream tokens) {
-            _parser = parser;
-            _tokens = tokens;
-        }
+        /// <inheritdoc />
+        private GRun(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse, Action<Parser>? options = null) : base(lexer, tokenStream, parser, parse, options) { }
 
         #endregion
 
         public string Rewrite() {
-            IParseTree             tree      = _parser.compilationUnit();
             ParseTreeWalker        walker    = new(); // create standard walker
-            InsertSerialIdListener extractor = new(_tokens);
-            walker.Walk(extractor, tree); // initiate walk of tree with listener
+            InsertSerialIdListener extractor = new(TokenStream);
+            walker.Walk(extractor, Tree); // initiate walk of tree with listener
 
             return extractor.Rewrite();
         }
