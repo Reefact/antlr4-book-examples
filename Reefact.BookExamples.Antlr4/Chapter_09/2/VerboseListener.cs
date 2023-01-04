@@ -8,8 +8,7 @@ using Antlr4.Runtime;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
 
-    public sealed class VerboseListener : BaseErrorListener, IErrorListenerWithOutput
-    {
+    public sealed class VerboseListener : BaseErrorListener, IErrorListenerWithOutput {
 
         #region Fields declarations
 
@@ -29,7 +28,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
         }
 
         public string GetOutput() {
-            return _output.Aggregate((previous, next) => $"{previous}\r\n{next}");
+            return _output.DefaultIfEmpty().Aggregate((previous, next) => $"{previous}\r\n{next}") ?? string.Empty;
         }
 
     }

@@ -9,16 +9,16 @@ using Antlr4.Runtime.Tree;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
 
-    public sealed class GRun {
+    public sealed class SimpleGRun {
 
         #region Statics members declarations
 
-        public static GRun Read(AntlrInputStream inputStream) {
+        public static SimpleGRun Read(AntlrInputStream inputStream) {
             SimpleLexer       lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             SimpleParser      parser = new(tokens);
 
-            return new GRun(parser, parser.prog);
+            return new SimpleGRun(parser, parser.prog);
         }
 
         #endregion
@@ -32,7 +32,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
 
         #region Constructors declarations
 
-        private GRun(SimpleParser parser, Func<IParseTree> parse) {
+        private SimpleGRun(SimpleParser parser, Func<IParseTree> parse) {
             _parser = parser;
             _parse  = parse;
         }

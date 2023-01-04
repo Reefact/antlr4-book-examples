@@ -14,6 +14,7 @@
     <Compile Include=".core\GRunBase.cs" />
     <Compile Include=".core\MermaidStyleTreeBuilder.cs" />
     <Compile Include=".core\ResourcesHelper.cs" />
+    <Compile Include=".core\StringExtensions.cs" />
     <Compile Include=".core\Void.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitBaseListener.cs" />
     <Compile Include="Chapter_03\.antlr\ArrayInitLexer.cs" />
@@ -120,6 +121,10 @@
     <Compile Include="Chapter_09\1\.antlr\SimpleLexer.cs" />
     <Compile Include="Chapter_09\1\.antlr\SimpleListener.cs" />
     <Compile Include="Chapter_09\1\.antlr\SimpleParser.cs" />
+    <Compile Include="Chapter_09\2\.antlr\AmbigBaseListener.cs" />
+    <Compile Include="Chapter_09\2\.antlr\AmbigLexer.cs" />
+    <Compile Include="Chapter_09\2\.antlr\AmbigListener.cs" />
+    <Compile Include="Chapter_09\2\.antlr\AmbigParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -324,6 +329,11 @@
     <None Include="Chapter_09\1\.resources\bogus_assignment_expression.simple.svg" />
     <None Include="Chapter_09\1\.resources\single_token_insertion.simple.svg" />
     <None Include="Chapter_09\1\.resources\single_extra_token.simple.svg" />
+    <None Include="Chapter_09\2\.antlr\Ambig.g4" />
+    <None Include="Chapter_09\2\.antlr\Ambig.interp" />
+    <None Include="Chapter_09\2\.antlr\Ambig.tokens" />
+    <None Include="Chapter_09\2\.antlr\AmbigLexer.interp" />
+    <None Include="Chapter_09\2\.antlr\AmbigLexer.tokens" />
     <EmbeddedResource Include="Chapter_09\2\.resources\underline_listener.simple" />
     <EmbeddedResource Include="Chapter_09\1\.resources\single_token_insertion.simple" />
     <EmbeddedResource Include="Chapter_09\1\.resources\bogus_assignment_expression.simple" />
