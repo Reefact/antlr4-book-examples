@@ -4,3 +4,4 @@ In this chapter, we'll see examples about automatic error reporting and recovery
 
 ### [9.1. A Parade of Errors](1)
 ### [9.2. Altering and Redirecting ANTLR Error Messages](2)
+### [9.3. Automatic Error Recovery Strategy](3)
