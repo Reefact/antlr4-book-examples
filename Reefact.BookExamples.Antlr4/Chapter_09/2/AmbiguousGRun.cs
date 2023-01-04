@@ -20,7 +20,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
             CommonTokenStream tokens = new(lexer);
             AmbigParser       parser = new(tokens);
 
-            return new AmbiguousGRun(lexer, parser, parser.stat, tokens, options, syntacticalErrorListeners);
+            return new AmbiguousGRun(lexer, tokens, parser, parser.stat, options, syntacticalErrorListeners);
         }
 
         public static AmbiguousGRun Read(AntlrInputStream inputStream, params BaseErrorListener[] syntacticalErrorListeners) {
@@ -28,15 +28,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
             CommonTokenStream tokens = new(lexer);
             AmbigParser       parser = new(tokens);
 
-            return new AmbiguousGRun(lexer, parser, parser.stat, tokens, null, syntacticalErrorListeners);
+            return new AmbiguousGRun(lexer, tokens, parser, parser.stat, null, syntacticalErrorListeners);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        /// <inheritdoc />
-        private AmbiguousGRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream, Action<Parser>? options, params BaseErrorListener[] syntacticalErrorListeners) : base(lexer, tokenStream, parser, parse, options, syntacticalErrorListeners) { }
+        private AmbiguousGRun(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse, Action<Parser>? options, params BaseErrorListener[] syntacticalErrorListeners) : base(lexer, tokenStream, parser, parse, options, syntacticalErrorListeners) { }
 
         #endregion
 

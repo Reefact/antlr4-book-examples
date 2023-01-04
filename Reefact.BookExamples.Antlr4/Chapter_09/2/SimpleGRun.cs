@@ -18,15 +18,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
             CommonTokenStream tokens = new(lexer);
             SimpleParser      parser = new(tokens);
 
-            return new SimpleGRun(lexer, parser, parser.prog, tokens, syntacticalErrorListeners);
+            return new SimpleGRun(lexer, tokens, parser, parser.prog, syntacticalErrorListeners);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        /// <inheritdoc />
-        public SimpleGRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream, params BaseErrorListener[] syntacticalErrorListeners) : base(lexer, tokenStream, parser, parse, null, syntacticalErrorListeners) { }
+        private SimpleGRun(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse, params BaseErrorListener[] syntacticalErrorListeners) : base(lexer, tokenStream, parser, parse, null, syntacticalErrorListeners) { }
 
         #endregion
 

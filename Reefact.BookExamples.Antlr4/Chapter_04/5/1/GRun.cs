@@ -29,7 +29,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._5._1 {
 
         #region Constructors declarations
 
-        public GRun(IEnumerable<string> tokens) {
+        private GRun(IEnumerable<string> tokens) {
             _tokens = tokens;
         }
 

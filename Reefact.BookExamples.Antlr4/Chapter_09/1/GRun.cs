@@ -18,7 +18,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._1 {
             CommonTokenStream tokens = new(lexer);
             SimpleParser      parser = new(tokens);
 
-            return new GRun(lexer, parser, parser.prog, tokens);
+            return new GRun(lexer, tokens, parser, parser.prog);
         }
 
         #endregion
@@ -26,7 +26,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._1 {
         #region Constructors declarations
 
         /// <inheritdoc />
-        private GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, tokenStream, parser, parse) { }
+        private GRun(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse) : base(lexer, tokenStream, parser, parse) { }
 
         #endregion
 

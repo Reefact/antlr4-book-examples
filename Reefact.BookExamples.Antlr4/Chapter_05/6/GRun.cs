@@ -28,7 +28,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
             CommonTokenStream tokens = new(lexer);
             var               parser = new IP_ParserParser(tokens);
 
-            return new GRun(ReadMode.Parser, lexer, parser, parser.file, tokens);
+            return new GRun(ReadMode.Parser, lexer, tokens, parser, parser.file);
         }
 
         private static GRun ReadLexer(AntlrInputStream inputStream) {
@@ -36,7 +36,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
             CommonTokenStream tokens = new(lexer);
             var               parser = new IP_LexerParser(tokens);
 
-            return new GRun(ReadMode.Lexer, lexer, parser, parser.file, tokens);
+            return new GRun(ReadMode.Lexer, lexer, tokens, parser, parser.file);
         }
 
         #endregion
@@ -49,8 +49,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
 
         #region Constructors declarations
 
-        /// <inheritdoc />
-        public GRun(ReadMode readMode, Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, tokenStream, parser, parse) {
+        private GRun(ReadMode readMode, Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse) : base(lexer, tokenStream, parser, parse) {
             _readMode = readMode;
         }
 

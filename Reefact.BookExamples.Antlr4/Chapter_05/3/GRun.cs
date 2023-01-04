@@ -19,15 +19,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
             CommonTokenStream        tokens = new(lexer);
             var                      parser = new NestedPhrasePatternParser(tokens);
 
-            return new GRun(lexer, parser, parser.expr, tokens);
+            return new GRun(lexer, tokens, parser, parser.expr);
         }
 
         #endregion
 
         #region Constructors declarations
 
-        /// <inheritdoc />
-        public GRun(Lexer lexer, Parser parser, Func<IParseTree> parse, CommonTokenStream tokenStream) : base(lexer, tokenStream, parser, parse) { }
+        private GRun(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse) : base(lexer, tokenStream, parser, parse) { }
 
         #endregion
 
