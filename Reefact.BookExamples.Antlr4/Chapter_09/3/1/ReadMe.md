@@ -1,6 +1,6 @@
 ﻿#### 9.3.1. Recovery by Scanning for Following Tokens
 
-This example shows what is "recovery by scanning for following tokens" and how it works.
+This example shows what is recovery "by scanning for following tokens" and how it works.
 
 _Remarks:_
 
