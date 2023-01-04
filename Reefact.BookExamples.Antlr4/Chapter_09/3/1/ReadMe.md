@@ -6,10 +6,10 @@ Chaque méthode de règle générée par ANTLR est enveloppée dans un try-catch
 
 ```csharp
 try {
-	...
+    ...
 } catch(RecognitionException re) {
-	ErrorHandler.ReportError(this, re);
-	ErrorHandler.Recover(this, re);
+    ErrorHandler.ReportError(this, re);
+    ErrorHandler.Recover(this, re);
 }
 ```
 
@@ -24,10 +24,11 @@ https://github.com/Reefact/antlr4-book-examples/blob/12664a0d317a3cebb9667926e4c
 antlr4 F.g4 -Dlanguage=CSharp
 ```
 
-Considérons l'arbre d'analyse à gauche pour l'entrée [1^2] dans le diagramme suivant :
+Considérons l'arbre d'analyse à gauche pour l'entrée \[1^2\] dans le diagramme suivant :
 
-| Good syntax: [1^2] | Bad syntax: [] |
+| Good syntax: \[1^2\] | Bad syntax: \[\] |
 | ----------- | ---------- |
 | <img src=".resources/good_syntax.svg" alt="Good Syntax Tree" width="300px"/> | <img src=".resources/bad_syntax.svg" alt="Bad Syntax Tree" width="300px"/> |
 
-...
+En faisant correspondre le token 1 à la règle atom, la pile d'appels est \[_group_, _expr_, _atom_\] (_group_ a appelé _expr_, qui a appelé _atom_). En regardant la pile d'appels, nous connaissons précisément l'ensemble des tokens qui peuvent suivre chaque règle que l'analyseur a appelée pour nous amener à la position actuelle. Les ensembles qui suivent ne prennent en compte que les tokens de la règle actuelle, de sorte qu'au moment de l'exécution, nous pouvons combiner uniquement les ensembles associés à la pile d'appels actuelle. En d'autres termes, nous ne pouvons pas atteindre la règle expr à partir des deux alternatives de groupe en même temps.
+En combinant les ensembles suivants tirés des commentaires de la grammaire F, nous obtenons un ensemble de resynchronisation de {'^', '\]'}. Pour voir pourquoi c'est l'ensemble que nous voulons, observons ce qui se passe lorsque l'analyseur rencontre une entrée erronée \[\]. Nous obtenons l'arbre d'analyse syntaxique montré à droite dans le diagramme côte à côte précédent. Dans atom, l'analyseur découvre que le token actuel, \], n'est pas compatible avec l'une ou l'autre des alternatives de atom.
