@@ -9,7 +9,7 @@ static short[] data = {1,2,3};
 en la chaîne équivalente suivante avec des constantes Unicode :
 
 ```java
-static String data = "\u0001\u0002\u0003" ; // Les caractères Java sont des courts non signés.
+static String data = "\u0001\u0002\u0003" ; // Les caractères Java sont des shorts non signés.
 ```
 
 où les spécificateurs de caractères Unicode, tels que \u0001, utilisent quatre chiffres hexadécimaux représentant une valeur de caractère de 16 bits, c'est-à-dire un short.
