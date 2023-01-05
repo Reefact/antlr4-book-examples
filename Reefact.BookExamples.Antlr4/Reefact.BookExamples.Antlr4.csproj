@@ -174,7 +174,7 @@
     <None Include="Chapter_03\.antlr\ArrayInit.tokens" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.interp" />
     <None Include="Chapter_03\.antlr\ArrayInitLexer.tokens" />
-    <None Include="Chapter_03\.resources\ParseTree1.svg" />
+    <None Include="Chapter_03\2\.resources\ParseTree1.svg" />
     <None Include="Chapter_04\1\1\.resources\ParseTree1.svg" />
     <None Include="Chapter_04\1\2\.antlr\CommonLexerRules.g4" />
     <None Include="Chapter_04\1\1\.antlr\Expr.g4" />
@@ -360,6 +360,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Chapter_03\2\Examples.provide_mermaid_style_tree_representation_of_a_short_array_in_ArrayInit_grammar_for_nested_arrays.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
     <None Update="Chapter_04\5\1\Examples.display_column_of_index_0.approved.txt">
       <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
