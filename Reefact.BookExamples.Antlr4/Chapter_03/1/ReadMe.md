@@ -16,7 +16,7 @@ A partir de la grammaire `ArrayInit.g4`, ANTLR génère de nombreux fichiers que
 
 ```mermaid
 graph TB
-	1["ArrayInit.g4"] --> 2("ANTLR"):::generated
+	1["ArrayInit.g4"] --> 2("ANTLR Tool"):::generated
 	2 --> 3["ArrayInitParser.cs"]
 	2 --> 4["ArrayInitLexer.cs"]
 	2 --> 5["ArrayInit.tokens"]
