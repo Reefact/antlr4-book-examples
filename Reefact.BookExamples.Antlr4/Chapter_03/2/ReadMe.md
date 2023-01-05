@@ -47,3 +47,11 @@ graph TD
 classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
 classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 ```
+
+En anglais, l'arbre d'analyse dit: "L'entrée est un initialisateur avec trois valeurs entourées d'accolades. Les première et troisième valeurs sont les entiers 1 et 4. La deuxième valeur est elle-même un initialisateur avec deux valeurs entourées d'accolades. Ces valeurs sont les entiers 2 et 3."
+
+Ces noeuds intérieurs, `init` et `value`, sont vraiment pratiques car ils identifient tous les différents éléments d'entrée par leur nom. C'est un peu comme identifier le verbe et le sujet dans une phrase anglaise. La meilleure partie est que ANTLR crée cet arbre automatiquement pour nous sur la base des noms de règles dans notre grammaire. Nous allons construire un traducteur basé sur cette grammaire à la fin de ce chapitre en utilisant un tree-walker intégré pour déclencher des callbacks comme `EnterInit()` et `EnterValue()`.
+
+Maintenant que nous pouvons exécuter ANTLR sur une grammaire et la tester, il est temps de réfléchir à la manière d'appeler cet analyseur syntaxique depuis une application .Net.
+
+⏭ Chapitre suivant: [3.3. Intégration d'un analyseur généré dans un programme en C#](../3)
