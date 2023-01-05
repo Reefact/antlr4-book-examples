@@ -2,8 +2,8 @@
 
 Commençons par tester notre grammaire en affichant les tokens créés par le lexer:
 
-https://github.com/Reefact/antlr4-book-examples/blob/f085b25910bdc5a466312b57e7c5d02dda68cea0/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.cs#L19-L28
-https://github.com/Reefact/antlr4-book-examples/blob/03022ff417783fb768076e0a499e20d83bcb0660/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.to_tokens_string.approved.txt#L1-L8
+https://github.com/Reefact/antlr4-book-examples/blob/74bc453853afabbce220e53f0bbfef62e59087ba/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.cs#L19-L28
+https://github.com/Reefact/antlr4-book-examples/blob/19746df081a5bb5e8119f2ed509e10dc0638e697/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.to_tokens_string.approved.txt
 
 Contrairement à l'exemple du livre, nous n'avons pas besoin d'ajouter un saut de ligne pour confirmer la fin de fichier (EOF). Du coup un légère différence apparaît entre les deux exemples.
 
@@ -14,7 +14,7 @@ Par défaut, ANTLR charge l'entrée entière avant le traitement. C'est le cas l
 
 Pour en savoir plus sur la façon dont l'analyseur a reconnu l'entrée, nous pouvons demander l'arbre d'analyse grâce à la méthode `ToLispStyleTree`.
 
-https://github.com/Reefact/antlr4-book-examples/blob/173f214e07ea51ae2679067192fa10b93d19840c/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.cs#L30-L39
+https://github.com/Reefact/antlr4-book-examples/blob/74bc453853afabbce220e53f0bbfef62e59087ba/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.cs#L30-L39
 ```bat
 (init { (value 99) , (value 3) , (value 451) })
 ```
