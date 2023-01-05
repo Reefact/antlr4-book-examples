@@ -17,9 +17,20 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._2 {
     public class Examples {
 
         [Fact]
+        public void to_tokens_string() {
+            // Setup
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{99, 3, 451}\r\n");
+            GRun             grun        = GRun.Read(inputStream);
+            // Exercise
+            string tokens = grun.ToTokensString();
+            // Verify
+            Approvals.Verify(tokens);
+        }
+
+        [Fact]
         public void convert_a_short_array_to_unicode_string() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{99,3,451}");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{99, 3, 451}\r\n");
             GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string unicodeString = grun.ToUnicodeString();
@@ -30,7 +41,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._2 {
         [Fact]
         public void provide_a_lisp_tree_representation_of_a_short_array_in_ArrayInit_grammar() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{99,3,451}");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("{99, 3, 451}\r\n");
             GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string lispStyleTree = grun.ToLispStyleTree();
