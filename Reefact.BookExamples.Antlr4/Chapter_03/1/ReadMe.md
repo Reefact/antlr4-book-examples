@@ -26,3 +26,18 @@ graph TB
 ```
 
 À ce stade, nous essayons simplement de comprendre l'essentiel du processus de développement. Voici donc une description rapide des fichiers générés:
+
+`ArrayInitParser.cs`
+
+Ce fichier contient la définition de la classe d'analyseur spécifique à la grammaire ArrayInt qui reconnaît notre syntaxe de langage de tableau.
+```csharp
+public partial class ArrayInitParser : Parser { ... }
+```
+Il contient une méthode pour chaque règle de la grammaire ainsi que du code de support.
+
+`ArrayInitLexer.cs'
+
+ANTLR extrait automatiquement une spécification d'analyseur et de lexer séparée de notre grammaire. Ce fichier contient la définition de la classe du lexer, que ANTLR a générée en analysant les règles lexicales `INT` et `WS` ainsi que les littéraux de la grammaire '{', ',', et '}'. Rappelez-vous que le lexeur tokenise l'entrée, en la décomposant en symboles de vocabulaire. Voici les grandes lignes de la classe :
+```csharp
+public partial class ArrayInitLexer : Lexer { ... }
+```
