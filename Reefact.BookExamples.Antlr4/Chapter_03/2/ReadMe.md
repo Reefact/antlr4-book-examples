@@ -9,7 +9,7 @@ Contrairement à l'exemple du livre, nous n'avons pas besoin d'ajouter un saut d
 
 | Dans le livre | Dans notre exemple |
 | --- | --- |
-| [@7,13:12='<EOF>',<-1>,1:12] | [@7,12:11='<EOF>',<-1>,1:12] |
+| \[@7,13:12='<EOF>',<-1>,1:12\] | \[@7,12:11='<EOF>',<-1>,1:12\] |
 
 Par défaut, ANTLR charge l'entrée entière avant le traitement. C'est le cas le plus courant et le plus efficace. Chaque ligne de la sortie représente un seul jeton et montre tout ce que nous savons sur ce jeton. Par exemple `[@5,8:10=14511,<4>,1:8]` indique qu'il s'agit du jeton à l'index 5 (indexé à partir de 0), va des caractères en position 8 à 10 (inclusivement en partant de 0), a pour valeur (texte) 451, a le type de jeton 4 (INT), est sur la ligne 1 (à partir de 1), et est à la position de caractère 8 (en partant de zéro et en comptant les tabulations comme un seul caractère). Remarquez qu'il n'y a pas de jeton pour les caractères _espace_ et _nouvelle ligne_: la règle WS de notre grammaire les élimine à cause de la directive `->skip`.
 
