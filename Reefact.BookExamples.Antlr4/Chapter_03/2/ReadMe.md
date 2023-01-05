@@ -3,7 +3,7 @@
 Commençons par tester notre grammaire en affichant les tokens créés par le lexer:
 
 https://github.com/Reefact/antlr4-book-examples/blob/74bc453853afabbce220e53f0bbfef62e59087ba/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.cs#L19-L28
-https://github.com/Reefact/antlr4-book-examples/blob/19746df081a5bb5e8119f2ed509e10dc0638e697/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.to_tokens_string.approved.txt
+https://github.com/Reefact/antlr4-book-examples/blob/19746df081a5bb5e8119f2ed509e10dc0638e697/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.to_tokens_string.approved.txt#L1-L8
 
 Contrairement à l'exemple du livre, nous n'avons pas besoin d'ajouter un saut de ligne pour confirmer la fin de fichier (EOF). Du coup un légère différence apparaît entre les deux exemples.
 
