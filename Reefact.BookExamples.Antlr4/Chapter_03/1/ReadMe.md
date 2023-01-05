@@ -41,3 +41,11 @@ ANTLR extrait automatiquement une spécification d'analyseur et de lexer sépar�
 ```csharp
 public partial class ArrayInitLexer : Lexer { ... }
 ```
+
+`Arrayinit. tokens`
+
+ANTLR assigne un numéro de type de token à chaque token que nous définissons et stocke ces valeurs dans ce fichier. C'est nécessaire lorsque nous divisons une grande grammaire en plusieurs petites grammaires afin qu'ANTL puisse synchroniser tous les numéros de type de token (voir chapitre [4.1.1 Importation de grammaires](../../Chapter_04/1/1)).
+
+`ArraylnitListener.cs`, `ArraylnitBaseListener.cs`
+
+Par défaut, les analyseurs ANTLR construisent un arbre à partir de l'entrée. En parcourant cet arbre, un "tree walker" peut envoyer des événements (callbacks) à un objet écouteur que nous fournissons. `ArrayInitListener` est l'interface qui décrit les callbacks que nous pouvons implémenter. `ArrayInitBaseListener` est un ensemble d'implémentations par défaut vides. Cette classe nous permet de surcharger facilement les callbacks qui nous intéressent (voir Chapitre [7.2, Implémentation d'applications avec des écouteurs Parse-Tree](../../Chapter_07/2)).
