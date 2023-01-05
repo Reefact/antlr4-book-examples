@@ -45,4 +45,4 @@ Pendant la récupération, les analyseurs ANTLR évitent d'émettre des messages
 
 Dans de nombreux cas, ANTLR peut récupérer plus intelligemment que de consommer jusqu'à l'ensemble de resynchronisation et de revenir de la règle actuelle. Il est payant d'essayer de "réparer" l'entrée et de continuer dans la même règle. Au cours des prochaines sections, nous examinerons comment l'analyseur syntaxique récupère les tokens mal assortis et les erreurs dans les sous-règles.
 
-⏭ [Chapitre suivant: 9.3.2. Récupération à Partir de Jetons Non Concordants](../2)
+⏭ Chapitre suivant: [9.3.2. Récupération à Partir de Jetons Non Concordants](../2)
