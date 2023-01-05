@@ -19,5 +19,5 @@ En travaillant sur cet exemple de démarrage, vous apprendrez un peu de la synta
 
 ### [3.1. L'outil ANTLR, le Moteur d'Exécution et le Code Généré](1)
 ### [3.2. Test de l'analyseur généré](2)
-### [3.3. Intégration d'un analyseur généré dans une programme C#](3)
+### [3.3. Intégration d'un analyseur généré dans un programme en C#](3)
 ### [3.4. Création d'une application linguistique](4)
