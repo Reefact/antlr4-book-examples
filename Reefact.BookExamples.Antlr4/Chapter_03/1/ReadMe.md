@@ -11,3 +11,18 @@ Nous pouvons exécuter ANTLR (l'outil) sur le fichier de grammaire
 ```bat
 antlr4 ArrayInit.g4 -Dlanguage=CSharp
 ```
+
+A partir de la grammaire `ArrayInit.g4`, ANTLR génère de nombreux fichiers que nous devrions normalement écrire à la main.
+
+```mermaid
+graph TB
+	1["ArrayInit.g4"] --> 2("ANTLR"):::generated
+	2 --> 3["ArrayInitParser.cs"]
+	2 --> 4["ArrayInitLexer.cs"]
+	2 --> 5["ArrayInit.tokens"]
+	2 --> 6["ArrayInitLexer.tokens"]
+	2 --> 7["ArrayInitListener.cs"]
+	2 --> 8["ArrayInitBaseListener.cs"]
+```
+
+À ce stade, nous essayons simplement de comprendre l'essentiel du processus de développement. Voici donc une description rapide des fichiers générés:
