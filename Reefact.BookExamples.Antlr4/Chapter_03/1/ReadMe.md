@@ -48,4 +48,12 @@ ANTLR assigne un numéro de type de token à chaque token que nous définissons 
 
 `ArraylnitListener.cs`, `ArraylnitBaseListener.cs`
 
-Par défaut, les analyseurs ANTLR construisent un arbre à partir de l'entrée. En parcourant cet arbre, un "tree walker" peut envoyer des événements (callbacks) à un objet écouteur que nous fournissons. `ArrayInitListener` est l'interface qui décrit les callbacks que nous pouvons implémenter. `ArrayInitBaseListener` est un ensemble d'implémentations par défaut vides. Cette classe nous permet de surcharger facilement les callbacks qui nous intéressent (voir Chapitre [7.2, Implémentation d'applications avec des écouteurs Parse-Tree](../../Chapter_07/2)).
+Par défaut, les analyseurs ANTLR construisent un arbre à partir de l'entrée. En parcourant cet arbre, un "tree walker" peut envoyer des événements (callbacks) à un objet écouteur que nous fournissons. `ArrayInitListener` est l'interface qui décrit les callbacks que nous pouvons implémenter. `ArrayInitBaseListener` est un ensemble d'implémentations par défaut vides. Cette classe nous permet de surcharger facilement les callbacks qui nous intéressent (voir Chapitre [7.2, Implémentation d'applications avec des écouteurs Parse-Tree](../../Chapter_07/2)). ANTLR peut aussi générer pour nous des visiteurs d'arbres grâce à l'option de ligne de commande `-visitor` (voir chapitre [7.5.1. Traverser des arbres de parse avec des visiteurs](../../Chapter_07/5/1)).
+
+Nous utiliserons bientôt les classes d'écouteurs pour traduire les initialisations de tableaux `short` en objets `string`, mais vérifions d'abord que notre analyseur syntaxique correspond correctement à un échantillon d'entrée.
+
+| Les grammaires ANTLR sont plus fortes que les expressions régulières |
+| --- |
+| Ceux d'entre vous qui sont familiers avec les [expressions régulières](https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re) se demandent peut-être si ANTLR n'est pas un peu excessif pour un problème de reconnaissance aussi simple. Il s'avère que nous ne pouvons pas utiliser les expressions régulières pour reconnaître les initialisations à cause des initialisateurs imbriqués. Les expressions régulières n'ont pas de mémoire dans le sens où elles ne peuvent pas se souvenir de ce qu'elles ont fait correspondre précédemment dans l'entrée. De ce fait, elles ne savent pas comment faire correspondre les accolades gauche et droite. Nous y reviendrons plus en détail au chapitre [5.3.4 Pattern : Phrase imbriquée](../../Chapter_05/3/4). |
+
+⏭ Chapitre suivant: [3.2. Test de l'Analyseur Généré](../2)
