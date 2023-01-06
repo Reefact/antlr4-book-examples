@@ -48,7 +48,7 @@ classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
 classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 ```
 
-En anglais, l'arbre d'analyse dit: "L'entrée est un initialisateur avec trois valeurs entourées d'accolades. Les première et troisième valeurs sont les entiers 1 et 4. La deuxième valeur est elle-même un initialisateur avec deux valeurs entourées d'accolades. Ces valeurs sont les entiers 2 et 3."
+En français, l'arbre d'analyse dit: "L'entrée est un initialisateur avec trois valeurs entourées d'accolades. Les première et troisième valeurs sont les entiers 1 et 4. La deuxième valeur est elle-même un initialisateur avec deux valeurs entourées d'accolades. Ces valeurs sont les entiers 2 et 3."
 
 Ces noeuds intérieurs, `init` et `value`, sont vraiment pratiques car ils identifient tous les différents éléments d'entrée par leur nom. C'est un peu comme identifier le verbe et le sujet dans une phrase anglaise. La meilleure partie est que ANTLR crée cet arbre automatiquement pour nous sur la base des noms de règles dans notre grammaire. Nous allons construire un traducteur basé sur cette grammaire à la fin de ce chapitre en utilisant un tree-walker intégré pour déclencher des callbacks comme `EnterInit()` et `EnterValue()`.
 
