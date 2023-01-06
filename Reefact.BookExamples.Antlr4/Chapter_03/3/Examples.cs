@@ -7,8 +7,6 @@ using ApprovalTests.Reporters;
 
 using NFluent;
 
-using Reefact.BookExamples.Antlr4.Chapter_03._2;
-
 using Xunit;
 
 #endregion
@@ -33,7 +31,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._3 {
         public void to_lisp_style_tree_with_missing_brace() {
             // Setup
             AntlrInputStream inputStream = AntlrInputStreamReader.Read("{1,2");
-            GRun             grun        = GRun.Read(inputStream);
+            _2.GRun          grun        = _2.GRun.Read(inputStream);
             // Exercise
             string lispStyleTree = grun.ToLispStyleTree();
             // Verify
