@@ -13,17 +13,17 @@ Débuter un projet de traduction consiste tout d'abord à trouver comment conver
 
 ```mermaid
 graph TB
-    0["short array:"]:::header -.-> 100["string form:"]:::header 
-	1["{"] --> 2("#0034;")
-	3["99"] --> 4["#0092;u0063"]
-    5[","]
-    6["3"] --> 7["#0092;u0003"]
-    8[","]
-    9["451"] --> 10["#0092;u01c3"]
+    1["short array:"]:::header -.-> 2["string form:"]:::header 
+    3["{"] --> 4("#0034;")
+    5["99"] --> 6["#0092;u0063"]
+    7[","]
+    8["3"] --> 9["#0092;u0003"]
+    10[","]
+    11["451"] --> 12["#0092;u01c3"]
+    13["}"] --> 14("#0034;")
 
 classDef default fill:#eee,stroke-width:0px;
 classDef header fill:#fff,stroke-width:0px;
-
 ```
 
 En français, la traduction est une série de règles "X se transforme en Y".
