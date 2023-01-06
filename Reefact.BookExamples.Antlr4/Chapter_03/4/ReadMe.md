@@ -1,6 +1,6 @@
-﻿### 3.4. Création d'une application linguistique
+### 3.4. Création d'une application linguistique
 
-En continuant avec notre exemple d'initialisateur de tableau, notre prochain objectif est de traduire et pas seulemenet de reconnaître les initialisateurs. Par exemple, traduisons des tableaux de `short` C# comme `{99,3,451}` en `"\u0063\u0003\u01c3"` où 63 est la représentation hexadécimale de 99 en décimal.
+En continuant avec notre exemple d'initialisateur de tableau, notre prochain objectif n'est plus seulement de reconnaître les initialisateurs mais aussi des les traduires. Par exemple, traduisons des tableaux de `short` C# comme `{99,3,451}` en `"\u0063\u0003\u01c3"` où 63 est la représentation hexadécimale de 99 en décimal.
 
 Pour aller au-delà de la reconnaissance, une application doit extraire des données de l'arbre d'analyse syntaxique. La façon la plus simple de le faire est que le tree-walker intégré d'ANTLR déclenche une série de callbacks pendant qu'il effectue une marche en profondeur. Comme nous l'avons vu précédemment, ANTLR génère automatiquement une infrastructure de listeners pour nous. Ces listeners sont comme les callbacks sur les widgets de l'interface graphique (par exemple, un bouton nous notifie lorsqu'il est pressé) ou comme les événements SAX dans un parseur XML.
 
