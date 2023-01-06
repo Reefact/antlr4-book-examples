@@ -61,8 +61,58 @@ Dans ce cas, il y a deux tokens supplémentaires, et l'analyseur syntaxique affi
 https://github.com/Reefact/antlr4-book-examples/blob/63f20db15006716982001ef52e14ffcdeedcfe62/Reefact.BookExamples.Antlr4/Chapter_09/1/.resources/single_extra_token.simple#L1
 https://github.com/Reefact/antlr4-book-examples/blob/63f20db15006716982001ef52e14ffcdeedcfe62/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L55-L64
 https://github.com/Reefact/antlr4-book-examples/blob/63f20db15006716982001ef52e14ffcdeedcfe62/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.printing_elements_when_error_consists_of_a_single_extra_token.approved.txt#L1-L3
+```mermaid
+graph TD
+	1["prog"] --> 2["classDef"]
+	2 --> 3["class"]
+	2 --> 4["T"]
+	2 --> 5[";"]:::error
+	2 --> 6["{"]
+	2 --> 7["member"]
+	7 --> 8["int"]
+	7 --> 9["i"]
+	7 --> 10[";"]
+	2 --> 11["}"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
+```
 
 L'analyseur syntaxique signale une erreur au niveau de `;` mais donne une réponse légèrement plus informative parce qu'il sait que le token suivant est ce qu'il recherchait réellement. Cette fonction est appelée suppression d'un seul token, car l'analyseur peut simplement prétendre que le token étranger n'est pas là et continuer. De même, l'analyseur syntaxique peut effectuer une insertion single-token lorsqu'il détecte un token manquant. Retirons l'accolade de fermeture pour voir ce qui se passe.
+
+https://github.com/Reefact/antlr4-book-examples/blob/068a2dcfe1e3b7bd34f747dede5ac79cfb8653c8/Reefact.BookExamples.Antlr4/Chapter_09/1/.resources/single_token_insertion.simple#L1-L2
+https://github.com/Reefact/antlr4-book-examples/blob/068a2dcfe1e3b7bd34f747dede5ac79cfb8653c8/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L78-L90
+https://github.com/Reefact/antlr4-book-examples/blob/068a2dcfe1e3b7bd34f747dede5ac79cfb8653c8/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.printing_elements_when_parser_can_do_single_token_insertion.approved.txt#L1-L4
+```mermaid
+graph TD
+	1["prog"] --> 2["classDef"]
+	2 --> 3["class"]
+	2 --> 4["T"]
+	2 --> 5["{"]
+	2 --> 6["member"]
+	6 --> 7["int"]
+	6 --> 8["f"]
+	6 --> 9["("]
+	6 --> 10["x"]
+	6 --> 11[")"]
+	6 --> 12["{"]
+	6 --> 13["stat"]
+	13 --> 14["a"]
+	13 --> 15["="]
+	13 --> 16["expr"]
+	16 --> 17["3"]
+	13 --> 18[";"]
+	6 --> 19["}"]
+	2 --> 20["#0060;missing '}'#0062;"]:::error
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
+```
+
+L'analyseur syntaxique signale qu'il n'a pas pu trouver le token `}` attendu.
+
+Une autre erreur de syntaxe courante se produit lorsque l'analyseur se trouve à un point de décision et que l'entrée restante ne correspond à aucune des alternatives de cette règle ou sous-règle. Par exemple, si nous oublions le nom de la variable dans une déclaration de champ, aucune des alternatives de la règle membre ne correspondra. L'analyseur syntaxique signale qu'il n'y a pas d'alternative viable.
+
 
 // TODO: remove when completed =>
 
