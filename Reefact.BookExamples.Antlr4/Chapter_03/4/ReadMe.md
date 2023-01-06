@@ -9,7 +9,7 @@ Pour écrire un programme qui réagit à l'entrée, tout ce que nous avons à fa
 La beauté du mécanisme des listeners est que nous n'avons pas besoin de parcourir l'arbre nous-mêmes. En fait, nous n'avons même pas besoin de savoir que le runtime parcourt un arbre pour appeler nos méthodes. Tout ce que nous savons, c'est que notre listener est notifié au début et à la fin des phrases associées aux règles de la grammaire.
 Comme nous le verrons au chapitre [7.2. Implémentation d'applications avec des Parse-Tree listeners](../../Chapter_07/2), cette approche réduit les connaissances à acquérir sur ANTLR --nous sommes de retour en territoire familier de langage de programmation pour tout sauf la reconnaissance de phrases.
 
-Le lancement d'un projet de traduction implique de trouver comment convertir chaque token ou phrase d'entrée en une chaîne de sortie. Pour ce faire, il est bon de traduire manuellement quelques échantillons représentatifs afin d'identifier les conversions générales de phrase à phrase. Dans ce cas, la traduction est assez simple.
+Débuter un projet de traduction consiste tout d'abord à trouver comment convertir chaque token ou phrase d'entrée en une chaîne de sortie. Pour ce faire, il est bon de traduire manuellement quelques échantillons représentatifs afin d'identifier les conversions générales de phrase à phrase. Dans ce cas, la traduction est assez simple.
 
 // TODO: ajouter image
 
