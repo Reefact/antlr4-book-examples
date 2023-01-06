@@ -26,6 +26,7 @@ Au token 4, l'analyseur ne trouve pas le `;` qu'il attendait et signale une erre
 
 Grâce à l'option d'impression sous forme d'arbre `ToMermaidStyleTree()`, nous voyons également l'arbre d'analyse avec les noeuds d'erreur mis en évidence (nous y reviendrons dans un instant).
 
+https://github.com/Reefact/antlr4-book-examples/blob/b998242b8ddd91a9f85da0b2b7d925884cdf7ea8/Reefact.BookExamples.Antlr4/Chapter_09/1/.resources/bogus_assignment_expression.simple#L1-L3
 https://github.com/Reefact/antlr4-book-examples/blob/3e351981b6f338b099d406dc4de488994090f35d/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L43-L53
 ```mermaid
 graph TD
