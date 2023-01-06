@@ -20,3 +20,5 @@ https://github.com/Reefact/antlr4-book-examples/blob/d866cfec1f2d0806d8a50064b01
 __TODO: indiquer que nous utilisons ci-dessus le GRunBase__
 
 À ce stade, nous avons vu comment exécuter ANTLR sur une grammaire et intégrer l'analyseur généré dans une application .Net triviale. Une application qui se contente de vérifier la syntaxe n'est pas très impressionnante, alors finissons par construire un traducteur qui convertit les initialisateurs de tableaux de `short` en objets `string`.
+
+⏭ Chapitre suivant: [3.4. Création d'une application linguistique](../4)
