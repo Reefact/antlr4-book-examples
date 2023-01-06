@@ -15,14 +15,15 @@ Débuter un projet de traduction consiste tout d'abord à trouver comment conver
 graph TB
     0["short array:"]:::header -.-> 100["string form:"]:::header 
 	1["{"] --> 2("#0034;")
-	3["99"] --> 4["\u0063"]
+	3["99"] --> 4["#0092;u0063"]
     5[","]
-    6["3"] --> 7["\u0003"]
+    6["3"] --> 7["#0092;u0003"]
     8[","]
-    9["451"] --> 10["\u01c3"]
+    9["451"] --> 10["#0092;u01c3"]
 
 classDef default fill:#eee,stroke-width:0px;
 classDef header fill:#fff,stroke-width:0px;
+
 ```
 
 En français, la traduction est une série de règles "X se transforme en Y".
