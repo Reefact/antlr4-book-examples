@@ -11,7 +11,7 @@ Tout d'abord, exécutons l'analyseur syntaxique avec une entrée valide pour obs
 ```bat
 antlr4 Simple.g4 -Dlanguage=CSharp
 ```
-https://github.com/Reefact/antlr4-book-examples/blob/9db70397d6598117e19655acacc0bc648093db43/Reefact.BookExamples.Antlr4/Chapter_09/1/GRun.cs#L16-L22
+https://github.com/Reefact/antlr4-book-examples/blob/9db70397d6598117e19655acacc0bc648093db43/Reefact.BookExamples.Antlr4/Chapter_09/1/GRun.cs#L12-L42
 https://github.com/Reefact/antlr4-book-examples/blob/4688ca243c08b7695710b18e62012e5036c30496/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L21-L30
 
 Nous n'obtenons aucune erreur de l'analyseur syntaxique, et il exécute les instructions d'impression pour signaler la reconnaissance correcte de la variable `i` et de la définition de classe `T`.
