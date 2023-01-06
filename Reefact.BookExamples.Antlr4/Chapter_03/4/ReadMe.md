@@ -20,3 +20,11 @@ En français, la traduction est une série de règles "X se transforme en Y".
 3. Traduire des entiers en chaînes hexadécimales à quatre chiffres préfixées par \u.
 
 Pour coder le traducteur, nous devons écrire des méthodes qui impriment les chaînes converties à la vue de la phrase ou de l'élément d'entrée approprié. Le tree-walker intégré déclenche des rappels dans un listener lorsqu'il voit le début et la fin des différentes phrases. Voici l'implémentation d'un listener pour nos règles de traduction :
+
+https://github.com/Reefact/antlr4-book-examples/blob/fdea1cc1b98b86d9934d3cef95373a95113dcdac/Reefact.BookExamples.Antlr4/Chapter_03/4/ShortToUnicodeStringListener.cs#L12-L55
+
+Nous n'avons pas besoin de surcharger chaque méthode d'entrée/sortie ; nous ne faisons que celles qui nous intéressent. La seule expression inconnue est `ctx.INT()`, qui demande à l'objet de contexte le jeton `INT` entier correspondant à cette invocation de valeur de règle. Les objets contextes enregistrent tout ce qui se passe pendant la reconnaissance d'une règle.
+
+La seule chose qui reste à faire est de créer une application de traduction dérivée du code passe-partout du GRun présenté au chapitre précédent.
+
+
