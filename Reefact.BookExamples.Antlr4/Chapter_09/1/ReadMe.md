@@ -18,6 +18,7 @@ Nous n'obtenons aucune erreur de l'analyseur syntaxique, et il exécute les inst
 
 Maintenant, essayons une classe avec une définition de méthode contenant une fausse expression d'affectation.
 
+https://github.com/Reefact/antlr4-book-examples/blob/a90511a306d5ab4a19f18ef03d1985831671fdc8/Reefact.BookExamples.Antlr4/Chapter_09/1/.resources/single_extra_token.simple#L1
 https://github.com/Reefact/antlr4-book-examples/blob/4688ca243c08b7695710b18e62012e5036c30496/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L55-L64
 https://github.com/Reefact/antlr4-book-examples/blob/4688ca243c08b7695710b18e62012e5036c30496/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.printing_elements_in_a_bogus_assignment_expression.approved.txt#L1-L3
 
