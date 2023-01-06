@@ -11,7 +11,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._4;
 /// </summary>
 public sealed class ShortToUnicodeStringListener : ArrayInitBaseListener {
 
-    private const string HexadecimalStringFormat = "X4";
+    private const string HexadecimalStringFormat = "x4";
     private const string UnicodePrefix           = "\\u";
 
     #region Statics members declarations

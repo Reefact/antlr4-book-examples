@@ -365,6 +365,16 @@
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
       <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
     </None>
+    <None Update="Chapter_03\4\Examples.provide_mermaid_style_tree_representation_of_a_short_array_in_ArrayInit_grammar_for_nested_arrays.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
+    <None Update="Chapter_03\4\Examples.to_tokens_string.approved.txt">
+      <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
+      <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
+      <DependentUpon>%(ParentFile)%(ParentExtension)</DependentUpon>
+    </None>
     <None Update="Chapter_04\5\1\Examples.display_column_of_index_0.approved.txt">
       <ParentFile>$([System.String]::Copy('%(FileName)').Split('.')[0])</ParentFile>
       <ParentExtension>$(ProjectExt.Replace('proj', ''))</ParentExtension>
