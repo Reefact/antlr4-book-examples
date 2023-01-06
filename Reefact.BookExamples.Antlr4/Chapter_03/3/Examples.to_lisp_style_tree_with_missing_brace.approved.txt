@@ -1,0 +1,2 @@
+﻿line 1:4 extraneous input '<EOF>' expecting {',', '}'}
+(init { (value 1) , (value 2) <missing '}'>)
