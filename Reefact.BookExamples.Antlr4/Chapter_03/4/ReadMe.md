@@ -25,6 +25,20 @@ https://github.com/Reefact/antlr4-book-examples/blob/fdea1cc1b98b86d9934d3cef953
 
 Nous n'avons pas besoin de surcharger chaque méthode d'entrée/sortie ; nous ne faisons que celles qui nous intéressent. La seule expression inconnue est `ctx.INT()`, qui demande à l'objet de contexte le jeton `INT` entier correspondant à cette invocation de valeur de règle. Les objets contextes enregistrent tout ce qui se passe pendant la reconnaissance d'une règle.
 
-La seule chose qui reste à faire est de créer une application de traduction dérivée du code passe-partout du GRun présenté au chapitre précédent.
+La seule chose qui reste à faire est de créer une application de traduction dérivée du code passe-partout du [GRun présenté au chapitre 3.2.](../2/GRun.cs). La seule différence est l'ajout des lignes suivantes:
+
+https://github.com/Reefact/antlr4-book-examples/blob/b48e9550e0a5c314b8c1e287dfc8bdf7b059f1d6/Reefact.BookExamples.Antlr4/Chapter_03/4/GRun.cs#L33-L41
+
+Le code crée le tree-walker et lui demande de parcourir l'arbre retourné par le parseur. Au fur et à mesure que le tree-walker se déplace, il déclenche des appels à notre listener `ShortToUnicodeString`.
+
+Ci-dessous le code du test qui exécute notre traducteur sur un exemple:
+
+https://github.com/Reefact/antlr4-book-examples/blob/b48e9550e0a5c314b8c1e287dfc8bdf7b059f1d6/Reefact.BookExamples.Antlr4/Chapter_03/4/Examples.cs#L18-L27
+
+Ça marche ! Nous venons de construire notre premier traducteur, sans même toucher à la grammaire. Tout ce que nous avons eu à faire était d'implémenter quelques méthodes qui imprimaient les traductions des phrases appropriées. De plus, nous pouvons générer un résultat complètement différent simplement en passant dans un listener différent. Les listener isolent efficacement l'application linguistique de la grammaire, ce qui rend la grammaire réutilisable pour d'autres applications.
+Dans le prochain chapitre, nous ferons un tour d'horizon de la notation de la grammaire ANTLR et des principales caractéristiques qui rendent ANTLR puissant et facile à utiliser.
+
+⏭ Chapitre suivant: [4. Un tour rapide](../../Chapter_04)
+
 
 
