@@ -31,11 +31,12 @@ public abstract class GRunBase {
         if (parse is null) { throw new ArgumentNullException(nameof(parse)); }
         if (syntacticalErrorListeners is null) { throw new ArgumentNullException(nameof(syntacticalErrorListeners)); }
 
+        lexer.RemoveErrorListeners();
         lexer.AddErrorListener(_lexicalErrorListener);
         Lexer = lexer;
         options?.Invoke(parser);
         SyntacticalErrorListeners = syntacticalErrorListeners;
-        parser.RemoveParseListeners();
+        parser.RemoveErrorListeners();
         foreach (BaseErrorListener syntacticalErrorListener in SyntacticalErrorListeners) {
             parser.AddErrorListener(syntacticalErrorListener);
         }
