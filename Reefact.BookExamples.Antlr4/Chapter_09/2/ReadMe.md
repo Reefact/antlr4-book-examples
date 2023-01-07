@@ -49,6 +49,12 @@ https://github.com/Reefact/antlr4-book-examples/blob/c323948a443193aab5fb47c2612
 
 La sortie montre que l'analyseur syntaxique appelle également `ReportAttemptingFullContext()`. ANTLR appelle cette méthode lorsque l'analyse syntaxique `SLL(*)` échoue et que l'analyseur syntaxique engage le mécanisme plus puissant de full `ALL(*)`. Voir chapitre [13.7. Maximiser la Vitesse de l'Analyseur Syntaxique](../../Chapter_13/7).
 
-C'est une bonne idée d'utiliser l'écouteur d'erreurs de diagnostic pendant le développement car l'outil ANTLR ne peut pas vous avertir des constructions grammaticales ambiguës de manière statique (lors de la génération des parsers). Seul le parseur peut détecter les ambiguïtés dans ANTLR v4. C'est la différence entre le typage statique en Java, disons, et le typage dynamique en Python.
+C'est une bonne idée d'utiliser le listener d'erreurs de diagnostique pendant le développement car l'outil ANTLR ne peut pas vous avertir des constructions grammaticales ambiguës de manière statique (lors de la génération des parsers). Seul le parseur peut détecter les ambiguïtés dans ANTLR v4. C'est la différence entre le typage statique en Java, disons, et le typage dynamique en Python.
 
-// to be continued...
+| Améliorations dans ANTLR v4 |
+| --- |
+| Il y a deux améliorations importantes liées aux erreurs dans la v4 : ANTLR fait une bien meilleure récupération des erreurs en ligne et permet aux programmeurs de modifier beaucoup plus facilement la stratégie de traitement des erreurs. Lorsque Sun Microsystems a construit un analyseur syntaxique pour JavaFX avec ANTLR v3, elle a remarqué qu'un simple point-virgule mal placé pouvait forcer l'analyseur syntaxique à arrêter de chercher une liste de membres de classe (via `member+`). Maintenant, les analyseurs v4 tentent de se resynchroniser avant et pendant la reconnaissance des sous-règles au lieu de gober des tokens et de sortir de la règle actuelle. La deuxième amélioration permet aux programmeurs de spécifier un mécanisme de gestion des erreurs suivant le [design pattern Strategy](https://reefact.net/craftsmanship/design-pattern/strategy). |
+
+Maintenant que nous avons une bonne idée des types de messages générés par les analyseurs ANTLR et de la manière de les modifier et de les rediriger, explorons la récupération des erreurs.
+
+⏭ Chapitre suivant: [9.3. Stratégie de Récupération Automatique des Erreurs](../3)
