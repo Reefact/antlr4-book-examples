@@ -47,5 +47,8 @@ Pour savoir que le parser détecte une ambiguïté, vous devez indiquer au parse
 https://github.com/Reefact/antlr4-book-examples/blob/c323948a443193aab5fb47c26128b3481e8352af/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.cs#L53-L72
 https://github.com/Reefact/antlr4-book-examples/blob/c323948a443193aab5fb47c26128b3481e8352af/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.ambiguity_detected.approved.txt#L1-L4
 
-// TODO: to continue
+La sortie montre que l'analyseur syntaxique appelle également `ReportAttemptingFullContext()`. ANTLR appelle cette méthode lorsque l'analyse syntaxique `SLL(*)` échoue et que l'analyseur syntaxique engage le mécanisme plus puissant de full `ALL(*)`. Voir chapitre [13.7. Maximiser la Vitesse de l'Analyseur Syntaxique](../../Chapter_13/7).
 
+C'est une bonne idée d'utiliser l'écouteur d'erreurs de diagnostic pendant le développement car l'outil ANTLR ne peut pas vous avertir des constructions grammaticales ambiguës de manière statique (lors de la génération des parsers). Seul le parseur peut détecter les ambiguïtés dans ANTLR v4. C'est la différence entre le typage statique en Java, disons, et le typage dynamique en Python.
+
+// to be continued...
