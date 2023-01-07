@@ -30,12 +30,22 @@ Pour faciliter les choses, nous ne tiendrons pas compte des tabulations--CharPos
 
 https://github.com/Reefact/antlr4-book-examples/blob/f34dea9f11ae05bf516f6f03f6c1791c7b60bbe5/Reefact.BookExamples.Antlr4/Chapter_09/2/UnderlineListener.cs#L11-L45
 
-//TODO: to continue
+Il y a une dernière chose à savoir sur les listeners d'erreurs. Lorsque le parser détecte une séquence d'entrée ambiguë, il en informe le listener d'erreurs. Le listener d'erreur par défaut, `ConsoleErrorListener`, n'affiche cependant rien dans la console. Comme nous l'avons vu dans le chapitre [2.3. On ne Peut Pas Mettre Trop d'Eau Dans un Réacteur Nucléaire](../../Chapter_02/3), une entrée ambiguë indique probablement une erreur dans notre grammaire ; l'analyseur syntaxique ne devrait pas en informer nos utilisateurs. Revenons à la grammaire ambiguë de cette section qui peut correspondre à l'entrée `f();` de deux manières différentes.
 
-_Remarks:_
-
-_C# lexer and parser classes are generated with the following command line:_
-
+https://github.com/Reefact/antlr4-book-examples/blob/844b13c657df92d62b6bc54ae7ceb8082588319c/Reefact.BookExamples.Antlr4/Chapter_09/2/.antlr/Ambig.g4#L1-L13
 ```bat
 antlr4 Ambig.g4 -Dlanguage=CSharp
 ```
+https://github.com/Reefact/antlr4-book-examples/blob/844b13c657df92d62b6bc54ae7ceb8082588319c/Reefact.BookExamples.Antlr4/Chapter_09/2/AmbiguousGRun.cs#L14-L55
+
+Si nous testons la grammaire, nous ne voyons pas d'avertissement pour l'entrée ambiguë.
+
+https://github.com/Reefact/antlr4-book-examples/blob/844b13c657df92d62b6bc54ae7ceb8082588319c/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.cs#L42-L51
+
+Pour savoir que le parser détecte une ambiguïté, vous devez indiquer au parser d'utiliser une instance de `DiagnosticErrorListener` en utilisant `AddErrorListener()`. Vous devez également informer l'analyseur syntaxique que vous êtes intéressé par tous les avertissements d'ambiguïté, et pas seulement par ceux qu'il peut détecter rapidement. Dans un souci d'efficacité, le mécanisme de décision d'ANTLR ne recherche pas toujours toutes les informations d'ambiguïté. 
+
+https://github.com/Reefact/antlr4-book-examples/blob/c323948a443193aab5fb47c26128b3481e8352af/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.cs#L53-L72
+https://github.com/Reefact/antlr4-book-examples/blob/c323948a443193aab5fb47c26128b3481e8352af/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.ambiguity_detected.approved.txt#L1-L4
+
+// TODO: to continue
+
