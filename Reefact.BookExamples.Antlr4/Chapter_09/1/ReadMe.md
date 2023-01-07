@@ -86,6 +86,9 @@ L'analyseur syntaxique signale une erreur au niveau de `;` mais donne une répon
 https://github.com/Reefact/antlr4-book-examples/blob/068a2dcfe1e3b7bd34f747dede5ac79cfb8653c8/Reefact.BookExamples.Antlr4/Chapter_09/1/.resources/single_token_insertion.simple#L1-L2
 https://github.com/Reefact/antlr4-book-examples/blob/068a2dcfe1e3b7bd34f747dede5ac79cfb8653c8/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L78-L90
 https://github.com/Reefact/antlr4-book-examples/blob/068a2dcfe1e3b7bd34f747dede5ac79cfb8653c8/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.printing_elements_when_parser_can_do_single_token_insertion.approved.txt#L1-L4
+
+Visualisons l'arbre syntaxique généré:
+https://github.com/Reefact/antlr4-book-examples/blob/ffc0a09803e6e442265569aa764745f06e402156/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L92-L102
 ```mermaid
 graph TD
 	1["prog"] --> 2["classDef"]
