@@ -113,9 +113,19 @@ L'analyseur syntaxique signale qu'il n'a pas pu trouver le token `}` attendu.
 
 Une autre erreur de syntaxe courante se produit lorsque l'analyseur se trouve à un point de décision et que l'entrée restante ne correspond à aucune des alternatives de cette règle ou sous-règle. Par exemple, si nous oublions le nom de la variable dans une déclaration de champ, aucune des alternatives de la règle membre ne correspondra. L'analyseur syntaxique signale qu'il n'y a pas d'alternative viable.
 
+https://github.com/Reefact/antlr4-book-examples/blob/cd33bbfbceb5f223bac1d676588d7ca874be29b7/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L104-L113
+https://github.com/Reefact/antlr4-book-examples/blob/cd33bbfbceb5f223bac1d676588d7ca874be29b7/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.printing_elements_when_no_viable_alternative.approved.txt#L1-L2
 
-// TODO: remove when completed =>
+Il n'y a pas d'espace entre `int` et `;` parce que nous avons dit au lexeur de `->skip` dans la règle `WS` qui gère les espacements.
+En cas d'erreurs lexicales, ANTLR émet également un message d'erreur indiquant le ou les caractères qu'il n'a pas pu reconnaître comme faisant partie d'un token. Par exemple, si nous envoyons un caractère complètement inconnu, nous obtenons une erreur de reconnaissance de token erreur.
 
-| single_extra_token.simple | single_token_insertion.simple |
-| ------------------------- | ----------------------------- |
-| <img src=".resources/single_extra_token.simple.svg" alt="Single Extra Token" width="300px"/> | <img src=".resources/single_token_insertion.simple.svg" alt="Single Token Insertion" width="300px"/> |
+https://github.com/Reefact/antlr4-book-examples/blob/cd33bbfbceb5f223bac1d676588d7ca874be29b7/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L115-L124
+https://github.com/Reefact/antlr4-book-examples/blob/cd33bbfbceb5f223bac1d676588d7ca874be29b7/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.printing_elements_when_lexical_error.approved.txt#L1-L4
+
+Puisque nous n'avons pas donné de nom de classe valide, le mécanisme d'insertion d'un seul jeton a fait apparaître le nom `missing ID` afin que le jeton de nom de classe soit non-nul. Pour prendre le contrôle de la façon dont l'analyseur syntaxique conjure les jetons, remplacez `getMissingSymbol()` dans `DefaultErrorStrategy` (voir chapitre [9.5. Modifier la stratégie de gestion des erreurs d'ANTLR](../5)).
+
+Vous avez peut-être remarqué que les exemples d'exécution de cette section montrent que les actions s'exécutent comme prévu, malgré la présence d'erreurs. En plus de produire de bons messages d'erreur et de resynchroniser l'entrée en consommant des tokens, les analyseurs syntaxiques doivent également rebondir à un endroit approprié dans le code généré.
+
+Par exemple, lors de la mise en correspondance de membres via la règle member dans la règle `classDef`, l'analyseur syntaxique ne doit pas sortir de `classDef` en cas de mauvaise définition de membre. C'est pourquoi l'analyseur est toujours capable d'exécuter ces actions - une erreur de syntaxe ne fait pas sortir l'analyseur de la règle. L'analyseur fait de gros efforts pour continuer à chercher une définition de classe valide. Nous apprendrons tout sur ce sujet dans le chapitre [9.3. Stratégie de récupération automatique des erreurs](../3). Mais d'abord, voyons comment modifier le rapport d'erreur standard pour faciliter le débogage de la grammaire et fournir de meilleurs messages à nos utilisateurs.
+
+⏭ Chapitre suivant: [9.2. Modifier et Rediriger les Messages d'Erreur ANTLR](../2)
