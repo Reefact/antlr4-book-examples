@@ -61,6 +61,9 @@ Dans ce cas, il y a deux tokens supplémentaires, et l'analyseur syntaxique affi
 https://github.com/Reefact/antlr4-book-examples/blob/63f20db15006716982001ef52e14ffcdeedcfe62/Reefact.BookExamples.Antlr4/Chapter_09/1/.resources/single_extra_token.simple#L1
 https://github.com/Reefact/antlr4-book-examples/blob/63f20db15006716982001ef52e14ffcdeedcfe62/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L55-L64
 https://github.com/Reefact/antlr4-book-examples/blob/63f20db15006716982001ef52e14ffcdeedcfe62/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.printing_elements_when_error_consists_of_a_single_extra_token.approved.txt#L1-L3
+
+On peut visualiser l'arbre syntaxique grâce au code suivant:
+https://github.com/Reefact/antlr4-book-examples/blob/ffc0a09803e6e442265569aa764745f06e402156/Reefact.BookExamples.Antlr4/Chapter_09/1/Examples.cs#L66-L76
 ```mermaid
 graph TD
 	1["prog"] --> 2["classDef"]
