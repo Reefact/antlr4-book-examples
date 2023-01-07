@@ -20,7 +20,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
         [Fact]
         public void verbose_listener() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("class T T { int : }");
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("class T T { int ; }");
             SimpleGRun       grun        = SimpleGRun.Read(inputStream, new VerboseListener());
             // Exercise
             string output = grun.GetOutput();

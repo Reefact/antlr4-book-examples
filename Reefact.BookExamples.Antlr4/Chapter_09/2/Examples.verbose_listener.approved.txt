@@ -1,5 +1,5 @@
 ﻿rule stack: [prog -> classDef]
 line 1:8 at [@2,8:8='T',<10>,1:8]: extraneous input 'T' expecting '{'
 rule stack: [prog -> classDef -> member]
-line 1:18 at [@5,18:18='}',<3>,1:18]: no viable alternative at input 'int}'
+line 1:16 at [@5,16:16=';',<5>,1:16]: no viable alternative at input 'int;'
 class T
