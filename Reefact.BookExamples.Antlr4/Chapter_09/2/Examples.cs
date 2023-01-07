@@ -58,6 +58,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
             VerboseListener         verboseListener         = new();
             var                     errorListeners          = new BaseErrorListener[] { verboseListener, diagnosticErrorListener };
 
+            // indique au parser de reporter toutes les erreurs d'ambiguité
             static void Options(Parser parser) {
                 parser.Interpreter.PredictionMode = PredictionMode.LL_EXACT_AMBIG_DETECTION;
             }
