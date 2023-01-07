@@ -21,8 +21,16 @@ https://github.com/Reefact/antlr4-book-examples/blob/fa74ac779d96255099ffd838569
 
 La pile `[prog, classDef]` indique que l'analyseur syntaxique se trouve dans la règle `classDef`, qui a été appelée par `prog`. Remarquez que les informations sur les jetons contiennent la position des caractères dans le flux d'entrée. Ceci est utile pour mettre en évidence les erreurs dans l'entrée comme le font les environnements de développement. Par exemple, le jeton `[@2,8:8='T',<9>,1:8]` indique qu'il s'agit du troisième jeton du flux de jetons (index 2 à partir de 0), qu'il est compris entre les caractères 8 et 8, qu'il a le type de jeton 9, qu'il se trouve sur la ligne 1 et qu'il est à la position de caractère 8 (en comptant à partir de 0 et en traitant les tabulations comme un seul caractère).
 
-// TODO: to be continued...
+À titre d'exemple, créons un listener d'erreurs qui imprime la ligne avec le token incriminé souligné, comme dans l'exemple d'exécution suivant :
 
+https://github.com/Reefact/antlr4-book-examples/blob/f34dea9f11ae05bf516f6f03f6c1791c7b60bbe5/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.cs#L31-L40
+https://github.com/Reefact/antlr4-book-examples/blob/f34dea9f11ae05bf516f6f03f6c1791c7b60bbe5/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.underline_listener.approved.txt#L1-L7
+
+Pour faciliter les choses, nous ne tiendrons pas compte des tabulations--CharPositionInLine n'est pas le numéro de colonne, car la taille des tabulations n'est pas universellement définie. Voici une implémentation d'un listener d'erreur qui souligne les emplacements d'erreur dans l'entrée comme nous venons de le voir :
+
+https://github.com/Reefact/antlr4-book-examples/blob/f34dea9f11ae05bf516f6f03f6c1791c7b60bbe5/Reefact.BookExamples.Antlr4/Chapter_09/2/UnderlineListener.cs#L11-L45
+
+//TODO: to continue
 
 _Remarks:_
 
