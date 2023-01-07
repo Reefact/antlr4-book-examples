@@ -2,6 +2,7 @@
 
 Commençons par tester notre grammaire en affichant les tokens créés par le lexer:
 
+https://github.com/Reefact/antlr4-book-examples/blob/7a8dbd191ae92e6ddff0556e2ba86d7103cc9015/Reefact.BookExamples.Antlr4/Chapter_03/2/GRun.cs#L10-L33
 https://github.com/Reefact/antlr4-book-examples/blob/74bc453853afabbce220e53f0bbfef62e59087ba/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.cs#L19-L28
 https://github.com/Reefact/antlr4-book-examples/blob/19746df081a5bb5e8119f2ed509e10dc0638e697/Reefact.BookExamples.Antlr4/Chapter_03/2/Examples.to_tokens_string.approved.txt#L1-L8
 
