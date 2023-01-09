@@ -8,7 +8,14 @@ https://github.com/Reefact/antlr4-book-examples/blob/50f1e91c0c7061d62119799b4e2
 
 Étant donné la classe d'entrée `9 T { int i ; }`, l'analyseur syntaxique supprimera 9 et continuera dans la règle pour correspondre au corps de la classe. L'image suivante illustre l'état de l'entrée après que l'analyseur syntaxique ait consommé la classe :
 
-// TODO: see how to add graph
+```mermaid
+graph LR
+    A[class] -->|lookahead 1|B[9]:::lookahead
+    B --> |lookahead 2|C[T]:::lookahead
+
+classDef default stroke:#000,fill:#aaa
+classDef lookahead fill:#eee,stroke:#000
+```
 
 Les étiquettes `LA(1)` et `LA(2)` marquent le premier token de lookahead (le token actuel) et le second token de lookahead. Le `match(ID)` s'attend à ce que `LA(1)` soit un `ID`, mais ce n'est pas le cas. Cependant, le jeton suivant, `LA(2)`, est en fait un `ID`. Pour récupérer, il suffit de supprimer le jeton actuel (en tant que bruit), de consommer l'`ID` que nous attendions, et de quitter `match()`.
 
@@ -34,3 +41,13 @@ classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 ```
 
 Si le parser ne peut pas se resynchroniser en supprimant un jeton, il tente d'insérer un jeton à la place. Disons que nous avons oublié l'`ID` pour que `classDef` voie l'entrée `class { int i ; 3`. Après avoir fait correspondre la classe, l'état de l'entrée ressemble à ceci :
+
+```mermaid
+graph LR
+    A[class] -->|lookahead 1|B["#123;"]:::lookahead
+
+classDef default stroke:#000,fill:#aaa
+classDef lookahead fill:#eee,stroke:#000
+```
+
+Le parseur invoque `match(ID)` mais au lieu d'un identifiant, il trouve `1`. Dans cette situation, le parseur sait que le `{` est ce dont il aura besoin ensuite puisque c'est ce qui suit la référence `ID` dans `classDef`. Pour resynchroniser, le `match()` peut prétendre voir l'identifiant et revenir, permettant ainsi à l'appel `match('{')` suivant de réussir.
