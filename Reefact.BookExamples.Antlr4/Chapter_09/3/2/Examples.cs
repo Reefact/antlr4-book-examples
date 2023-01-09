@@ -60,6 +60,17 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._2 {
             Approvals.Verify(output);
         }
 
+        [Fact]
+        public void missing_ID_output() {
+            // Setup
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("class { int i; }");
+            GRun             grun        = GRun.Read(inputStream);
+            // Exercise
+            string output = grun.GetOutput();
+            // Verify
+            Approvals.Verify(output);
+        }
+
     }
 
 }

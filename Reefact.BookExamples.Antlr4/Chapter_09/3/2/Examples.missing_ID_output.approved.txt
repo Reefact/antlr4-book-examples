@@ -1,0 +1,3 @@
+﻿line 1:6 missing ID at '{'
+var i
+class <missing ID>
