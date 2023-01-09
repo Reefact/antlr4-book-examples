@@ -51,3 +51,35 @@ classDef lookahead fill:#eee,stroke:#000
 ```
 
 Le parseur invoque `match(ID)` mais au lieu d'un identifiant, il trouve `1`. Dans cette situation, le parseur sait que le `{` est ce dont il aura besoin ensuite puisque c'est ce qui suit la référence `ID` dans `classDef`. Pour resynchroniser, le `match()` peut prétendre voir l'identifiant et revenir, permettant ainsi à l'appel `match('{')` suivant de réussir.
+
+Cela fonctionne très bien si nous ignorons les actions intégrées, comme l'instruction `print` qui fait référence à l'identificateur de nom de classe. L'instruction `print` fait référence au jeton manquant via `$ID.text` et provoquera une exception si le jeton est nul. Plutôt que de simplement prétendre que le jeton existe, le gestionnaire d'erreur en crée un : voir `getMissingSymbol()` dans `DefaultErrorStrategy`. Le symbole conjuré a le type de symbole attendu par le parser et prend les informations de position de ligne et de caractère du symbole d'entrée actuel, `LA(1)`. Ce jeton conjuré empêche également les exceptions dans les listeners et les visiteurs qui font référence au jeton manquant.
+
+La façon la plus simple de voir ce qui se passe est de regarder l'arbre syntaxique, qui montre comment le parser reconnaît tous les tokens. En cas d'erreur, l'arbre syntaxique met en évidence en rouge les tokens que le parser supprime ou fait apparaître lors de la resynchronisation. Pour la classe d'entrée `{ int i ; }` et la grammaire `Simple`, nous obtenons l'arbre syntaxique suivant :
+
+https://github.com/Reefact/antlr4-book-examples/blob/420291564d29b566ee5029243a887b4209f4dbed/Reefact.BookExamples.Antlr4/Chapter_09/3/2/Examples.cs#L52-L61
+```mermaid
+graph TD
+	1["prog"] --> 2["classDef"]
+	2 --> 3["class"]
+	2 --> 4["#0060;missing ID#0062;"]:::error
+	2 --> 5["{"]
+	2 --> 6["member"]
+	6 --> 7["int"]
+	6 --> 8["i"]
+	6 --> 9[";"]
+	2 --> 10["}"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
+```
+
+L'analyseur syntaxique exécute également les actions d'impression intégrées sans lever d'exception puisque la récupération d'erreur fait apparaître un objet `Token` valide pour `$ID`.
+
+https://github.com/Reefact/antlr4-book-examples/blob/420291564d29b566ee5029243a887b4209f4dbed/Reefact.BookExamples.Antlr4/Chapter_09/3/2/Examples.cs#L41-L50
+https://github.com/Reefact/antlr4-book-examples/blob/eac5a04249841438830890cfe32cff86c29df786/Reefact.BookExamples.Antlr4/Chapter_09/3/2/Examples.missing_ID_output.approved.txt#L1-L3
+
+Naturellement, un identifiant avec le texte `<missing ID>` n'est pas vraiment utile pour le but que nous essayons d'accomplir, mais au moins la récupération d'erreur n'induit pas un tas d'exceptions de pointeur nul.
+
+Maintenant que nous savons comment ANTLR fait la récupération _intra-règle_ pour les références simples de tokens, explorons comment il récupère les erreurs avant et pendant la reconnaissance des sous-règles.
+
+⏭ Chapitre suivant: [9.3.3. Récupération d'Erreurs Dans les Sous-Règles](../3)
