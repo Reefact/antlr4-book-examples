@@ -1,0 +1,3 @@
+﻿line 1:9 extraneous input '{' expecting 'int'
+var i
+class T
