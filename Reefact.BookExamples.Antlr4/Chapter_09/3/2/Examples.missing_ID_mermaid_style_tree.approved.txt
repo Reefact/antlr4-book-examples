@@ -1,0 +1,13 @@
+﻿graph TD
+	1["prog"] --> 2["classDef"]
+	2 --> 3["class"]
+	2 --> 4["#0060;missing ID#0062;"]:::error
+	2 --> 5["{"]
+	2 --> 6["member"]
+	6 --> 7["int"]
+	6 --> 8["i"]
+	6 --> 9[";"]
+	2 --> 10["}"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;

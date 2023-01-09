@@ -38,6 +38,28 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._2 {
             Approvals.Verify(output);
         }
 
+        [Fact]
+        public void missing_ID_lisp_style_tree() {
+            // Setup
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("class { int i; }");
+            GRun             grun        = GRun.Read(inputStream);
+            // Exercise
+            string output = grun.ToLispStyleTree();
+            // Verify
+            Approvals.Verify(output);
+        }
+
+        [Fact]
+        public void missing_ID_mermaid_style_tree() {
+            // Setup
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("class { int i; }");
+            GRun             grun        = GRun.Read(inputStream);
+            // Exercise
+            string output = grun.ToMermaidStyleTree();
+            // Verify
+            Approvals.Verify(output);
+        }
+
     }
 
 }

@@ -1,0 +1,2 @@
+﻿line 1:6 missing ID at '{'
+(prog (classDef class <missing ID> { (member int i ;) }))
