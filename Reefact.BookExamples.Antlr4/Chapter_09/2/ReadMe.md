@@ -30,12 +30,31 @@ Pour faciliter les choses, nous ne tiendrons pas compte des tabulations--CharPos
 
 https://github.com/Reefact/antlr4-book-examples/blob/f34dea9f11ae05bf516f6f03f6c1791c7b60bbe5/Reefact.BookExamples.Antlr4/Chapter_09/2/UnderlineListener.cs#L11-L45
 
-//TODO: to continue
+Il y a une dernière chose à savoir sur les listeners d'erreurs. Lorsque le parser détecte une séquence d'entrée ambiguë, il en informe le listener d'erreurs. Le listener d'erreur par défaut, `ConsoleErrorListener`, n'affiche cependant rien dans la console. Comme nous l'avons vu dans le chapitre [2.3. On ne Peut Pas Mettre Trop d'Eau Dans un Réacteur Nucléaire](../../Chapter_02/3), une entrée ambiguë indique probablement une erreur dans notre grammaire ; l'analyseur syntaxique ne devrait pas en informer nos utilisateurs. Revenons à la grammaire ambiguë de cette section qui peut correspondre à l'entrée `f();` de deux manières différentes.
 
-_Remarks:_
-
-_C# lexer and parser classes are generated with the following command line:_
-
+https://github.com/Reefact/antlr4-book-examples/blob/844b13c657df92d62b6bc54ae7ceb8082588319c/Reefact.BookExamples.Antlr4/Chapter_09/2/.antlr/Ambig.g4#L1-L13
 ```bat
 antlr4 Ambig.g4 -Dlanguage=CSharp
 ```
+https://github.com/Reefact/antlr4-book-examples/blob/844b13c657df92d62b6bc54ae7ceb8082588319c/Reefact.BookExamples.Antlr4/Chapter_09/2/AmbiguousGRun.cs#L14-L55
+
+Si nous testons la grammaire, nous ne voyons pas d'avertissement pour l'entrée ambiguë.
+
+https://github.com/Reefact/antlr4-book-examples/blob/844b13c657df92d62b6bc54ae7ceb8082588319c/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.cs#L42-L51
+
+Pour savoir que le parser détecte une ambiguïté, vous devez indiquer au parser d'utiliser une instance de `DiagnosticErrorListener` en utilisant `AddErrorListener()`. Vous devez également informer l'analyseur syntaxique que vous êtes intéressé par tous les avertissements d'ambiguïté, et pas seulement par ceux qu'il peut détecter rapidement. Dans un souci d'efficacité, le mécanisme de décision d'ANTLR ne recherche pas toujours toutes les informations d'ambiguïté. 
+
+https://github.com/Reefact/antlr4-book-examples/blob/c323948a443193aab5fb47c26128b3481e8352af/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.cs#L53-L72
+https://github.com/Reefact/antlr4-book-examples/blob/c323948a443193aab5fb47c26128b3481e8352af/Reefact.BookExamples.Antlr4/Chapter_09/2/Examples.ambiguity_detected.approved.txt#L1-L4
+
+La sortie montre que l'analyseur syntaxique appelle également `ReportAttemptingFullContext()`. ANTLR appelle cette méthode lorsque l'analyse syntaxique `SLL(*)` échoue et que l'analyseur syntaxique engage le mécanisme plus puissant de full `ALL(*)`. Voir chapitre [13.7. Maximiser la Vitesse de l'Analyseur Syntaxique](../../Chapter_13/7).
+
+C'est une bonne idée d'utiliser le listener d'erreurs de diagnostique pendant le développement car l'outil ANTLR ne peut pas vous avertir des constructions grammaticales ambiguës de manière statique (lors de la génération des parsers). Seul le parseur peut détecter les ambiguïtés dans ANTLR v4. C'est la différence entre le typage statique en Java, disons, et le typage dynamique en Python.
+
+| Améliorations dans ANTLR v4 |
+| --- |
+| Il y a deux améliorations importantes liées aux erreurs dans la v4 : ANTLR fait une bien meilleure récupération des erreurs en ligne et permet aux programmeurs de modifier beaucoup plus facilement la stratégie de traitement des erreurs. Lorsque Sun Microsystems a construit un analyseur syntaxique pour JavaFX avec ANTLR v3, elle a remarqué qu'un simple point-virgule mal placé pouvait forcer l'analyseur syntaxique à arrêter de chercher une liste de membres de classe (via `member+`). Maintenant, les analyseurs v4 tentent de se resynchroniser avant et pendant la reconnaissance des sous-règles au lieu de gober des tokens et de sortir de la règle actuelle. La deuxième amélioration permet aux programmeurs de spécifier un mécanisme de gestion des erreurs suivant le [design pattern Strategy](https://reefact.net/craftsmanship/design-pattern/strategy). |
+
+Maintenant que nous avons une bonne idée des types de messages générés par les analyseurs ANTLR et de la manière de les modifier et de les rediriger, explorons la récupération des erreurs.
+
+⏭ Chapitre suivant: [9.3. Stratégie de Récupération Automatique des Erreurs](../3)
