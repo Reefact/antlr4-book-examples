@@ -9,5 +9,5 @@ En un mot, Voici comment ANTLR utilise ces idées: les analyseurs syntaxiques ef
 #### [9.3.1. Récupération en Recherchant les Jetons Suivants](1)
 #### [9.3.2. Récupération à Partir de Jetons Non Concordants](2)
 #### [9.3.3. Récupération d'Erreurs Dans les Sous-Règles](3)
-#### [9.3.4. Catching Failed Semantic Predicates](4)
+#### [9.3.4. Rattraper les Prédicats Sémantiques Ratés](../4)
 #### [9.3.5. Error Recovery Fail-Safe](5)
