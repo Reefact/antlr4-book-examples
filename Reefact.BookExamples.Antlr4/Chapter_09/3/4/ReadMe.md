@@ -54,4 +54,21 @@ L'option `fail` prend soit un littéral de chaîne entre guillemets simples, soi
 
 Un mot d'avertissement sur l'utilisation des prédicats sémantiques pour tester la validité des entrées. Dans l'exemple du vecteur, le prédicat applique des règles syntaxiques, il est donc normal de lever une exception et d'essayer de récupérer. Si, par contre, nous avons une construction syntaxiquement valide mais sémantiquement invalide, ce n'est pas une bonne idée d'utiliser un prédicat sémantique.
 
+Imaginez que, dans un certain langage, nous pouvons attribuer n'importe quelle valeur à une variable, sauf 0. Cela signifie que l'affectation `x = 0;` est syntaxiquement valide mais sémantiquement invalide. Nous devons certainement émettre une erreur à l'intention de l'utilisateur, mais nous ne devons pas déclencher la récupération de l'erreur. `x = 0;` est parfaitement légal d'un point de vue syntaxique. En un sens, l'analyseur syntaxique se "remet" automatiquement de l'erreur. Voici une grammaire simple qui illustre le problème.
+
+```
+assign	:	ID '=' v=INT {$v.int>0}? ';'
+		{ Console.WriteLine("assign "+$ID.Text+" to "); }
+		;
+```
+
+Si le prédicat de la règle `assign` lève une exception, le comportement sync-and-return rejettera le `;` après le prédicat. Cela pourrait fonctionner parfaitement, mais nous risquons une resynchronisation imparfaite. Une meilleure solution consiste à émettre une erreur manuellement et à laisser l'analyseur syntaxique continuer à faire correspondre la syntaxe correcte. Donc, au lieu du prédicat, nous devrions utiliser une action simple avec un condition. 
+
+```
+{ if ($v.int==0) notifyListeners("values must be > 0"); }
+```
+
+Maintenant que nous avons examiné toutes les situations susceptibles de déclencher une reprise sur erreur, il convient de signaler une faille potentielle dans le mécanisme. Étant donné que l'analyseur syntaxique ne consomme parfois aucun token au cours d'une seule tentative de récupération, il est possible que la récupération globale entre dans une boucle infinie. Si nous récupérons sans consommer de jeton et que nous revenons au même endroit dans l'analyseur, nous récupérerons à nouveau sans consommer de jeton. Dans la section suivante, nous verrons comment ANTLR évite ce piège.
+
+
 // to be continued
