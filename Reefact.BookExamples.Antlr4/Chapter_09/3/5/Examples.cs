@@ -19,7 +19,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._5 {
         [Fact]
         public void extra_int_output() {
             // Setup
-            AntlrInputStream inputStream = AntlrInputStreamReader.Read("extra_int.simple", 9, 3, 4);
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("extra_int.simple", 9, 3, 5);
             GRun             grun        = GRun.Read(inputStream);
             // Exercise
             string output = grun.GetOutput();
