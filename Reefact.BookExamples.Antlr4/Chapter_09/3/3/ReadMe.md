@@ -106,4 +106,3 @@ classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 Outre la reconnaissance des tokens et des sous-règles, les analyseurs syntaxiques peuvent également échouer dans la reconnaissance des prédicats sémantiques.
 
 ⏭ Chapitre suivant: [9.3.4. Rattraper les Prédicats Sémantiques Ratés](../4)
-
