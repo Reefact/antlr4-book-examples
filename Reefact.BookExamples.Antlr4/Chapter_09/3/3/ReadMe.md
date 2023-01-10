@@ -38,6 +38,7 @@ https://github.com/Reefact/antlr4-book-examples/blob/b73a4316662e27068ee68dade49
 
 Maintenant, essayons de passer une entrée vraiment désordonnée et voyons si la boucle `membre+` peut se rétablir et continuer à chercher des membres.
 
+https://github.com/Reefact/antlr4-book-examples/blob/ddbfd5603ddb508a6363ad9f784c07d50c150c9b/Reefact.BookExamples.Antlr4/Chapter_09/3/3/.resources/messed_up.simple#L1-L5
 https://github.com/Reefact/antlr4-book-examples/blob/1827f94ab4ed8ac1c39b47712c79314b8cc1f08c/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.cs#L41-L50
 https://github.com/Reefact/antlr4-book-examples/blob/1827f94ab4ed8ac1c39b47712c79314b8cc1f08c/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.messed_up_input_output.approved.txt#L1-L5
 
