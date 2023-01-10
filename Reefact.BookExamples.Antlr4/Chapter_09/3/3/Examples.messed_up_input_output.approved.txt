@@ -1,0 +1,5 @@
+﻿line 1:9 extraneous input '{' expecting 'int'
+line 3:1 extraneous input 'y' expecting {'}', 'int'}
+var x
+var z
+class T

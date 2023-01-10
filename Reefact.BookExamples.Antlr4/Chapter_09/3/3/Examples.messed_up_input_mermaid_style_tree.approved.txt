@@ -1,0 +1,22 @@
+﻿graph TD
+	1["prog"] --> 2["classDef"]
+	2 --> 3["class"]
+	2 --> 4["T"]
+	2 --> 5["{"]
+	2 --> 6["{"]:::error
+	2 --> 7["member"]
+	7 --> 8["int"]
+	7 --> 9["x"]
+	7 --> 10[";"]
+	2 --> 11["y"]:::error
+	2 --> 12[";"]:::error
+	2 --> 13[";"]:::error
+	2 --> 14[";"]:::error
+	2 --> 15["member"]
+	15 --> 16["int"]
+	15 --> 17["z"]
+	15 --> 18[";"]
+	2 --> 19["}"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
