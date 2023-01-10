@@ -129,6 +129,10 @@
     <Compile Include="Chapter_09\3\1\.antlr\FLexer.cs" />
     <Compile Include="Chapter_09\3\1\.antlr\FListener.cs" />
     <Compile Include="Chapter_09\3\1\.antlr\FParser.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\PredBaseListener.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\PredLexer.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\PredListener.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\PredParser.cs" />
     <Compile Include="Chapter_09\3\4\.antlr\VecBaseListener.cs" />
     <Compile Include="Chapter_09\3\4\.antlr\VecLexer.cs" />
     <Compile Include="Chapter_09\3\4\.antlr\VecListener.cs" />
@@ -353,6 +357,11 @@
     <None Include="Chapter_09\3\1\.antlr\FLexer.tokens" />
     <None Include="Chapter_09\3\1\.resources\bad_syntax.svg" />
     <None Include="Chapter_09\3\1\.resources\good_syntax.svg" />
+    <None Include="Chapter_09\3\4\.antlr\Pred.g4" />
+    <None Include="Chapter_09\3\4\.antlr\Pred.interp" />
+    <None Include="Chapter_09\3\4\.antlr\Pred.tokens" />
+    <None Include="Chapter_09\3\4\.antlr\PredLexer.interp" />
+    <None Include="Chapter_09\3\4\.antlr\PredLexer.tokens" />
     <None Include="Chapter_09\3\4\.antlr\VecMsg.g4" />
     <None Include="Chapter_09\3\4\.antlr\Vec.g4" />
     <None Include="Chapter_09\3\4\.antlr\Vec.interp" />

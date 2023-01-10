@@ -27,6 +27,14 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._4 {
             return new GRun(lexer, tokens, parser, parser.vec4);
         }
 
+        public static GRun ReadPred(AntlrInputStream inputStream) {
+            PredLexer         lexer  = new(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            PredParser        parser = new(tokens);
+
+            return new GRun(lexer, tokens, parser, parser.assign);
+        }
+
         #endregion
 
         #region Constructors declarations
