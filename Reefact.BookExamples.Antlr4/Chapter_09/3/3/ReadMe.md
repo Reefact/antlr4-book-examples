@@ -36,4 +36,39 @@ La session suivante confirme la récupération correcte car elle identifie corre
 https://github.com/Reefact/antlr4-book-examples/blob/b73a4316662e27068ee68dade49459fe0d11d4c4/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.cs#L30-L39
 https://github.com/Reefact/antlr4-book-examples/blob/b73a4316662e27068ee68dade49459fe0d11d4c4/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.single_token_deletion_output.approved.txt#L1-L3
 
+Maintenant, essayons de passer une entrée vraiment désordonnée et voyons si la boucle `membre+` peut se rétablir et continuer à chercher des membres.
+
+https://github.com/Reefact/antlr4-book-examples/blob/1827f94ab4ed8ac1c39b47712c79314b8cc1f08c/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.cs#L41-L50
+https://github.com/Reefact/antlr4-book-examples/blob/1827f94ab4ed8ac1c39b47712c79314b8cc1f08c/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.messed_up_input_output.approved.txt#L1-L5
+
+Nous savons que l'analyseur syntaxique s'est resynchronisé et est resté à l'intérieur de la boucle parce qu'il a identifié la variable `z`. L'analyseur syntaxique gobble `y;;;` jusqu'à ce qu'il voie le début d'un autre membre (voir ensemble (c) plus ci-avant), puis revient à `member`. Si l'entrée ne comprenait pas `int z;`, le parser aurait gobé jusqu'à ce qu'il ait vu '}' (voir ensemble (b) ci-avant) et sortirait de la boucle. L'arbre d'analyse met en évidence les tokens supprimés et montre que le parser interprète toujours `int z;` comme un membre valide.
+
+https://github.com/Reefact/antlr4-book-examples/blob/1827f94ab4ed8ac1c39b47712c79314b8cc1f08c/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.cs#L52-L61
+```mermaid
+graph TD
+	1["prog"] --> 2["classDef"]
+	2 --> 3["class"]
+	2 --> 4["T"]
+	2 --> 5["{"]
+	2 --> 6["{"]:::error
+	2 --> 7["member"]
+	7 --> 8["int"]
+	7 --> 9["x"]
+	7 --> 10[";"]
+	2 --> 11["y"]:::error
+	2 --> 12[";"]:::error
+	2 --> 13[";"]:::error
+	2 --> 14[";"]:::error
+	2 --> 15["member"]
+	15 --> 16["int"]
+	15 --> 17["z"]
+	15 --> 18[";"]
+	2 --> 19["}"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
+```
+
+Si l'utilisateur fournit un membre de règle avec une mauvaise syntaxe et oublie également le `}` de fermeture d'une classe, nous ne voudrions pas que l'analyseur syntaxique balaye jusqu'à ce qu'il trouve `}`. La resynchronisation du parser pourrait jeter toute la définition de la classe suivante à la recherche de `}`. Au lieu de cela, l'analyseur syntaxique arrête de gober s'il voit un token dans l'ensemble (c), comme le montre la session suivante :
+
 // to be continued...
