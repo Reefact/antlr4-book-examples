@@ -71,4 +71,39 @@ classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 
 Si l'utilisateur fournit un membre de règle avec une mauvaise syntaxe et oublie également le `}` de fermeture d'une classe, nous ne voudrions pas que l'analyseur syntaxique balaye jusqu'à ce qu'il trouve `}`. La resynchronisation du parser pourrait jeter toute la définition de la classe suivante à la recherche de `}`. Au lieu de cela, l'analyseur syntaxique arrête de gober s'il voit un token dans l'ensemble (c), comme le montre la session suivante :
 
-// to be continued...
+https://github.com/Reefact/antlr4-book-examples/blob/daf442c8ef8a38389a999a4b2f5f0690abb2defc/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.cs#L63-L72
+https://github.com/Reefact/antlr4-book-examples/blob/daf442c8ef8a38389a999a4b2f5f0690abb2defc/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.resynchronisation_set_of_the_current_output.approved.txt#L1-L5
+
+L'analyseur syntaxique arrête la resynchronisation lorsqu'il voit le mot-clé `class`, comme on peut le voir dans l'arbre d'analyse.
+
+https://github.com/Reefact/antlr4-book-examples/blob/daf442c8ef8a38389a999a4b2f5f0690abb2defc/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.cs#L74-L83
+```mermaid
+graph TD
+	1["prog"] --> 2["classDef"]
+	2 --> 3["class"]
+	2 --> 4["T"]
+	2 --> 5["{"]
+	2 --> 6["member"]
+	6 --> 7["int"]
+	6 --> 8["x"]
+	6 --> 9[";"]
+	2 --> 10[";"]:::error
+	2 --> 11["#0060;missing '}'#0062;"]:::error
+	1 --> 12["classDef"]
+	12 --> 13["class"]
+	12 --> 14["U"]
+	12 --> 15["{"]
+	12 --> 16["member"]
+	16 --> 17["int"]
+	16 --> 18["y"]
+	16 --> 19[";"]
+	12 --> 20["}"]
+
+classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
+classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
+```
+
+Outre la reconnaissance des tokens et des sous-règles, les analyseurs syntaxiques peuvent également échouer dans la reconnaissance des prédicats sémantiques.
+
+⏭ Chapitre suivant: [9.3.4. Rattraper les Prédicats Sémantiques Ratés](../4)
+
