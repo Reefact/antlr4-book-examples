@@ -40,6 +40,18 @@ classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 
 Le message d'erreur `{$i<=$max}` peut nous être utile en tant que concepteurs de grammaires, mais il ne l'est certainement pas pour nos utilisateurs. Nous pouvons changer le message d'un morceau de code en quelque chose d'un peu plus lisible en utilisant l'option `fail` sur le prédicat sémantique. Par exemple, voici à nouveau la règle `ints`, mais avec une action qui calcule une chaîne lisible :
 
+https://github.com/Reefact/antlr4-book-examples/blob/21599e580c88d5f3022f0bbb6f33cee8bcfe540a/Reefact.BookExamples.Antlr4/Chapter_09/3/4/.antlr/VecMsg.g4#L1-L9
 
+Maintenant, nous obtenons un meilleur message pour la même entrée.
+
+```bat
+antlr4 VecMsg.g4 -Dlanguage=CSharp
+```
+https://github.com/Reefact/antlr4-book-examples/blob/21599e580c88d5f3022f0bbb6f33cee8bcfe540a/Reefact.BookExamples.Antlr4/Chapter_09/3/4/Examples.cs#L39-L48
+https://github.com/Reefact/antlr4-book-examples/blob/21599e580c88d5f3022f0bbb6f33cee8bcfe540a/Reefact.BookExamples.Antlr4/Chapter_09/3/4/Examples.vec_msg_lisp_style_tree.approved.txt#L1-L2
+
+L'option `fail` prend soit un littéral de chaîne entre guillemets simples, soit une action qui évalue une chaîne. L'action est pratique si vous souhaitez exécuter une fonction lorsqu'un prédicat échoue. Il suffit d'utiliser une action qui appelle une fonction telle que `{...}?<fail={failedMaxTest()}>`.
+
+Un mot d'avertissement sur l'utilisation des prédicats sémantiques pour tester la validité des entrées. Dans l'exemple du vecteur, le prédicat applique des règles syntaxiques, il est donc normal de lever une exception et d'essayer de récupérer. Si, par contre, nous avons une construction syntaxiquement valide mais sémantiquement invalide, ce n'est pas une bonne idée d'utiliser un prédicat sémantique.
 
 // to be continued
