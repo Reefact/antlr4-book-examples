@@ -64,11 +64,10 @@ assign	:	ID '=' v=INT {$v.int>0}? ';'
 
 Si le prédicat de la règle `assign` lève une exception, le comportement sync-and-return rejettera le `;` après le prédicat. Cela pourrait fonctionner parfaitement, mais nous risquons une resynchronisation imparfaite. Une meilleure solution consiste à émettre une erreur manuellement et à laisser l'analyseur syntaxique continuer à faire correspondre la syntaxe correcte. Donc, au lieu du prédicat, nous devrions utiliser une action simple avec un condition. 
 
-```
-{ if ($v.int==0) notifyListeners("values must be > 0"); }
-```
+https://github.com/Reefact/antlr4-book-examples/blob/9e81e255dbaf56b1332c09c52c3144465f84ecb7/Reefact.BookExamples.Antlr4/Chapter_09/3/4/.antlr/Pred.g4#L1-L7
+https://github.com/Reefact/antlr4-book-examples/blob/9e81e255dbaf56b1332c09c52c3144465f84ecb7/Reefact.BookExamples.Antlr4/Chapter_09/3/4/Examples.cs#L63-L72
+https://github.com/Reefact/antlr4-book-examples/blob/9e81e255dbaf56b1332c09c52c3144465f84ecb7/Reefact.BookExamples.Antlr4/Chapter_09/3/4/Examples.pred_ko_msg_lisp_style_tree.approved.txt#L1-L2
 
 Maintenant que nous avons examiné toutes les situations susceptibles de déclencher une reprise sur erreur, il convient de signaler une faille potentielle dans le mécanisme. Étant donné que l'analyseur syntaxique ne consomme parfois aucun token au cours d'une seule tentative de récupération, il est possible que la récupération globale entre dans une boucle infinie. Si nous récupérons sans consommer de jeton et que nous revenons au même endroit dans l'analyseur, nous récupérerons à nouveau sans consommer de jeton. Dans la section suivante, nous verrons comment ANTLR évite ce piège.
 
-
-// to be continued
+⏭ Chapitre suivant: [9.3.5. Récupération d'Erreur "Fail-Safe".](../5)
