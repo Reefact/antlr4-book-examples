@@ -72,6 +72,7 @@ classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 
 Si l'utilisateur fournit un membre de règle avec une mauvaise syntaxe et oublie également le `}` de fermeture d'une classe, nous ne voudrions pas que l'analyseur syntaxique balaye jusqu'à ce qu'il trouve `}`. La resynchronisation du parser pourrait jeter toute la définition de la classe suivante à la recherche de `}`. Au lieu de cela, l'analyseur syntaxique arrête de gober s'il voit un token dans l'ensemble (c), comme le montre la session suivante :
 
+https://github.com/Reefact/antlr4-book-examples/blob/0417b9e35db4115b353bb134bb8a164321cd1e59/Reefact.BookExamples.Antlr4/Chapter_09/3/3/.resources/resynchronisation_set_of_the_current.simple#L1-L4
 https://github.com/Reefact/antlr4-book-examples/blob/daf442c8ef8a38389a999a4b2f5f0690abb2defc/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.cs#L63-L72
 https://github.com/Reefact/antlr4-book-examples/blob/daf442c8ef8a38389a999a4b2f5f0690abb2defc/Reefact.BookExamples.Antlr4/Chapter_09/3/3/Examples.resynchronisation_set_of_the_current_output.approved.txt#L1-L5
 
