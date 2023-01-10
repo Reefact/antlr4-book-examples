@@ -70,4 +70,4 @@ https://github.com/Reefact/antlr4-book-examples/blob/9e81e255dbaf56b1332c09c52c3
 
 Maintenant que nous avons examiné toutes les situations susceptibles de déclencher une reprise sur erreur, il convient de signaler une faille potentielle dans le mécanisme. Étant donné que l'analyseur syntaxique ne consomme parfois aucun token au cours d'une seule tentative de récupération, il est possible que la récupération globale entre dans une boucle infinie. Si nous récupérons sans consommer de jeton et que nous revenons au même endroit dans l'analyseur, nous récupérerons à nouveau sans consommer de jeton. Dans la section suivante, nous verrons comment ANTLR évite ce piège.
 
-⏭ Chapitre suivant: [9.3.5. Récupération d'Erreur "Fail-Safe".](../5)
+⏭ Chapitre suivant: [9.3.5. Récupération d'Erreur "Fail-Safe"](../5)

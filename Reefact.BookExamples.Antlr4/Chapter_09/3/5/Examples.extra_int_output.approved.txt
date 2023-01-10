@@ -1,0 +1,3 @@
+﻿line 2:5 no viable alternative at input 'intint'
+var x
+class T

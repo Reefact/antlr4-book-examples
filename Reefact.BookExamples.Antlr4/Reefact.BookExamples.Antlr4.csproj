@@ -372,6 +372,7 @@
     <None Include="Chapter_09\3\4\.antlr\VecMsg.tokens" />
     <None Include="Chapter_09\3\4\.antlr\VecMsgLexer.interp" />
     <None Include="Chapter_09\3\4\.antlr\VecMsgLexer.tokens" />
+    <EmbeddedResource Include="Chapter_09\3\4\.resources\extra_int.simple" />
     <EmbeddedResource Include="Chapter_09\3\3\.resources\resynchronisation_set_of_the_current.simple" />
     <EmbeddedResource Include="Chapter_09\3\3\.resources\messed_up.simple" />
     <EmbeddedResource Include="Chapter_09\2\.resources\underline_listener.simple" />
