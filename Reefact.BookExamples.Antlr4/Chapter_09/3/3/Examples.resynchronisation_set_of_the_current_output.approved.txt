@@ -1,0 +1,5 @@
+﻿line 3:1 extraneous input ';' expecting {'}', 'int'}
+var x
+class T
+var y
+class U

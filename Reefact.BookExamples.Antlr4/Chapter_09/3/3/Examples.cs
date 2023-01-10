@@ -60,6 +60,28 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._3 {
             Approvals.Verify(output);
         }
 
+        [Fact]
+        public void resynchronisation_set_of_the_current_output() {
+            // Setup
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("resynchronisation_set_of_the_current.simple", 9, 3, 3);
+            GRun             grun        = GRun.Read(inputStream);
+            // Exercise
+            string output = grun.GetOutput();
+            // Verify
+            Approvals.Verify(output);
+        }
+
+        [Fact]
+        public void resynchronisation_set_of_the_current_mermaid_style_tree() {
+            // Setup
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("resynchronisation_set_of_the_current.simple", 9, 3, 3);
+            GRun             grun        = GRun.Read(inputStream);
+            // Exercise
+            string output = grun.ToMermaidStyleTree();
+            // Verify
+            Approvals.Verify(output);
+        }
+
     }
 
 }
