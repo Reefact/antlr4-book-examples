@@ -1,0 +1,2 @@
+﻿line 1:9 rule ints failed predicate: {$i<=$max}?
+(vec4 [ (ints 1 , 2 , 3 , 4 , 5 , 6) ])
