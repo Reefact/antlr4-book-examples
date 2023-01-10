@@ -11,10 +11,18 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._4 {
 
         #region Statics members declarations
 
-        public static GRun Read(AntlrInputStream inputStream) {
+        public static GRun ReadVec(AntlrInputStream inputStream) {
             VecLexer          lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             VecParser         parser = new(tokens);
+
+            return new GRun(lexer, tokens, parser, parser.vec4);
+        }
+
+        public static GRun ReadVecMsg(AntlrInputStream inputStream) {
+            VecMsgLexer       lexer  = new(inputStream);
+            CommonTokenStream tokens = new(lexer);
+            VecMsgParser      parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.vec4);
         }

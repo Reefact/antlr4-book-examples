@@ -18,7 +18,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._4 {
         public void vec_lisp_style_tree() {
             // Setup
             AntlrInputStream inputStream = AntlrInputStreamReader.Read("[1,2,3,4,5,6]");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun             grun        = GRun.ReadVec(inputStream);
             // Exercise
             string lispStyleTree = grun.ToLispStyleTree();
             // Verify
@@ -29,11 +29,22 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._3._4 {
         public void vec_mermaid_style_tree() {
             // Setup
             AntlrInputStream inputStream = AntlrInputStreamReader.Read("[1,2,3,4,5,6]");
-            GRun             grun        = GRun.Read(inputStream);
+            GRun             grun        = GRun.ReadVec(inputStream);
             // Exercise
             string mermaidStyleTree = grun.ToMermaidStyleTree();
             // Verify
             Approvals.Verify(mermaidStyleTree);
+        }
+
+        [Fact]
+        public void vec_msg_lisp_style_tree() {
+            // Setup
+            AntlrInputStream inputStream = AntlrInputStreamReader.Read("[1,2,3,4,5,6]");
+            GRun             grun        = GRun.ReadVecMsg(inputStream);
+            // Exercise
+            string lispStyleTree = grun.ToLispStyleTree();
+            // Verify
+            Approvals.Verify(lispStyleTree);
         }
 
     }

@@ -132,6 +132,10 @@
     <Compile Include="Chapter_09\3\4\.antlr\VecBaseListener.cs" />
     <Compile Include="Chapter_09\3\4\.antlr\VecLexer.cs" />
     <Compile Include="Chapter_09\3\4\.antlr\VecListener.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\VecMsgBaseListener.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\VecMsgLexer.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\VecMsgListener.cs" />
+    <Compile Include="Chapter_09\3\4\.antlr\VecMsgParser.cs" />
     <Compile Include="Chapter_09\3\4\.antlr\VecParser.cs" />
   </ItemGroup>
 
@@ -349,11 +353,16 @@
     <None Include="Chapter_09\3\1\.antlr\FLexer.tokens" />
     <None Include="Chapter_09\3\1\.resources\bad_syntax.svg" />
     <None Include="Chapter_09\3\1\.resources\good_syntax.svg" />
+    <None Include="Chapter_09\3\4\.antlr\VecMsg.g4" />
     <None Include="Chapter_09\3\4\.antlr\Vec.g4" />
     <None Include="Chapter_09\3\4\.antlr\Vec.interp" />
     <None Include="Chapter_09\3\4\.antlr\Vec.tokens" />
     <None Include="Chapter_09\3\4\.antlr\VecLexer.interp" />
     <None Include="Chapter_09\3\4\.antlr\VecLexer.tokens" />
+    <None Include="Chapter_09\3\4\.antlr\VecMsg.interp" />
+    <None Include="Chapter_09\3\4\.antlr\VecMsg.tokens" />
+    <None Include="Chapter_09\3\4\.antlr\VecMsgLexer.interp" />
+    <None Include="Chapter_09\3\4\.antlr\VecMsgLexer.tokens" />
     <EmbeddedResource Include="Chapter_09\3\3\.resources\resynchronisation_set_of_the_current.simple" />
     <EmbeddedResource Include="Chapter_09\3\3\.resources\messed_up.simple" />
     <EmbeddedResource Include="Chapter_09\2\.resources\underline_listener.simple" />
