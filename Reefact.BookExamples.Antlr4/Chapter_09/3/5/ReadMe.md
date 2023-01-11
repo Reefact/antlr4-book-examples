@@ -47,4 +47,19 @@ classDef default fill:#fff,stroke:#000,stroke-width:0.25px;
 classDef error color:#fff,fill:#FF0000,stroke:#000,stroke-width:0.25px;
 ```
 
-// to be continued
+La première référence ne correspond à rien, mais la deuxième correspond à l'élément `int` surnuméraire. La troisième tentative de correspondance avec un membre correspond à la séquence `int x;` appropriée.
+
+Passons en revue la séquence exacte des événements. L'analyseur syntaxique est dans la règle `member` quand il détecte la première erreur.
+
+// todo: add code
+
+L'entrée `int int` ne correspond à aucune des deux alternatives de `member`, donc l'analyseur syntaxique engage la stratégie de récupération d'erreur sync-and-return. Il émet le premier message d'erreur et consomme jusqu'à ce qu'il voit un jeton dans l'ensemble de resynchronisation pour la pile d'appels \[`prog`, `classDef`, `member`\].
+
+A cause des boucles `classDef+` et `member+` dans la grammaire, le calcul de l'ensemble de resynchronisation est un peu compliqué. Après l'appel à `member`, l'analyseur syntaxique pourrait revenir en arrière et trouver un autre membre ou sortir de la boucle et trouver le `}` qui ferme la définition de la classe. Après l'appel à `classDef`, le parser pourrait revenir en arrière pour voir le début d'une autre classe ou simplement quitter `prog`. Ainsi, pour la pile d'appels \[`prog`, `classDef`, `member`\], l'ensemble de resynchronisation est `{'int', '}', 'class'}`.
+
+A ce stade, le parser récupère sans consommer de jeton car le jeton d'entrée actuel, `int`, est dans l'ensemble de resynchronisation. Il retourne simplement à l'appelant : la boucle `member+` dans `classDef`. La boucle essaie alors de faire correspondre un autre membre. Malheureusement, comme elle n'a consommé aucun token, l'analyseur détecte une autre erreur lorsqu'elle retourne à `member` (bien qu'elle fasse taire le message d'erreur fallacieux, en vertu du flag `errorRecovery`).
+Lors de la récupération de cette seconde erreur, le parser déclenche le fail-safe car il est arrivé au même emplacement de parser et à la même position d'entrée. Le fail-safe force une consommation de jeton avant de tenter une resynchronisation. Puisque `int` est dans l'ensemble de resynchronisation, il ne consomme pas de deuxième jeton. Heureusement, c'est exactement ce que nous voulons car l'analyseur syntaxique est maintenant correctement resynchronisé. Les trois jetons suivants représentent une définition de membre valide : `int x;`. L'analyseur syntaxique retourne une fois de plus de `member` à la boucle dans `classDef`. Pour la troisième fois, nous retournons à `member`, mais maintenant l'analyse syntaxique va réussir.
+
+Ainsi, c'est l'histoire du mécanisme de récupération automatique des erreurs d'ANTLR. Maintenant, regardons un mécanisme manuel qui peut parfois fournir une meilleure récupération d'erreur.
+
+⏭ Chapitre suivant: [9.4. Alternatives d'Erreurs](../../4)
