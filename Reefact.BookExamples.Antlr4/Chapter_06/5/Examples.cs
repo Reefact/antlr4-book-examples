@@ -11,7 +11,7 @@ using Xunit;
 
 namespace Reefact.BookExamples.Antlr4.Chapter_06._5 {
 
-    [UseReporter(typeof(BeyondCompareReporter), typeof(VisualStudioReporter))]
+    [UseReporter(typeof(CustomReporter))]
     public class Examples {
 
         [Fact]

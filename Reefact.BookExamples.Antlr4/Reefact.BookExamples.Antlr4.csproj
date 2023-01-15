@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Compile Include=".core\AntlrInputStreamReader.cs" />
+    <Compile Include=".core\CustomReporter.cs" />
     <Compile Include=".core\DubiousResultAttribute.cs" />
     <Compile Include=".core\GraphicalTreeAttribute.cs" />
     <Compile Include=".core\GRunBase.cs" />
