@@ -1,0 +1,2 @@
+﻿line 1:8 Too many parentheses.
+(stat (fcall f ( (expr ( (expr 34) )) ) )) ;)

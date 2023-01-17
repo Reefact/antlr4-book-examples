@@ -1,0 +1,2 @@
+﻿line 1:6 Missing closing ')'.
+(stat (fcall f ( (expr ( (expr 34) ))) ;)
