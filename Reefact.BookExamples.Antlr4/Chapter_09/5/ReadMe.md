@@ -1,0 +1,7 @@
+﻿### 9.5 Modification de la Stratégie de Gestion des Erreurs d'ANTLR
+
+Le mécanisme de gestion des erreurs par défaut fonctionne très bien, mais il existe quelques situations atypiques dans lesquelles nous pouvons souhaiter le modifier. Tout d'abord, nous pourrions vouloir désactiver une partie de la gestion des erreurs en ligne en raison de sa surcharge d'exécution. Deuxièmement, nous pourrions vouloir abandonner l'analyseur syntaxique à la première erreur de syntaxe. Par exemple, lors de l'analyse d'une ligne de commande pour un shell comme bash, il est inutile d'essayer de récupérer les erreurs. Nous ne pouvons pas risquer d'exécuter cette commande de toute façon, donc l'analyseur syntaxique peut s'arrêter au premier signe de problème.
+
+Pour explorer la stratégie de gestion des erreurs, examinez l'interface `ANTLRErrorStrategy` et sa mise en oeuvre concrète, la classe `DefaultErrorStrategy`. Cette classe contient tout ce qui est associé au comportement de traitement des erreurs par défaut. Les analyseurs ANTLR signalent cet objet pour signaler les erreurs et récupérer. Par exemple, voici le bloc `catch` à l'intérieur de chaque fonction de règle générée par ANTLR :
+
+// to be continued...
