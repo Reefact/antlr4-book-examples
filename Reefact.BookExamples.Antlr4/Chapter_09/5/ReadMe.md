@@ -4,4 +4,19 @@ Le mécanisme de gestion des erreurs par défaut fonctionne très bien, mais il 
 
 Pour explorer la stratégie de gestion des erreurs, examinez l'interface `ANTLRErrorStrategy` et sa mise en oeuvre concrète, la classe `DefaultErrorStrategy`. Cette classe contient tout ce qui est associé au comportement de traitement des erreurs par défaut. Les analyseurs ANTLR signalent cet objet pour signaler les erreurs et récupérer. Par exemple, voici le bloc `catch` à l'intérieur de chaque fonction de règle générée par ANTLR :
 
+```csharp
+_errHandler.ReportError(this, re) ;
+_errHandler.Recover(this, re) ;
+```
+
+`_errHandler` est une variable contenant une référence à une instance de `DefaultErrorStrategy`. Les méthodes `reportError()` et `recover()` incarnent la fonctionnalité de signalement d'erreur et de retour de synchronisation. `reportError()` délègue le signalement d'erreur à l'une des trois méthodes, en fonction du type d'exception levée.
+
+Pour en revenir à notre première situation atypique, diminuons la charge d'exécution que la gestion des erreurs impose à l'analyseur syntaxique. Regardez ce code que ANTLR génère pour la sous-règle `membre+` dans la grammaire `Simple` :
+
+https://github.com/Reefact/antlr4-book-examples/blob/bebfcab8f5ac42dbd61c43a78ad522e740b226a9/Reefact.BookExamples.Antlr4/Chapter_09/1/.antlr/SimpleParser.cs#L190-L202
+
+Pour les applications où l'on peut supposer sans risque que l'entrée est syntaxiquement correcte, comme les protocoles réseau, nous pourrions tout aussi bien éviter les coûts génériques de détection et de récupération des erreurs dans les sous-règles. Pour ce faire, nous pouvons sous-classer `DefaultErrorStrategy` et remplacer `sync()` par une méthode vide. Le compilateur Java devrait alors mettre en ligne et éliminer les appels `_errHandler.sync(this)`. Nous verrons comment notifier l'analyseur syntaxique d'utiliser une stratégie d'erreur différente dans l'exemple suivant.
+
+L'autre situation atypique est l'abandon de l'analyseur syntaxique à la première erreur de syntaxe. Pour que cela fonctionne, nous devons surcharger trois méthodes de récupération de clés, comme le montre le code suivant :
+
 // to be continued...
