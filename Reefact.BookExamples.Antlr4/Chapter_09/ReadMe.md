@@ -11,3 +11,4 @@ Dans ce chapitre, nous allons découvrir la stratégie de signalement et de réc
 ### [9.1. Une Parade aux Erreurs](1)
 ### [9.2. Modifier et Rediriger les Messages d'Erreur ANTLR](2)
 ### [9.3. Stratégie de Récupération Automatique des Erreurs](3)
+### [9.4. Alternatives aux erreurs](4)
