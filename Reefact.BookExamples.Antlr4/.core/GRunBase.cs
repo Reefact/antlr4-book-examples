@@ -43,7 +43,11 @@ public abstract class GRunBase {
         Parser      = parser;
         TokenStream = tokenStream;
 
-        Tree = parse();
+        try {
+            Tree = parse();
+        } catch (CustomLexerException ex) {
+            throw new GRunLexerException(ex.Message, _lexicalErrorListener.GetErrorMessages(), ex);
+        }
     }
 
     #endregion

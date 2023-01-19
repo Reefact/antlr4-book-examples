@@ -13,7 +13,9 @@
     <Compile Include=".core\DubiousResultAttribute.cs" />
     <Compile Include=".core\GraphicalTreeAttribute.cs" />
     <Compile Include=".core\GRunBase.cs" />
+    <Compile Include=".core\GRunLexerException.cs" />
     <Compile Include=".core\MermaidStyleTreeBuilder.cs" />
+    <Compile Include=".core\CustomLexerException.cs" />
     <Compile Include=".core\ResourcesHelper.cs" />
     <Compile Include=".core\StringExtensions.cs" />
     <Compile Include=".core\Void.cs" />

@@ -1,6 +1,7 @@
 ﻿#region Usings declarations
 
 using Antlr4.Runtime;
+using Antlr4.Runtime.Misc;
 
 #endregion
 
@@ -14,7 +15,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._5 {
          *  Exception.
          */
         public override void Recover(Parser recognizer, RecognitionException e) {
-            throw new Exception(e.Message, e);
+            throw new ParseCanceledException(e);
         }
 
         /*  Make sure we don't attempt to recover inline; if the parser
@@ -23,7 +24,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._5 {
         public override IToken RecoverInline(Parser recognizer) {
             InputMismatchException inputMismatchException = new(recognizer);
 
-            throw new Exception(inputMismatchException.Message, inputMismatchException);
+            throw new ParseCanceledException(inputMismatchException);
         }
 
         /*  Make sure we don't attempt to recover from problems in

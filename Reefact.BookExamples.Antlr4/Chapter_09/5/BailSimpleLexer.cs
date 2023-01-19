@@ -20,7 +20,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._5 {
 
         /// <inheritdoc />
         public override void Recover(LexerNoViableAltException e) {
-            throw new Exception(e.Message, e);
+            throw new CustomLexerException(e.Message, e);
         }
 
     }
