@@ -19,4 +19,26 @@ Pour les applications où l'on peut supposer sans risque que l'entrée est synta
 
 L'autre situation atypique est l'abandon de l'analyseur syntaxique à la première erreur de syntaxe. Pour que cela fonctionne, nous devons surcharger trois méthodes de récupération de clés, comme le montre le code suivant :
 
+https://github.com/Reefact/antlr4-book-examples/blob/154d5614032bdfd830d6cb843fecc0bf839eadc0/Reefact.BookExamples.Antlr4/Chapter_09/5/BailErrorStrategy.cs#L9-L34
+
+_Remarque: Pour notre exemple nous allons utiliser cette version du `BailErrorStrategy` mais cette classe est déjà implémentée par la librairie core d'ANTLR dans le namespace `Antlr4.Runtime`._
+
+Pour un banc d'essai, nous pouvons réutiliser notre code standard. En plus de la création et du lancement du parseur, nous devons créer une nouvelle instance de `BailErrorStrategy` et indiquer à l'analyseur syntaxique de l'utiliser à la place de la stratégie par défaut.
+
+https://github.com/Reefact/antlr4-book-examples/blob/a4be1335acc6508241164a44d1bf9f7296eefe77/Reefact.BookExamples.Antlr4/Chapter_09/5/GRun.cs#L20
+
+Pendant que nous y sommes, nous devrions également nous en sortir à la première erreur lexicale. Pour ce faire, nous devons surcharger la méthode `recover()` dans le Lexer.
+
+https://github.com/Reefact/antlr4-book-examples/blob/a4be1335acc6508241164a44d1bf9f7296eefe77/Reefact.BookExamples.Antlr4/Chapter_09/5/BailSimpleLexer.cs#L22-L24
+
+Essayons d'abord une erreur lexicale en insérant un caractère farfelu `#` au début de l'entrée. Le lexer lève une exception qui fait exploser le flux de contrôle jusqu'au programme principal.
+
+https://github.com/Reefact/antlr4-book-examples/blob/4f63052d85e5d93479856ea421177ddd35765987/Reefact.BookExamples.Antlr4/Chapter_09/5/Examples.cs#L18-L27
+
+L'analyseur syntaxique s'arrête également à la première erreur de syntaxe (un nom de classe manquant, dans ce cas).
+
+https://github.com/Reefact/antlr4-book-examples/blob/0dfe6691fb7d15caeebaaf33baf4d24e2deccf79/Reefact.BookExamples.Antlr4/Chapter_09/5/Examples.cs#L30-L37
+
+Pour démontrer la flexibilité de l'interface `ANTLRErrorStrategy`, terminons en modifiant la façon dont l'analyseur syntaxique signale les erreurs. Pour modifier le message standard, "aucune alternative viable à l'entrée X", nous pouvons surcharger `reportNoViableAlternative()` et changer le message en quelque chose de différent.
+
 // to be continued...
