@@ -23,4 +23,4 @@ https://github.com/Reefact/antlr4-book-examples/blob/5daa690a893ffa62f485cca6e91
 
 À ce stade, nous avons appris beaucoup de choses sur les messages d'erreur que les parsers ANTLR peuvent générer et aussi sur la façon dont les parseurs récupèrent les erreurs dans de nombreuses situations différentes. Nous avons également vu comment personnaliser les messages d'erreur et les rediriger vers différents récepteurs d'erreurs. Toute cette fonctionnalité est contrôlée et encapsulée dans un objet qui spécifie la stratégie de gestion des erreurs d'ANTLR. Dans la section suivante, nous examinerons cette stratégie en détail pour en savoir plus sur la personnalisation de la façon dont les analyseurs syntaxiques répondent aux erreurs.
 
-⏭ Chapitre suivant: [9.5. Modification de la stratégie de gestion des erreurs d'ANTLR](../../5)
+⏭ Chapitre suivant: [9.5. Modification de la Stratégie de Gestion des Erreurs d'ANTLR](../5)
