@@ -41,4 +41,14 @@ https://github.com/Reefact/antlr4-book-examples/blob/0dfe6691fb7d15caeebaaf33baf
 
 Pour démontrer la flexibilité de l'interface `ANTLRErrorStrategy`, terminons en modifiant la façon dont l'analyseur syntaxique signale les erreurs. Pour modifier le message standard, "aucune alternative viable à l'entrée X", nous pouvons surcharger `reportNoViableAlternative()` et changer le message en quelque chose de différent.
 
-// to be continued...
+https://github.com/Reefact/antlr4-book-examples/blob/33d7324d6b8a51d6907764c4fd84f20bb2629318/Reefact.BookExamples.Antlr4/Chapter_09/5/MyErrorStrategy.cs#L9-L20
+https://github.com/Reefact/antlr4-book-examples/blob/33d7324d6b8a51d6907764c4fd84f20bb2629318/Reefact.BookExamples.Antlr4/Chapter_09/5/Examples.cs#L42-L52
+https://github.com/Reefact/antlr4-book-examples/blob/33d7324d6b8a51d6907764c4fd84f20bb2629318/Reefact.BookExamples.Antlr4/Chapter_09/5/Examples.custom_error_message.approved.txt#L1-L2
+
+Rappelez-vous, cependant, que si tout ce que nous voulons faire est de changer où sont redirigé les messages d'erreur, nous pouvons spécifier un `ANTLRErrorListener` comme nous l'avons fait au chapitre [9.2. Modifier et Rediriger les Messages d'Erreur ANTLR](../2). Pour apprendre comment remplacer complètement la façon dont ANTLR génère le code pour attraper les exceptions, voir [15.3.6. Catching Exceptions](../../15.3.6).
+
+Nous avons couvert toutes les éléments importants de gestion de rapport d'erreur et de récupération dans ANTLR. Grâce aux interfaces `ANTLRErrorListener` et `ANTLRErrorStategy`, nous avons une grande flexibilité sur l'endroit où les messages d'erreur sont redirigés, ce que sont ces messages, et comment l'analyseur syntaxique récupère les erreurs.
+
+Dans le prochain chapitre, nous allons apprendre à intégrer des extraits de code appelés `actions` directement dans la grammaire.
+
+⏭ Chapitre suivant: [10. Attributs et Actions](../../Chapter_10)
