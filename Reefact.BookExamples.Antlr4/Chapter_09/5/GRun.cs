@@ -1,5 +1,7 @@
 ﻿#region Usings declarations
 
+using System.Text;
+
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 
@@ -11,11 +13,11 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._5 {
 
         #region Statics members declarations
 
-        public static GRun Read(AntlrInputStream inputStream) {
+        public static GRun Read(AntlrInputStream inputStream, IAntlrErrorStrategy errorStrategy) {
             BailSimpleLexer   lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
             SimpleParser      parser = new(tokens);
-            parser.ErrorHandler = new BailErrorStrategy();
+            parser.ErrorHandler = errorStrategy;
 
             return new GRun(lexer, tokens, parser, parser.prog);
         }
@@ -28,6 +30,15 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._5 {
         public GRun(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse, Action<Parser>? options = null) : base(lexer, tokenStream, parser, parse, options) { }
 
         #endregion
+
+        public string GetOutput() {
+            StringBuilder builder = new();
+            AppendErrorsTo(builder);
+            builder.Append(((SimpleParser)Parser).GetOutput()
+                                                 .Aggregate((p, n) => $"{p}{Environment.NewLine}{n}"));
+
+            return builder.ToString();
+        }
 
     }
 
