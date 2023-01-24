@@ -4,7 +4,7 @@ En dehors des règles de grammaire, il y a deux types de choses que nous voulons
 
 Voici un modèle idéalisé de génération de code qui illustre l'endroit où nous voulons injecter des extraits de code pour, par exemple, l'analyseur syntaxique :
 
-```csharp
+```
 <header>
 public class <grammarName>Parser: Parser {
   <members>
