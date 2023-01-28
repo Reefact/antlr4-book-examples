@@ -1,6 +1,6 @@
 # The Definitive ANTLR4 Reference
 
-Ce projet a pour but de rassembler tous les exemples du livre [The Definitive ANTLR4 Reference] (https://amzn.eu/d/cqjZfEa) de Terence Parr adaptés à la plateforme Microsoft .Net en C#.
+Ce projet a pour but de rassembler tous les exemples du livre [The Definitive ANTLR4 Reference](https://amzn.eu/d/cqjZfEa) de Terence Parr adaptés à la plateforme Microsoft .Net en C#.
 
 J'ai essayé d'organiser le ReadMe de manière à créer une table des matières interactive qui vous suivra tout au long de votre navigation dans les chapitres et sous-chapitres du livre, à la découverte des différents exemples.
 
