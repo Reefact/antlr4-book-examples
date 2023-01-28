@@ -16,6 +16,16 @@ Pour spécifier une action d'en-tête, nous utilisons `@header {...}` dans notre
 
 Voyons à quoi cela ressemble pour notre calculatrice. La grammaire d'expression commence par une déclaration de grammaire comme précédemment, mais nous allons maintenant déclarer que le code généré se trouve dans un namespace spécifique. Nous devrons également importer certaines classes utilitaires du SDK .Net.
 
-https://github.com/Reefact/antlr4-book-examples/blob/cc0b36fca4cabb58a8bbae10a48905230090cf66/Reefact.BookExamples.Antlr4/Chapter_10/1/1/.antlr/ActionExpr.g4#L1-L11
+https://github.com/Reefact/antlr4-book-examples/blob/a1d19b92ce1b759e3a2beef1f99b472746ddb9dc/Reefact.BookExamples.Antlr4/Chapter_10/1/1/.antlr/ActionExpr.g4#L3-L5
 
-// to be continued
+_Note: Contrairement au livre, qui présente les exemples en Java, il n'est pas nécessaire ici d'ajouter un `using` (cf. `import java.util.*;` dans le livre), car le générateur de parser et lexer de ANTLR en C# (cf. extrait de code ci-dessous) inclus les namespace `System`, `System.IO`, `System.Text`, `System.Diagnostics` et `System.Collections.Generic`. Si nous avions besoin d'inclure un namespace, il suffirait d'ajouter le `using` nécessaire dans le header._
+
+https://github.com/antlr/antlr4/blob/49b69bb31aa34654676a864b229a369680122470/tool/resources/org/antlr/v4/tool/templates/codegen/CSharp/CSharp.stg#L34-L53
+
+La classe `EvalVisitor` de la calculatrice précédente avait un champ de mémoire qui stockait les paires nom-valeur pour implémenter les affectations et les références de variables. Nous allons mettre cela dans l'action de nos membres. Pour réduire l'encombrement de la grammaire, définissons également une méthode pratique appelée `eval()` qui effectue une opération sur deux opérandes. Voici à quoi ressemble l'action `members` complète :
+
+https://github.com/Reefact/antlr4-book-examples/blob/a1d19b92ce1b759e3a2beef1f99b472746ddb9dc/Reefact.BookExamples.Antlr4/Chapter_10/1/1/.antlr/ActionExpr.g4#L7-L20
+
+Avec cette infrastructure en place, voyons comment utiliser ces membres de la classe de l'analyseur syntaxique dans les actions parmi les éléments de la règle.
+
+⏭ Chapitre suivant: [10.1.2. Intégrer des Actions dans les Règles](../2)
