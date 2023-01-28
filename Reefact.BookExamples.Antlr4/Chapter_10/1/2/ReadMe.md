@@ -26,7 +26,7 @@ Avant de passer au contenu de l'action, il est utile de regarder où ANTLR stock
 
 ##### Un seul objet de contexte de règle pour les lier tous
 
-Dans le chapitre [2.4. Construire des Applications Linguistiques à l'Aide d'Arbres d'Analyse], nous avons appris que ANTLR implémente les noeuds d'arbres d'analyse avec des objets de contexte de règle. Chaque invocation de règle crée et renvoie un objet de contexte de règle, qui contient toutes les informations importantes sur la reconnaissance d'une règle à un emplacement spécifique dans le flux d'entrée. Par exemple, la règle `expr` crée et renvoie des objets `ExprContext`.
+Dans le chapitre [2.4. Construire des Applications Linguistiques à l'Aide d'Arbres d'Analyse](../../../Chapter_02/4), nous avons appris que ANTLR implémente les noeuds d'arbres d'analyse avec des objets de contexte de règle. Chaque invocation de règle crée et renvoie un objet de contexte de règle, qui contient toutes les informations importantes sur la reconnaissance d'une règle à un emplacement spécifique dans le flux d'entrée. Par exemple, la règle `expr` crée et renvoie des objets `ExprContext`.
 
 ```CSharp
 public ExprContext expr(...) { ... }
@@ -36,13 +36,13 @@ Naturellement, un objet de contexte de règle est un endroit très pratique pour
 
 ```CSharp
 public partial class ExprContext : ParserRuleContext {
-		public int v; // rule e return value from "returns [int v]"
-		public ExprContext a; // label a on (recursive) rule reference to e
-		public IToken _INT; // reference to INT matched by 3rd alternative
-		public IToken _ID; // reference to ID matched by 4th alternative
-		public ExprContext _expr; // reference to context object from e invocation
-		public IToken op; // label on operator sub rules like ('*'|'/')
-		public ExprContext b; // label b on (recursive) rule reference to e
+	public int v; // rule e return value from "returns [int v]"
+	public ExprContext a; // label a on (recursive) rule reference to e
+	public IToken _INT; // reference to INT matched by 3rd alternative
+	public IToken _ID; // reference to ID matched by 4th alternative
+	public ExprContext _expr; // reference to context object from e invocation
+	public IToken op; // label on operator sub rules like ('*'|'/')
+	public ExprContext b; // label b on (recursive) rule reference to e
 ...
 }
  ```
@@ -67,7 +67,7 @@ https://github.com/Reefact/antlr4-book-examples/blob/ebebe7702a5ca2a49a5fe37cddf
 
 La quatrième alternative reconnaît une référence de variable et définit la valeur de retour de `expr` à la valeur stockée en mémoire, si nous avons stocké une valeur pour ce nom. Cette action utilise l'opérateur C# `?:`, mais nous aurions pu tout aussi bien utiliser une instruction C# if-then-else. Nous pouvons mettre n'importe quoi dans une action qui fonctionnerait comme le corps d'une méthode C#.
 
-Enfin, l'action `$v = $e.v ;` dans la dernière alternative fixe la valeur de retour au résultat de l'expression correspondante entre parenthèses. Nous ne faisons que passer la valeur de retour. La valeur de `(3)` est 3.
+Enfin, l'action `$v = $expr.v ;` dans la dernière alternative fixe la valeur de retour au résultat de l'expression correspondante entre parenthèses. Nous ne faisons que passer la valeur de retour. La valeur de `(3)` est 3.
 
 C'est tout pour la grammaire et le code d'action. Maintenant, voyons comment construire un pilote interactif pour notre calculatrice.
 
