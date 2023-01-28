@@ -14,4 +14,4 @@ Dans ce chapitre, nous allons apprendre à placer les analyseurs syntaxiques gé
 
 #### [10.1.1. Utiliser des Actions en Dehors des Règles de Grammaire](1)
 #### [10.1.2. Intégrer des Actions dans les Règles](2)
-#### [10.1.3. Construire une calculatrice interactive](3)
+#### [10.1.3. Construire une Calculatrice Interactive](3)
