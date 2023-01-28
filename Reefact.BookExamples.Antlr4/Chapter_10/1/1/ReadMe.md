@@ -15,3 +15,7 @@ public class <grammarName>Parser: Parser {
 Pour spécifier une action d'en-tête, nous utilisons `@header {...}` dans notre grammaire. Pour injecter des champs ou des méthodes dans le code généré, nous utilisons `@members {...}`. Dans une grammaire combinée parser/lexer, ces actions nommées s'appliquent à la fois au parser et au lexer. (L'option ANTLR `-package` nous permet de définir le paquetage sans action d'en-tête). Pour restreindre une action au parser ou au lexer généré, nous utilisons `@parser::name` ou `@lexer::name`.
 
 Voyons à quoi cela ressemble pour notre calculatrice. La grammaire d'expression commence par une déclaration de grammaire comme précédemment, mais nous allons maintenant déclarer que le code généré se trouve dans un namespace spécifique. Nous devrons également importer certaines classes utilitaires du SDK .Net.
+
+https://github.com/Reefact/antlr4-book-examples/blob/cc0b36fca4cabb58a8bbae10a48905230090cf66/Reefact.BookExamples.Antlr4/Chapter_10/1/1/.antlr/ActionExpr.g4#L1-L11
+
+// to be continued
