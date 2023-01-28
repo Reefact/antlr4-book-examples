@@ -20,10 +20,11 @@
 #pragma warning disable 419
 
 
-using Antlr4.Runtime.Misc;
-using Antlr4.Runtime.Tree;
+namespace Reefact.Tools;
 
-namespace Reefact.BookExamples.Antlr4.Chapter_10._1._1;
+using Antlr4.Runtime.Misc;
+using IParseTreeListener = Antlr4.Runtime.Tree.IParseTreeListener;
+using IToken = Antlr4.Runtime.IToken;
 
 /// <summary>
 /// This interface defines a complete listener for a parse tree produced by

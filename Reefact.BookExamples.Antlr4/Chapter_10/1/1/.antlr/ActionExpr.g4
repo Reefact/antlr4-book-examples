@@ -1,13 +1,7 @@
 ﻿grammar ActionExpr;
 
 @header {
-using Antlr4.Runtime;
-using Antlr4.Runtime.Atn;
-using Antlr4.Runtime.Misc;
-using Antlr4.Runtime.Tree;
-using DFA = Antlr4.Runtime.Dfa.DFA;
-
-namespace Reefact.BookExamples.Antlr4.Chapter_10._1._1;
+namespace Reefact.Tools;
 }
 
 @parser::members {

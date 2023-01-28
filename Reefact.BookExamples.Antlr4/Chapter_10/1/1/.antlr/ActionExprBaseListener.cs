@@ -20,13 +20,14 @@
 #pragma warning disable 419
 
 
-using Antlr4.Runtime;
+namespace Reefact.Tools;
+
+
 using Antlr4.Runtime.Misc;
-using Antlr4.Runtime.Tree;
-
-namespace Reefact.BookExamples.Antlr4.Chapter_10._1._1;
-
-
+using IErrorNode = Antlr4.Runtime.Tree.IErrorNode;
+using ITerminalNode = Antlr4.Runtime.Tree.ITerminalNode;
+using IToken = Antlr4.Runtime.IToken;
+using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 
 /// <summary>
 /// This class provides an empty implementation of <see cref="IActionExprListener"/>,
