@@ -1,18 +1,16 @@
 # The Definitive ANTLR4 Reference
 
-This project aims at gathering all the examples of the book [The Definitive ANTLR4 Reference](https://amzn.eu/d/cqjZfEa) by Terence Parr adapted to the Microsoft .Net platform (C#).
+Ce projet a pour but de rassembler tous les exemples du livre [The Definitive ANTLR4 Reference](https://amzn.eu/d/cqjZfEa) de Terence Parr adaptés à la plateforme Microsoft .Net en C#.
 
-I have tried to organize the ReadMe in such a way as to create an interactive table of contents that will follow you as you navigate through the chapters and sub-chapters of the book, discovering the different examples.
+J'ai essayé d'organiser le ReadMe de manière à créer une table des matières interactive qui vous suivra tout au long de votre navigation dans les chapitres et sous-chapitres du livre, à la découverte des différents exemples.
 
 [Step into](Reefact.BookExamples.Antlr4)
 
-_Remarks:_
+_Remarques:_
 
-_The graphs in Mermaid format generated in the examples can be displayed via the online tool https://mermaid.live/. Unless omitted, they are also available in SVG format in the resources of each chapter (a link is made between the test which generate to Mermaid style tree to the SVG file thanks to attribute 'GraphicalTreeAttribute'._
-
-_Some URLs in the book are no longer valid. You can find below a list of links that are up to date (last updated 12/12/2022)._
+_Certaines URL du livre ne sont plus valables. Vous trouverez ci-dessous une liste de liens qui sont à jour (dernière mise à jour le 12/12/2022)._
 
 |  URL  |  Description  |
 | ----- | ------------- |
-| https://github.com/antlr/grammars-v4 | ANTLR4 'official' grammar definitions | 
+| https://github.com/antlr/grammars-v4 | Définitions de grammaires ANTLR4 'officielles' | 
 
