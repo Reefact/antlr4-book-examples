@@ -16,11 +16,11 @@ namespace Reefact.BookExamples.Antlr4.Chapter_10._1._3 {
             if (s is null) { throw new ArgumentNullException(nameof(s)); }
 
             using StringReader reader = new(s);
-            string?            expr   = reader.ReadLine();
-            var                line   = 1;
-            ActionExprParser   parser = new(null);
-            parser.BuildParseTree = false;
-            while (expr != null) { // while we have more expressions
+            string?            expr   = reader.ReadLine(); // get first expression
+            var                line   = 1;                 // track input expr line numbers
+            ActionExprParser   parser = new(null);         // share single parser instance
+            parser.BuildParseTree = false;                 // don't need tree
+            while (expr != null) {                         // while we have more expressions
                 // create new lexer and token stream for each line (expression)
                 AntlrInputStream inputStream = new(expr + Environment.NewLine);
                 ActionExprLexer  lexer       = new(inputStream);
