@@ -6,7 +6,8 @@ namespace Reefact.Tools;
 
 @parser::members {
 	// "memory" for our calculator; variable/value pairs go here
-	private readonly Dictionary<string, int> _memory = new Dictionary<string, int>();
+	private readonly Dictionary<string, int> _memory = new();
+	private readonly List<int> _values = new();
 
 	public int Eval(int left, int op, int right) {
 		switch(op) {
@@ -17,11 +18,13 @@ namespace Reefact.Tools;
 			default: throw new ArgumentOutOfRangeException();
 		}
 	}
+
+	public IEnumerable<int> GetOutput() => _values;
 }
 
 prog		:   stat+ ;
 
-stat		:	expr NEWLINE			{ Console.WriteLine($expr.v); }
+stat		:	expr NEWLINE			{ _values.Add($expr.v); }
 			|	ID '=' expr NEWLINE		{ _memory.Add($ID.text, $expr.v); }
 			|	NEWLINE
 			;

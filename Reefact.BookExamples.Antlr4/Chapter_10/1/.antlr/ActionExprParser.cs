@@ -81,7 +81,8 @@ public partial class ActionExprParser : Parser {
 
 
 		// "memory" for our calculator; variable/value pairs go here
-		private readonly Dictionary<string, int> _memory = new Dictionary<string, int>();
+		private readonly Dictionary<string, int> _memory = new();
+		private readonly List<int> _values = new();
 
 		public int Eval(int left, int op, int right) {
 			switch(op) {
@@ -92,6 +93,8 @@ public partial class ActionExprParser : Parser {
 				default: throw new ArgumentOutOfRangeException();
 			}
 		}
+
+		public IEnumerable<int> GetOutput() => _values;
 
 		public ActionExprParser(ITokenStream input) : this(input, Console.Out, Console.Error) { }
 
@@ -113,16 +116,6 @@ public partial class ActionExprParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_prog; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IActionExprListener typedListener = listener as IActionExprListener;
-			if (typedListener != null) typedListener.EnterProg(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IActionExprListener typedListener = listener as IActionExprListener;
-			if (typedListener != null) typedListener.ExitProg(this);
-		}
 	}
 
 	[RuleVersion(0)]
@@ -173,16 +166,6 @@ public partial class ActionExprParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_stat; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IActionExprListener typedListener = listener as IActionExprListener;
-			if (typedListener != null) typedListener.EnterStat(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IActionExprListener typedListener = listener as IActionExprListener;
-			if (typedListener != null) typedListener.ExitStat(this);
-		}
 	}
 
 	[RuleVersion(0)]
@@ -200,7 +183,7 @@ public partial class ActionExprParser : Parser {
 				_localctx._expr = expr(0);
 				State = 12;
 				Match(NEWLINE);
-				 Console.WriteLine(_localctx._expr.v); 
+				 _values.Add(_localctx._expr.v); 
 				}
 				break;
 			case 2:
@@ -262,16 +245,6 @@ public partial class ActionExprParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_expr; } }
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void EnterRule(IParseTreeListener listener) {
-			IActionExprListener typedListener = listener as IActionExprListener;
-			if (typedListener != null) typedListener.EnterExpr(this);
-		}
-		[System.Diagnostics.DebuggerNonUserCode]
-		public override void ExitRule(IParseTreeListener listener) {
-			IActionExprListener typedListener = listener as IActionExprListener;
-			if (typedListener != null) typedListener.ExitExpr(this);
-		}
 	}
 
 	[RuleVersion(0)]

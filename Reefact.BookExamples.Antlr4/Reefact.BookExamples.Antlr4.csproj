@@ -146,10 +146,8 @@
     <Compile Include="Chapter_09\3\4\.antlr\VecParser.cs" />
     <Compile Include="Chapter_09\4\.antlr\CallLexer.cs" />
     <Compile Include="Chapter_09\4\.antlr\CallParser.cs" />
-    <Compile Include="Chapter_10\1\1\.antlr\ActionExprBaseListener.cs" />
-    <Compile Include="Chapter_10\1\1\.antlr\ActionExprLexer.cs" />
-    <Compile Include="Chapter_10\1\1\.antlr\ActionExprListener.cs" />
-    <Compile Include="Chapter_10\1\1\.antlr\ActionExprParser.cs" />
+    <Compile Include="Chapter_10\1\.antlr\ActionExprLexer.cs" />
+    <Compile Include="Chapter_10\1\.antlr\ActionExprParser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -386,11 +384,11 @@
     <None Include="Chapter_09\4\.antlr\Call.tokens" />
     <None Include="Chapter_09\4\.antlr\CallLexer.interp" />
     <None Include="Chapter_09\4\.antlr\CallLexer.tokens" />
-    <None Include="Chapter_10\1\1\.antlr\ActionExpr.g4" />
-    <None Include="Chapter_10\1\1\.antlr\ActionExpr.interp" />
-    <None Include="Chapter_10\1\1\.antlr\ActionExpr.tokens" />
-    <None Include="Chapter_10\1\1\.antlr\ActionExprLexer.interp" />
-    <None Include="Chapter_10\1\1\.antlr\ActionExprLexer.tokens" />
+    <None Include="Chapter_10\1\.antlr\ActionExpr.g4" />
+    <None Include="Chapter_10\1\.antlr\ActionExpr.interp" />
+    <None Include="Chapter_10\1\.antlr\ActionExpr.tokens" />
+    <None Include="Chapter_10\1\.antlr\ActionExprLexer.interp" />
+    <None Include="Chapter_10\1\.antlr\ActionExprLexer.tokens" />
     <EmbeddedResource Include="Chapter_09\3\5\.resources\extra_int.simple" />
     <EmbeddedResource Include="Chapter_09\3\3\.resources\resynchronisation_set_of_the_current.simple" />
     <EmbeddedResource Include="Chapter_09\3\3\.resources\messed_up.simple" />
