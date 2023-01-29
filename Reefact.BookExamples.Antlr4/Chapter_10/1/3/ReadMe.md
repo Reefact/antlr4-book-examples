@@ -1,7 +1,7 @@
 #### 10.1.3. Construire une Calculatrice Interactive
 
 ```bat
-antlr4 ActioExpr.g4 -no-listener -Dlanguage=CSharp
+antlr4 ActionExpr.g4 -no-listener -Dlanguage=CSharp
 ```
 
 Afin de tester notre grammaire nous utiliserons les exemples suivants:
