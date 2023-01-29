@@ -1,0 +1,5 @@
+﻿### 10.2. Accès aux Attributs de Règles et de Tokens
+
+Utilisons la grammaire CSV du chapitre [6.1. Analyse des valeurs séparées par des virgules], comme base pour explorer d'autres fonctionnalités liées aux actions. Nous allons construire une application qui crée une correspondance entre le nom de la colonne et le champ pour chaque ligne et qui imprime les informations obtenues lors de l'analyse des données. Notre objectif est de mieux connaître les actions et les attributs liés aux règles.
+
+Tout d'abord, voyons comment définir des variables locales à l'aide de la section locals. Comme pour les paramètres et les valeurs de retour, les déclarations dans une section locals deviennent des champs dans l'objet de contexte de règle. Puisque nous obtenons un nouvel objet de contexte de règle pour chaque invocation de règle, nous obtenons une nouvelle copie des locals comme nous nous y attendions. La version augmentée suivante du fichier de règles fait un certain nombre de choses intéressantes, mais commençons par nous concentrer sur ce qu'elle fait avec les sections locales.
