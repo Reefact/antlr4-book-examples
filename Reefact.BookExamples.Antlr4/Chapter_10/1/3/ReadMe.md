@@ -22,4 +22,4 @@ https://github.com/Reefact/antlr4-book-examples/blob/a34ee7644aee642061c748062c5
 
 Nous savons maintenant comment construire un outil interactif et nous avons une assez bonne idée de la manière de placer et d'utiliser les actions intégrées. Notre calculatrice a utilisé une action `header` pour spécifier un namespace et une action `members` pour définir deux membres de la classe de l'analyseur syntaxique. Nous avons utilisé des actions dans les règles pour calculer et renvoyer les valeurs des sous-expressions en tant que fonction des attributs des tokens et des règles. Dans la prochaine section, nous verrons d'autres attributs et identifierons d'autres emplacements d'actions.
 
-⏭ Chapitre suivant: [10.2. Accès aux Attributs de Règles et de Tokens](../2)
+⏭ Chapitre suivant: [10.2. Accès aux Attributs de Règles et de Tokens](../../2)
