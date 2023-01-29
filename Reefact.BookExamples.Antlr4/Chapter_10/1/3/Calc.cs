@@ -12,10 +12,13 @@ namespace Reefact.BookExamples.Antlr4.Chapter_10._1._3 {
 
         #region Statics members declarations
 
-        public static IEnumerable<int> Read(StringReader reader) {
-            string?          expr   = reader.ReadLine();
-            var              line   = 1;
-            ActionExprParser parser = new(null);
+        public static IEnumerable<int> Read(string s) {
+            if (s is null) { throw new ArgumentNullException(nameof(s)); }
+
+            using StringReader reader = new(s);
+            string?            expr   = reader.ReadLine();
+            var                line   = 1;
+            ActionExprParser   parser = new(null);
             parser.BuildParseTree = false;
             while (expr != null) { // while we have more expressions
                 // create new lexer and token stream for each line (expression)

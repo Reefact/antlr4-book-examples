@@ -20,9 +20,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_10._1._3 {
             // Setup
             StringBuilder example = new();
             example.AppendLine("x");
-            StringReader reader = new(example.ToString());
             // Exercise
-            IEnumerable<int> result = Calc.Read(reader);
+            IEnumerable<int> result = Calc.Read(example.ToString());
             // Verify
             Check.That(result).ContainsExactly(0);
         }
@@ -33,9 +32,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_10._1._3 {
             StringBuilder example = new();
             example.AppendLine("x = 1");
             example.AppendLine("x");
-            StringReader reader = new(example.ToString());
             // Exercise
-            IEnumerable<int> result = Calc.Read(reader);
+            IEnumerable<int> result = Calc.Read(example.ToString());
             // Verify
             Check.That(result).ContainsExactly(1);
         }
@@ -47,9 +45,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_10._1._3 {
             example.AppendLine("x = 1");
             example.AppendLine("x");
             example.AppendLine("x+2*3");
-            StringReader reader = new(example.ToString());
             // Exercise
-            IEnumerable<int> result = Calc.Read(reader);
+            IEnumerable<int> result = Calc.Read(example.ToString());
             // Verify
             Check.That(result).ContainsExactly(1, 7);
         }
@@ -66,9 +63,8 @@ namespace Reefact.BookExamples.Antlr4.Chapter_10._1._3 {
             example.AppendLine("g");
             example.AppendLine("h = g+y*(z+1)-7*x");
             example.AppendLine("h");
-            StringReader reader = new(example.ToString());
             // Exercise
-            IEnumerable<int> result = Calc.Read(reader);
+            IEnumerable<int> result = Calc.Read(example.ToString());
             // Verify
             Check.That(result).ContainsExactly(10, 5, 42);
         }
