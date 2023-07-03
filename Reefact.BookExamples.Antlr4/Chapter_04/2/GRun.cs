@@ -15,9 +15,9 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._2 {
         #region Statics members declarations
 
         public static GRun Read(AntlrInputStream inputStream) {
-            LabeledExprLexer  lexer  = new(inputStream);
-            CommonTokenStream tokens = new(lexer);
-            var               parser = new LabeledExprParser(tokens);
+            LabeledExprLexer   lexer  = new(inputStream);
+            CommonTokenStream  tokens = new(lexer);
+            LabeledExprParser? parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.prog);
         }
@@ -25,7 +25,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._2 {
         #endregion
 
         #region Constructors declarations
-        
+
         private GRun(Lexer lexer, CommonTokenStream tokenStream, Parser parser, Func<IParseTree> parse) : base(lexer, tokenStream, parser, parse) { }
 
         #endregion

@@ -17,7 +17,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_10._1._3 {
 
             using StringReader reader = new(s);
             string?            expr   = reader.ReadLine(); // get first expression
-            var                line   = 1;                 // track input expr line numbers
+            int                line   = 1;                 // track input expr line numbers
             ActionExprParser   parser = new(null);         // share single parser instance
             parser.BuildParseTree = false;                 // don't need tree
             while (expr != null) {                         // while we have more expressions

@@ -14,7 +14,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_07._1 {
         public static GRun Read(AntlrInputStream inputStream) {
             PropertyFile_7_1Lexer lexer  = new(inputStream);
             CommonTokenStream     tokens = new(lexer);
-            var                   parser = new PropertyFileLoader(tokens);
+            PropertyFileLoader?   parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.file);
         }

@@ -27,7 +27,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._5._2 {
 
         /// <inheritdoc />
         public override void EnterClassBody(JavaParser.ClassBodyContext context) {
-            var field = "\r\n\tpublic static final long serialVersionUID = 1L;";
+            string? field = "\r\n\tpublic static final long serialVersionUID = 1L;";
             _rewriter.InsertAfter(context.Start, field);
         }
 

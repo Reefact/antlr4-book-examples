@@ -17,8 +17,8 @@ public sealed class ShortToUnicodeStringListener : ArrayInitBaseListener {
     #region Statics members declarations
 
     private static string ConvertToUnicodeString(int value) {
-        var valueAsHexString     = value.ToString(HexadecimalStringFormat);
-        var valueAsUnicodeString = $"{UnicodePrefix}{valueAsHexString}";
+        string valueAsHexString     = value.ToString(HexadecimalStringFormat);
+        string valueAsUnicodeString = $"{UnicodePrefix}{valueAsHexString}";
 
         return valueAsUnicodeString;
     }

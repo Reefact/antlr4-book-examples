@@ -47,7 +47,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
                 builder.AppendLine(errorListenerWithOutput.GetOutput());
             }
 
-            var output = builder.ToString();
+            string? output = builder.ToString();
 
             return output.RemoveTrailing(Environment.NewLine);
         }

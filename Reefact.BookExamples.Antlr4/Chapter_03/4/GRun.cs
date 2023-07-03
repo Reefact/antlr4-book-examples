@@ -16,7 +16,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._4 {
 
             ArrayInitLexer    lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new ArrayInitParser(tokens);
+            ArrayInitParser   parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.init);
         }
@@ -32,7 +32,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._4 {
 
         public string ToUnicodeString() {
             // create a generic parse tree walker that can trigger callbacks
-            var walker = new ParseTreeWalker();
+            ParseTreeWalker walker = new();
             // walk the tree created during the parse, trigger callbacks
             ShortToUnicodeStringListener shortToUnicodeString = new();
             walker.Walk(shortToUnicodeString, Tree);

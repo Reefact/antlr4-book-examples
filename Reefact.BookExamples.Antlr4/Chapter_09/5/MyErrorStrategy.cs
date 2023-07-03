@@ -13,7 +13,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._5 {
             // ANTLR generates Parser subclasses from grammars and
             // Parser extends Recognizer. Parameter parser is a
             // pointer to the parser that detected the error
-            var nonStandardMessage = "Can't choose between alternatives";
+            string? nonStandardMessage = "Can't choose between alternatives";
             recognizer.NotifyErrorListeners(exception.OffendingToken, nonStandardMessage, exception);
         }
 

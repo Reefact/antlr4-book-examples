@@ -12,9 +12,9 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._3 {
         #region Statics members declarations
 
         public static GRun Read(AntlrInputStream inputStream) {
-            var               lexer  = new Cymbol_8_3Lexer(inputStream);
+            Cymbol_8_3Lexer?  lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new Cymbol_8_3Parser(tokens);
+            Cymbol_8_3Parser? parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.file);
         }

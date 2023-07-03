@@ -19,7 +19,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._3 {
             // create a buffer of tokens pulled from the lexer
             CommonTokenStream tokens = new(lexer);
             // create a parser that feeds off the tokens buffer
-            var parser = new ArrayInitParser(tokens);
+            ArrayInitParser? parser = new(tokens);
             // begin parsing at init rule
             IParseTree tree = parser.init();
 

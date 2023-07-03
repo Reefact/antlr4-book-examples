@@ -41,7 +41,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_04._3 {
         /// <inheritdoc />
         public override void EnterMethodDeclaration(JavaParser.MethodDeclarationContext context) {
             ITokenStream           tokens      = _parser.TokenStream;
-            var                    type        = "void";
+            string?                type        = "void";
             JavaParser.TypeContext typeContext = context.type();
             if (typeContext != null) {
                 type = tokens.GetText(typeContext);

@@ -16,7 +16,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_03._2 {
 
             ArrayInitLexer    lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new ArrayInitParser(tokens);
+            ArrayInitParser   parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.init);
         }

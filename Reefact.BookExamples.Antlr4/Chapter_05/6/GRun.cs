@@ -26,7 +26,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
         private static GRun ReadParser(AntlrInputStream inputStream) {
             IP_ParserLexer    lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new IP_ParserParser(tokens);
+            IP_ParserParser?  parser = new(tokens);
 
             return new GRun(ReadMode.Parser, lexer, tokens, parser, parser.file);
         }
@@ -34,7 +34,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._6 {
         private static GRun ReadLexer(AntlrInputStream inputStream) {
             IP_LexerLexer     lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new IP_LexerParser(tokens);
+            IP_LexerParser?   parser = new(tokens);
 
             return new GRun(ReadMode.Lexer, lexer, tokens, parser, parser.file);
         }

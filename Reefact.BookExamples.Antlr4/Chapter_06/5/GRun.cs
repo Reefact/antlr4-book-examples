@@ -14,7 +14,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._5 {
         public static GRun Read(AntlrInputStream inputStream) {
             RLexer            lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new RParser(tokens);
+            RParser?          parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.prog);
         }

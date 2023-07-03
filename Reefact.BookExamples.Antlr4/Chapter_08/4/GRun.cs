@@ -36,7 +36,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._4 {
             DefPhase def = new();
             walker.Walk(def, Tree);
             // second phase
-            var @ref = new RefPhase(def.GlobalScope, def.Scopes);
+            RefPhase? @ref = new(def.GlobalScope, def.Scopes);
             walker.Walk(@ref, Tree);
 
             return new ProcessResult(@ref.GetErrors());

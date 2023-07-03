@@ -14,7 +14,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_06._4 {
         public static GRun Read(AntlrInputStream inputStream) {
             CymbolLexer       lexer  = new(inputStream);
             CommonTokenStream tokens = new(lexer);
-            var               parser = new CymbolParser(tokens);
+            CymbolParser?     parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.file);
         }

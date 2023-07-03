@@ -20,12 +20,12 @@ namespace Reefact.BookExamples.Antlr4.Chapter_09._2 {
         public override void SyntaxError(TextWriter output, IRecognizer recognizer, IToken offendingSymbol, int line, int charPositionInLine, string msg, RecognitionException e) {
             StringBuilder builder = new();
             builder.AppendLine($"line {line}:{charPositionInLine} {msg}");
-            var      tokens    = (CommonTokenStream)recognizer.InputStream;
-            string   input     = tokens.TokenSource.InputStream.ToString() ?? string.Empty;
-            string[] lines     = input.Split(Environment.NewLine);
-            string   errorLine = lines[line - 1];
+            CommonTokenStream? tokens    = (CommonTokenStream)recognizer.InputStream;
+            string             input     = tokens.TokenSource.InputStream.ToString() ?? string.Empty;
+            string[]           lines     = input.Split(Environment.NewLine);
+            string             errorLine = lines[line - 1];
             builder.AppendLine(errorLine);
-            for (var i = 0; i < charPositionInLine; i++) {
+            for (int i = 0; i < charPositionInLine; i++) {
                 builder.Append(" ");
             }
             int start = offendingSymbol.StartIndex;

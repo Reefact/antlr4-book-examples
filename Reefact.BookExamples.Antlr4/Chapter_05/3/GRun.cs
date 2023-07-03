@@ -15,9 +15,9 @@ namespace Reefact.BookExamples.Antlr4.Chapter_05._3 {
         #region Statics members declarations
 
         public static GRun Read(AntlrInputStream inputStream) {
-            NestedPhrasePatternLexer lexer  = new(inputStream);
-            CommonTokenStream        tokens = new(lexer);
-            var                      parser = new NestedPhrasePatternParser(tokens);
+            NestedPhrasePatternLexer   lexer  = new(inputStream);
+            CommonTokenStream          tokens = new(lexer);
+            NestedPhrasePatternParser? parser = new(tokens);
 
             return new GRun(lexer, tokens, parser, parser.expr);
         }

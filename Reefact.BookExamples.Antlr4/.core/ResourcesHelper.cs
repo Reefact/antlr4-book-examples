@@ -20,7 +20,7 @@ namespace Reefact.BookExamples.Antlr4 {
             if (chapter is null) { throw new ArgumentNullException(nameof(chapter)); }
 
             string        resourceFullName = BuildResourceFullName(chapter, resourceName);
-            var           assembly         = Assembly.GetExecutingAssembly();
+            Assembly?     assembly         = Assembly.GetExecutingAssembly();
             using Stream? stream           = assembly.GetManifestResourceStream(resourceFullName);
             if (stream == null) { throw new FileNotFoundException($"Resource '{resourceFullName}' does not exist or not declared as embedded resource."); }
 
@@ -33,8 +33,8 @@ namespace Reefact.BookExamples.Antlr4 {
         public static string Read(string resourceRelativeName) {
             if (resourceRelativeName is null) { throw new ArgumentNullException(nameof(resourceRelativeName)); }
 
-            var assembly         = Assembly.GetExecutingAssembly();
-            var resourceFullName = $"Reefact.BookExamples.Antlr4.Resources.{resourceRelativeName}";
+            Assembly? assembly         = Assembly.GetExecutingAssembly();
+            string?   resourceFullName = $"Reefact.BookExamples.Antlr4.Resources.{resourceRelativeName}";
 
             using Stream? stream = assembly.GetManifestResourceStream(resourceFullName);
             if (stream == null) { throw new FileNotFoundException($"Resource '{resourceFullName}' does not exist or not declared as embedded resource."); }
@@ -49,7 +49,7 @@ namespace Reefact.BookExamples.Antlr4 {
             StringBuilder builder         = new(ResourcesFullNamePrefix);
             string        chapterLevelOne = chapterParts[0].ToString().PadLeft(2, '0');
             builder.Append(chapterLevelOne);
-            for (var i = 1; i < chapterParts.Length; i++) {
+            for (int i = 1; i < chapterParts.Length; i++) {
                 builder.Append("._").Append(chapterParts[i]);
             }
             builder.Append(".").Append(ResourcesFolderName)

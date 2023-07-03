@@ -55,7 +55,7 @@ public static class AntlrInputStreamReader {
 
     /// <summary>Converts the content of a string build to an <see cref="AntlrInputStream" />.</summary>
     public static AntlrInputStream Read(StringBuilder stringBuilder) {
-        var contentString = stringBuilder.ToString();
+        string contentString = stringBuilder.ToString();
 
         return Read(contentString);
     }

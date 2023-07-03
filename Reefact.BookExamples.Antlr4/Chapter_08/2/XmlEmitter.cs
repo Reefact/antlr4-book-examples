@@ -59,7 +59,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._2 {
             string                      tagName      = StripQuotes(context.STRING().GetText());
             JSON_8_2Parser.ValueContext valueContext = context.value();
             string                      value        = _xml.Get(valueContext);
-            var                         tag          = $"<{tagName}>{value}</{tagName}>{Environment.NewLine}";
+            string?                     tag          = $"<{tagName}>{value}</{tagName}>{Environment.NewLine}";
 
             _xml.Put(context, tag);
         }
@@ -72,7 +72,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._2 {
                 string value = _xml.Get(pairContext);
                 builder.Append(value);
             }
-            var objectValue = builder.ToString();
+            string? objectValue = builder.ToString();
 
             _xml.Put(context, objectValue);
         }
@@ -91,7 +91,7 @@ namespace Reefact.BookExamples.Antlr4.Chapter_08._2 {
                 builder.Append(_xml.Get(valueContext));
                 builder.AppendLine("</element>");
             }
-            var arrayValue = builder.ToString();
+            string? arrayValue = builder.ToString();
 
             _xml.Put(context, arrayValue);
         }

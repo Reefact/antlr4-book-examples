@@ -48,7 +48,7 @@
             if (context.Parent.RuleIndex == CSV_8_1Parser.RULE_hdr) { return; }
 
             Dictionary<string, string> fields = new();
-            var                        index  = 0;
+            int                        index  = 0;
             foreach (string fieldValue in _currentRowFieldValues) {
                 string fieldName = _header[index++];
                 fields.Add(fieldName, fieldValue);
